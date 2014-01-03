@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chaseuni</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		need img logo here
+		<h2>ChaseUni - change Logo</h2>
+		<%if user_signed_in?%>
+			<%=link_to "logout",destroy_user_session_path, :method => 'delete' %>
+		<%end%>
+	</div>
+	<% if notice %>
+		<div class="alert alert-info"><%= notice %></div>
+	<% end %>
+	<% if alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+	<% end %>
+	<div class="row">
+	<%= yield %>
+	</div>
+</div>
+</body>
+</html>

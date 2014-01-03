@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: pagekonect_dev
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: pagekonect_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: pagekonect_prod
+  pool: 5

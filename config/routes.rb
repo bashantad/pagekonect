@@ -1,7 +1,8 @@
 Chaseuni::Application.routes.draw do
   resources :pages
-   
-   root :to => 'pages#index'
+  get 'pages/:keyword/search' => 'pages#search', as: :page_search
+  
+  root :to => 'pages#index'
   
   devise_for :users, :controllers => {
     :registrations => 'registrations',

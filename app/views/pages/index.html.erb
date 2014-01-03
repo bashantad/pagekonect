@@ -1,8 +1,89 @@
-Welcome to the page
-<ul>
-	<li>
-		<%=link_to "Sign up", new_user_registration_path%>
-	</li>
-	<li>
-		<%=link_to "Sign in", new_user_session_path%>
-	</li>
+<div class="row" id="search-engine">
+	<div class="search-wrapper">
+		<h2 class="text-center"><span id="time"></span></h2>
+		<div class="text-center date-wrapp"><span  id="date"></span></div>
+		<div class="input-group add-on">
+			<div class="input-group-btn">
+				<button class="btn btn-default" type="submit"><i class="fa fa-list fa-2x"></i></button>
+			</div>
+			<input class="input-lg typeahead search-data" type="text" placeholder="What are you searching for?" id="search-data" name="keyword" >
+			<div class="input-group-btn">
+				<button class="btn btn-default" type="submit"><i class="fa fa-camera fa-2x"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="alert alert-info text-center" id="live-status">
+		HOTOPO has 100,000 Viewers, 1,500,000 Comments and 2,000,000 Likes
+	</div>
+</div>
+<div class="row four-section">
+	<div class="col-xs-3">
+		<div class="jumbotron text-center">
+			<i class="fa fa-thumbs-up fa-3x"></i>
+			<div class="description">
+				Deals
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-3">
+		<div class="jumbotron text-center">
+			<i class="fa fa-calendar fa-3x"></i>
+			<div class="description">
+				What to do?
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-3">
+		<div class="jumbotron text-center">
+			<i class="fa fa-info-circle fa-3x"></i>
+			<div class="description">
+				News
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-3">
+		<div class="jumbotron text-center">
+			<i class="fa fa-youtube-play fa-3x"></i>
+			<div class="description">
+				Videos
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('.search-data').typeahead({
+	prefetch: '../pages/all/search'
+});
+function updateTime() {
+	var currentDate = new Date();
+	var hours = currentDate.getHours();
+	var minutes = currentDate.getMinutes();
+	var seconds = currentDate.getSeconds();
+	var month = currentDate.getMonth();
+	var year = currentDate.getFullYear();
+	var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+	var d = currentDate.getDate();
+	var day = currentDate.getDay();
+	var days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+	
+	if (minutes < 10){
+		minutes = "0" + minutes;
+	}
+	if (seconds < 10){
+		seconds = "0" + seconds;
+	}
+	var dateValue = ''+d+' '+months[month]+' '+' '+year + ', ' +days[day];
+	var timeValue = hours + ":" + minutes + ":" + seconds + " ";
+	if(hours > 11){
+		timeValue+="PM";
+	} else {
+		timeValue+="AM"
+	}
+	setTimeout("updateTime()",1000);
+	document.getElementById('time').innerHTML=timeValue;
+	document.getElementById('date').innerHTML=dateValue;
+}
+updateTime();
+</script>

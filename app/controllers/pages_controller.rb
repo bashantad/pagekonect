@@ -61,6 +61,34 @@ class PagesController < ApplicationController
     end
   end
 
+  def search
+    @data = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ]
+    render :json => @data.to_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page

@@ -1,18 +1,48 @@
-<h2>Sign up</h2>
-
+<% content_for :heading, "Create your account" %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	<%error=devise_errors%>
+	
+	<div class="form-item">
+		<%=f.label :full_name%>
+		<%=f.text_field :full_name, :autofocus => true, :class => "form-control"%>
+		<% if error && error[:full_name].present? %>
+			<div class="text-danger"><%=error[:full_name][0]%> </div>
+		<%end%>
+	</div>
+	<div class="form-item">
+		<%= f.label :email %>
+		<%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:email].present?%>
+			<div class="text-danger">
+				<%=error[:email][0]%>
+			 </div>
+		<%end%>
+	</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<div class="form-item">
+		<%= f.label :password %>
+		<%= f.password_field :password, :class => "form-control" %>
+		<% if error && error[:password].present?%>
+			<div class="text-danger">
+			<%=error[:password][0]%> 
+			</div>
+		<%end%>
+	</div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+	<div class="form-item">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, :class => "form-control" %>
+		<% if error && error[:password_confirmation].present?%>
+			<div class="text-danger">
+				<%=error[:password_confirmation][0]%> 
+			</div>
+		<%end%>
+	</div>
 
-  <div><%= f.submit "Sign up" %></div>
+	<div class="form-item">
+	<%= f.submit "Sign up", :class => "btn btn-info" %>
+	</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

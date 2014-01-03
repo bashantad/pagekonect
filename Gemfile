@@ -4,13 +4,20 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+group :production do
+  gem 'mysql2'
+end
+
+group :development, :test do
+  gem 'pg'
+end
 
 gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
+gem 'bootstrap-sass', '~> 3.0.3.0'
+gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

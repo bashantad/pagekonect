@@ -7,7 +7,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
+	<div class="containers">
 		<%if user_signed_in?%>
 		<div class="row">
 			<%=link_to "logout",destroy_user_session_path, :method => 'delete' %>
@@ -23,7 +23,32 @@
 		<%if user_signed_in? || (params[:controller] == "pages" && params[:action] == "index")%>
 		<%= yield %>
 		<%else%>
-		<div class="row">
+		<header role="banner" class="navbar navbar-default navbar-fixed-top bs-docs-nav">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+					<%=link_to "Home", root_path, :class => "navbar-brand"%>
+		    </div>
+		    <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+		      <ul class="nav navbar-nav">
+		        <li>
+		          <a href="/users/sign_in">Sign in</a>
+		        </li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li>
+		          <%=link_to "About us", "#about_us_path"%>
+		        </li>
+		      </ul>
+		    </nav>
+		  </div>
+		</header>
+		<div class="row" id="user-auth">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">

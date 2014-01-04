@@ -2,6 +2,8 @@ Chaseuni::Application.routes.draw do
   resources :pages
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   
+  get 'home/about_us' => 'home#about_us', as: :about_us
+  
   root :to => 'pages#index'
   
   devise_for :users, :controllers => {

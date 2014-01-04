@@ -1,3 +1,6 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
 .form-item{
 	padding:10px;
 }
@@ -15,4 +18,11 @@
 #search-engine{
 	background:#edeff1;
 	padding-bottom:20px;
+}
+.login-footer li{
+	list-style:none;
+}
+
+#user-auth{
+	padding-top:60px;
 }

@@ -1,5 +1,6 @@
 Pagekonect::Application.routes.draw do
   resources :uploads
+  resources :profiles
   resources :pages
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   

@@ -1,0 +1,5 @@
+<% content_for :heading, "Profile picture" %>
+		<div class="text-center" style="width:400px;margin:0px auto;">
+			  <%= image_tag @user.avatar.url(:medium), :class => "thumbnail text-center" %>
+		</div>
+				

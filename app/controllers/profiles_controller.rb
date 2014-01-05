@@ -1,4 +1,4 @@
-class UploadsController < ApplicationController
+class ProfilesController < ApplicationController
   before_filter :set_user
   before_filter :authenticate_user!
   layout 'user'
@@ -10,10 +10,14 @@ class UploadsController < ApplicationController
     
   end
   
+  def show
+    @profile = User.find(current_user.id)
+  end
+  
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to new_upload_path, notice: 'Profile picture updated successfully.' }
+        format.html { redirect_to new_profile_path, notice: 'Profile picture updated successfully.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }

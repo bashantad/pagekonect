@@ -33,8 +33,11 @@
 		        <li>
 							<%=link_to "Edit account", edit_user_registration_path%>
 		        </li>
+						<li>
+							<%=link_to "View profile picture", profile_path(current_user.id)%>
+						</li>
 		        <li>
-							<%=link_to "Upload profile picture", new_upload_path%>
+							<%=link_to "Upload profile picture", new_profile_path%>
 		        </li>
 		        <li>
 							<%=link_to "Logout", destroy_user_session_path, :method => :delete%>
@@ -63,7 +66,7 @@
 						<%=yield%>
 					</div>
 					<div class="panel-footer">
-						<%if params[:controller] == "uploads"%>
+						<%if params[:controller] == "profiles" || (params[:controller] == "registrations" && params[:action] == "edit")%>
 						need to replace content
 						<%else%>
 							<%= render "devise/shared/links" %>

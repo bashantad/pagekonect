@@ -1,5 +1,5 @@
 <% content_for :heading, "Change profile picture" %>
-<%= form_for @user, :url =>  upload_path(@user.id), :method => "patch", :html => { :multipart => true } do |form| %>
+<%= form_for @user, :url =>  profile_path(@user.id), :method => "patch", :html => { :multipart => true } do |form| %>
   <%= image_tag @user.avatar.url(:thumb), :class => "thumbnail" %>
 	<div class="control-group clearfix">
 		<div class="pull-left">

@@ -22,3 +22,8 @@
 .login-footer li{
 	list-style:none;
 }
+.panel-info{
+	-webkit-box-shadow: -1px -1px 12px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    -1px -1px 12px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         -1px -1px 12px 0px rgba(50, 50, 50, 0.75);
+}

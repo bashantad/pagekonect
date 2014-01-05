@@ -174,9 +174,9 @@ p {
 	font-size: 18px;
 	line-height: 1.33;
   border: 1px solid #cccccc;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
   outline: none;
 }
 

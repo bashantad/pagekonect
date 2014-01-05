@@ -8,18 +8,20 @@
 			      <i class="fa fa-list fa-2x"></i>
 			    </button>
 			    <ul class="dropdown-menu">
+						<li></i><%=link_to " Home", root_path, :class => "fa fa-home"%></li>
+						<li class="divider"></li>
 						<%if user_signed_in?%>
-						<li><%=link_to "Edit your account", edit_user_registration_path%></li>
+						<li><%=link_to " Edit your account", edit_user_registration_path, :class => "fa fa-pencil"%></li>
 						<li class="divider"></li>
-		        <li><%=link_to "Upload profile picture", new_profile_path%></li>
+		        <li><%=link_to " Upload profile picture", new_profile_path, :class => "fa fa-upload"%></li>
 						<li class="divider"></li>
-						<li><%=link_to "View profile picture", profile_path(current_user.id)%></li>
+						<li><%=link_to " View profile picture", profile_path(current_user.id), :class => "fa fa-camera-retro"%></li>
 						<li class="divider"></li>
-   					<li><%=link_to "logout",destroy_user_session_path, :method => 'delete' %></li>
+   					<li><%=link_to " Logout",destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
 						<%else%>
-			      <li><%=link_to "Sign in", new_user_session_path, :class => "fancybox"%></li>
+			      <li><%=link_to " Sign in", new_user_session_path, :class => "fancybox fa fa-sign-in"%></li>
 						<li class="divider"></li>
-			      <li><%=link_to "Sign up", new_user_registration_path, :class => "fancybox"%></li>
+			      <li><%=link_to " Sign up", new_user_registration_path, :class => "fancybox fa fa-user"%></li>
 						<%end%>
 			    </ul>
 			</div>
@@ -42,8 +44,8 @@
 	</div>
 </div>
 <div class="row">
-	<div class="alert alert-info text-center" id="live-status">
-		HOTOPO has 100,000 Viewers, 1,500,000 Comments and 2,000,000 Likes
+	<div class="btn btn-primary btn-block btn-lg" id="live-status">
+		Pagekonect has 200,000 Viewers, 1,530,000 Comments and 21,000,000 Likes
 	</div>
 </div>
 <div class="row four-section">

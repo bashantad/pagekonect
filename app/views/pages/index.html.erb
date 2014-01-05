@@ -8,16 +8,16 @@
 			      <i class="fa fa-list fa-2x"></i>
 			    </button>
 			    <ul class="dropdown-menu">
-						<li></i><%=link_to " Home", root_path, :class => "fa fa-home"%></li>
+						<li></i><%=link_to "&nbsp;Home".html_safe, root_path, :class => "fa fa-home"%></li>
 						<li class="divider"></li>
 						<%if user_signed_in?%>
-						<li><%=link_to " Edit your account", edit_user_registration_path, :class => "fa fa-pencil"%></li>
+						<li><%=link_to "&nbsp;Edit your account".html_safe, edit_user_registration_path, :class => "fa fa-pencil"%></li>
 						<li class="divider"></li>
-		        <li><%=link_to " Upload profile picture", new_profile_path, :class => "fa fa-upload"%></li>
+		        <li><%=link_to "&nbsp;Upload profile picture".html_safe, new_profile_path, :class => "fa fa-upload"%></li>
 						<li class="divider"></li>
-						<li><%=link_to " View profile picture", profile_path(current_user.id), :class => "fa fa-camera-retro"%></li>
+						<li><%=link_to "&nbsp;View profile picture".html_safe, profile_path(current_user.id), :class => "fa fa-camera-retro"%></li>
 						<li class="divider"></li>
-   					<li><%=link_to " Logout",destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
+   					<li><%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
 						<%else%>
 			      <li><%=link_to " Sign in", new_user_session_path, :class => "fancybox fa fa-sign-in"%></li>
 						<li class="divider"></li>

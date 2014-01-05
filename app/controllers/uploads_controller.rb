@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   before_filter :set_user
+  before_filter :authenticate_user!
   layout 'user'
   def new
     
@@ -12,7 +13,7 @@ class UploadsController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to root_path, notice: 'Profile picture updated successfully.' }
+        format.html { redirect_to new_upload_path, notice: 'Profile picture updated successfully.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }

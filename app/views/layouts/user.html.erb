@@ -57,13 +57,17 @@
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title text-center"><i class="fa fa-user"></i> <%=yield(:heading)%></h3>
+						<h3 class="panel-title"><i class="fa fa-user"></i> <%=yield(:heading)%></h3>
 					</div>
 					<div class="panel-body">
 						<%=yield%>
 					</div>
 					<div class="panel-footer">
+						<%if params[:controller] == "uploads"%>
+						need to replace content
+						<%else%>
 							<%= render "devise/shared/links" %>
+					<%end%>
 					</div>
 				</div>
 			</div>

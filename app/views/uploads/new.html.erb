@@ -1,4 +1,12 @@
+<% content_for :heading, "Change profile picture" %>
 <%= form_for @user, :url =>  upload_path(@user.id), :method => "patch", :html => { :multipart => true } do |form| %>
-  <%= form.file_field :avatar %>
-	<input type="submit" class="btn btn-primary" name="submit" value="Upload">
+  <%= image_tag @user.avatar.url(:thumb), :class => "thumbnail" %>
+	<div class="control-group clearfix">
+		<div class="pull-left">
+			<%= form.file_field :avatar, :class => "mg-thumbnail" %>
+		</div>
+		<div class="pull-right">
+			<input type="submit" class="btn btn-primary" name="submit" value="Upload">
+		</div>
+	</div>
 <% end %>

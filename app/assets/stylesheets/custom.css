@@ -27,3 +27,6 @@
 	-moz-box-shadow:    -1px -1px 12px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         -1px -1px 12px 0px rgba(50, 50, 50, 0.75);
 }
+.four-section .jumbotron:hover{
+	background:#ddd;
+}

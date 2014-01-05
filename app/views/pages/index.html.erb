@@ -19,9 +19,9 @@
 						<li class="divider"></li>
    					<li><%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
 						<%else%>
-			      <li><%=link_to " Sign in", new_user_session_path, :class => "fancybox fa fa-sign-in"%></li>
+			      <li><%=link_to "&nbsp;Sign in".html_safe, new_user_session_path, :class => "fancybox fa fa-sign-in"%></li>
 						<li class="divider"></li>
-			      <li><%=link_to " Sign up", new_user_registration_path, :class => "fancybox fa fa-user"%></li>
+			      <li><%=link_to "&nbsp;Sign up".html_safe, new_user_registration_path, :class => "fancybox fa fa-user"%></li>
 						<%end%>
 			    </ul>
 			</div>

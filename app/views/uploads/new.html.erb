@@ -1,0 +1,4 @@
+<%= form_for @user, :url =>  upload_path(@user.id), :method => "patch", :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+	<input type="submit" class="btn btn-primary" name="submit" value="Upload">
+<% end %>

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Chaseuni::Application.config.secret_key_base = '8991f2f8e72b87979c6e0b112614e4fb278a0946d4c4e1e2a4563a6a58dfe7b7e873f512e848ce671af6b9a2527764343aa0a686bfcac442422bde9194c65fe0'
+Pagekonect::Application.config.secret_key_base = '8991f2f8e72b87979c6e0b112614e4fb278a0946d4c4e1e2a4563a6a58dfe7b7e873f512e848ce671af6b9a2527764343aa0a686bfcac442422bde9194c65fe0'

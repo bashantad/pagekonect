@@ -8,9 +8,15 @@
 			      <i class="fa fa-list fa-2x"></i>
 			    </button>
 			    <ul class="dropdown-menu">
+						<%if user_signed_in?%>
+						<li><%=link_to "Edit your account", edit_user_registration_path%></li>
+						<li class="divider"></li>
+   					<li><%=link_to "logout",destroy_user_session_path, :method => 'delete' %></li>
+						<%else%>
 			      <li><%=link_to "Sign in", new_user_session_path, :class => "fancybox"%></li>
 						<li class="divider"></li>
 			      <li><%=link_to "Sign up", new_user_registration_path, :class => "fancybox"%></li>
+						<%end%>
 			    </ul>
 			</div>
 			<form action="" method="get">
@@ -24,7 +30,7 @@
 		    <ul class="dropdown-menu">
 		      <li><%=link_to "Take a picture", new_user_session_path, :class => "fancybox"%></li>
 					<li class="divider"></li>
-		      <li><%=link_to "Upload picture", new_user_registration_path, :class => "fancybox"%></li>
+		      <li><%=link_to "Upload picture", new_upload_path, :class => "fancybox"%></li>
 		    </ul>
 			</div>
 			</div>

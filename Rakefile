@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Chaseuni::Application.load_tasks
+Pagekonect::Application.load_tasks

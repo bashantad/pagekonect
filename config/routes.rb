@@ -1,4 +1,5 @@
-Chaseuni::Application.routes.draw do
+Pagekonect::Application.routes.draw do
+  resources :uploads
   resources :pages
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   

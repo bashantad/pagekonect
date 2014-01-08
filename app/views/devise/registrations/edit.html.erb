@@ -15,7 +15,7 @@
 			<div class="text-danger"><%=error[:email][0]%> </div>
 		<%end%>
 	</div>
-	<!--
+	
 	<div class="form-item"><%= f.label :phone %>
 		<%= f.email_field :phone, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:phone].present? %>
@@ -50,7 +50,7 @@
 			<div class="text-danger"><%=error[:state][0]%> </div>
 		<%end%>
 	</div>
-	-->
+
 	
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 	<div class="form-item">Currently waiting confirmation for: <%= resource.unconfirmed_email %>

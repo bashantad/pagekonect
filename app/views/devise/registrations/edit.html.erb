@@ -17,44 +17,42 @@
 	</div>
 	
 	<div class="form-item"><%= f.label :phone %>
-		<%= f.email_field :phone, :autofocus => true, :class => "form-control" %>
+		<%= f.text_field :phone, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:phone].present? %>
 			<div class="text-danger"><%=error[:phone][0]%> </div>
 		<%end%>
 	</div>
 
 	<div class="form-item"><%= f.label :street_address %>
-		<%= f.email_field :street, :autofocus => true, :class => "form-control" %>
+		<%= f.text_field :street, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:street].present? %>
 			<div class="text-danger"><%=error[:street][0]%> </div>
 		<%end%>
 	</div>
 	
 	<div class="form-item"><%= f.label :city %>
-		<%= f.email_field :city, :autofocus => true, :class => "form-control" %>
+		<%= f.text_field :city, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:city].present? %>
 			<div class="text-danger"><%=error[:city][0]%> </div>
 		<%end%>
 	</div>
 	
 	<div class="form-item"><%= f.label :zip %>
-		<%= f.email_field :zip, :autofocus => true, :class => "form-control" %>
+		<%= f.text_field :zip, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:zip].present? %>
 			<div class="text-danger"><%=error[:zip][0]%> </div>
 		<%end%>
 	</div>
 	
 	<div class="form-item"><%= f.label :state %>
-		<%= f.email_field :state, :autofocus => true, :class => "form-control" %>
+		<%= f.text_field :state, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:state].present? %>
 			<div class="text-danger"><%=error[:state][0]%> </div>
 		<%end%>
 	</div>
-
 	
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-	<div class="form-item">Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-	</div>
+		<div class="form-item">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	<% end %>
 
 	<div class="form-item">
@@ -82,13 +80,16 @@
 	</div>
 	<div class="form-item">
 		<div class="control-group clearfix">
-			<div class="pull-left">
-				<%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger btn-sm" %>
-			</div>
 			<div class="pull-right">
 				<%= f.submit "Update", :class => "btn btn-info" %>
 			</div>
 		</div>
 	</div>
 	<% end %>
+
+	<div class="control-group clearfix">
+		<div class="pull-left">
+			<%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger btn-sm" %>
+		</div>
+	</div>
 

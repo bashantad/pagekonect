@@ -2,7 +2,12 @@ class ProfilesController < ApplicationController
   before_filter :set_user
   before_filter :authenticate_user!
   layout 'user'
-  def new
+  
+  def upload_banner
+    
+  end
+  
+  def upload_avatar
     
   end
   
@@ -15,16 +20,21 @@ class ProfilesController < ApplicationController
   end
   
   def update
-    respond_to do |format|
+    if params[:coming_from] == "upload_avatar"
       if @user.update(user_params)
-        format.html { redirect_to new_profile_path, notice: 'Profile picture updated successfully.' }
-        format.json { head :no_content }
+        redirect_to profile_upload_avatar_path(current_user), notice: 'Profile picture updated successfully.' 
       else
-        format.html { render action: 'new' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        render(:action => "upload_avatar")
+      end
+    else
+      if @user.update(user_params)
+        redirect_to profile_upload_banner_path(current_user), notice: 'Profile banner updated successfully.'
+      else
+        render(:action => "upload_banner")
       end
     end
   end
+
   
   def destroy
     @user.avatar = nil
@@ -32,7 +42,7 @@ class ProfilesController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:avatar)
+    params.require(:user).permit(:avatar, :banner_image)
   end
   
   def set_user

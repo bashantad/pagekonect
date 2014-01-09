@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
                     :url => "/assets/users/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension",
                     :default_url => "/assets/missing.png"
+ has_attached_file :banner_image,
+                    :url => "/assets/users/banner/:id/:basename.:extension",
+                    :path => ":rails_root/public/assets/users/banner/:id/:basename.:extension",
+                    :default_url => "/assets/default.png"
 end 

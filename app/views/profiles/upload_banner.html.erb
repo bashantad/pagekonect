@@ -1,0 +1,14 @@
+<% content_for :heading, "Add banner image" %>
+<%= form_for @user, :url =>  profile_path(@user.id), :method => "patch", :html => { :multipart => true } do |form| %>
+<div id="banner-wrapper">
+  <%= image_tag @user.banner_image.url, :class => "thumbnail banner-pic" %>
+</div>
+	<div class="control-group clearfix">
+		<div class="pull-left">
+			<%= form.file_field :banner_image, :class => "mg-thumbnail" %>
+		</div>
+		<div class="pull-right">
+			<input type="submit" class="btn btn-primary" name="submit" value="Upload">
+		</div>
+	</div>
+<% end %>

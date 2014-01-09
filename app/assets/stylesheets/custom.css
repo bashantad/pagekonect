@@ -16,7 +16,6 @@
 }
 
 #search-engine{
-	background:#edeff1;
 	padding-bottom:20px;
 }
 .login-footer li{
@@ -29,4 +28,12 @@
 }
 .four-section .jumbotron:hover{
 	background:#ddd;
+}
+.banner-pic{
+	max-width:200px;
+	height:200px;
+}
+#banner-wrapper{
+	margin:0px auto;
+	width:210px;
 }

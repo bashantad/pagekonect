@@ -1,5 +1,5 @@
-module PageKonect::Commentable
-  extends ActiveSupport::Concern
+module Commentable
+  extend ActiveSupport::Concern
 
   included do
     has_many :comments, as: :commentable, dependent: :destroy

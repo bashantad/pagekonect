@@ -78,6 +78,7 @@
 			<div class="text-danger"><%=error[:current_password][0]%> </div>
 		<%end%>
 	</div>
+
 	<div class="form-item">
 		<div class="control-group clearfix">
 			<div class="pull-right">
@@ -89,7 +90,7 @@
 
 	<div class="control-group clearfix">
 		<div class="pull-left">
-			<%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger btn-sm" %>
+			<%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger btn-sm account-delete-button" %>
 		</div>
 	</div>
 

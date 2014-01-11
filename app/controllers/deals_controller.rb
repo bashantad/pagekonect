@@ -1,4 +1,4 @@
 class DealsController < ApplicationController
-	def deals
-	end
+  def deals
+  end
 end

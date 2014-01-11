@@ -12,6 +12,9 @@
 	</style>
 </head>
 <body>
+
+	<%= render partial: "shared/navbar" %>
+
 	<div class="containers">
 		<% if notice %>
 		<div class="alert alert-success"><%= notice %></div>
@@ -19,7 +22,9 @@
 		<% if alert %>
 		<div class="alert alert-danger"><%= alert %></div>
 		<% end %>
+
 		<%= yield %>
 	</div>
+	
 </body>
 </html>

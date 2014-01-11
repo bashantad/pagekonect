@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pagekonect</title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
-	<style type="text/css">
-	body{
-		<%if user_signed_in? %>
-			background:url("<%=current_user.banner_image.url%>") #fff repeat;
-		<%else%>
-			background:url('/assets/bg1.png') #fff repeat; 
-		<%end%>
-	}
-	</style>
+	<%=render "layouts/head"%>
 </head>
 <body>
 	<div class="containers">

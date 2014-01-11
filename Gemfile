@@ -10,6 +10,7 @@ gem "paperclip", "~> 3.0"
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets

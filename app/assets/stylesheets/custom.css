@@ -40,3 +40,17 @@
 .flash-msg{
 	margin-bottom:0px;
 }
+.mini-user{
+	border:1px solid #eee;
+	margin:4px;
+}
+.mini-icon {
+	height:32px;
+	width:32px;
+	margin:0px;
+	padding:0px;
+}
+.mini-user-name{
+	margin:6px 6px 0px 6px;
+	
+}

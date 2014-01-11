@@ -40,7 +40,11 @@
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li>
-		          <%=link_to "About us", "#about_us_path"%>
+				<% if user_signed_in?%>
+					<%=render "layouts/person", :size => "mini"%>
+				<%else%>
+				  <%=link_to "About us", "#about_us_path"%>
+				<%end%>
 		        </li>
 		      </ul>
 		    </nav>

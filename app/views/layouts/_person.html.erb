@@ -1,0 +1,12 @@
+<% if user_signed_in?%>
+<%if size == "mini"%>
+<div class="control-group clearfix mini-user">
+	<div class="pull-left mini-user-img">
+		<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
+	</div>
+	<div class="pull-left mini-user-name">
+		<%= link_to "#{current_user.full_name}", "#"%>
+	</div>
+</div>
+<%end%>
+<%end%>

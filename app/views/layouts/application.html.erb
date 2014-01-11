@@ -18,10 +18,10 @@
 <body>
 	<div class="containers">
 		<% if notice %>
-		<div class="alert alert-success"><%= notice %></div>
+		<div class="alert alert-success flash-msg"><%= notice %></div>
 		<% end %>
 		<% if alert %>
-		<div class="alert alert-danger"><%= alert %></div>
+		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
 		<%= yield %>
 	</div>

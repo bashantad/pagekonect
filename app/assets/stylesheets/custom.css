@@ -2,7 +2,7 @@
 /* No media query since this is the default in Bootstrap */
 
 .form-item{
-	padding:10px;
+	padding:6px;
 }
 .four-section .jumbotron{
 	padding:20px;
@@ -36,4 +36,7 @@
 #banner-wrapper{
 	margin:0px auto;
 	width:210px;
+}
+.flash-msg{
+	margin-bottom:0px;
 }

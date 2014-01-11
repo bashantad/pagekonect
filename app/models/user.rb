@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, 
                     :styles => { :medium => "400x400>", :thumb => "132x132>" }, 
-                    :url => "/assets/users/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension",
+                    :url => "/users/avatar/:id/:style/:basename.:extension",
+                    :path => "/users/avatar/:id/:style/:basename.:extension",
                     :default_url => "/assets/missing.png"
   has_attached_file :banner_image,
-                    :url => "/assets/users/banner/:id/:basename.:extension",
-                    :path => ":rails_root/public/assets/users/banner/:id/:basename.:extension",
+                    :url => "/users/banner/:id/:basename.:extension",
+                    :path => "/users/banner/:id/:basename.:extension",
                     :default_url => "/assets/default.png"
 end 

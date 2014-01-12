@@ -1,11 +1,14 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @news = News.all.order("id desc")
   end
 
   def show
+    
   end
 
   def new

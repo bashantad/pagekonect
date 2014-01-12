@@ -25,20 +25,23 @@
 					</div>
 				</div>
 				<%end%>
-				<div id="comment-wrapp" style="font-size:12px;">
-					<div class="comments">
-						<div class="input-group">
-							<span class="input-group-btn">
-								<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
-							</span>
-							<input type="text" class="form-control">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">Comment</button>
-							</span>
-						</div>
-					</div>
 
+				<div id="comment-wrapp" style="font-size:12px;">		
+					<% if user_signed_in? %>
+						<div class="comments">
+							<%= form_for [@news, @news.comments.new(user_id: current_user.id)] do |f| %>
+              	<%= f.text_field :description %>
+              	<%= f.hidden_field :commentable_id %>
+              	<%= f.hidden_field :commentable_type %>
+              	<%= f.hidden_field :user_id %>
+              	<%= f.submit "Comment" %>
+            	<% end %>
+						</div>
+					<% end %>
+				</div>
+				
 					<%@news.comments.each do |comment|%>
+					<% if comment.persisted? %>
 					<div class="comments">
 						<div class="control-group clearfix">
 							<div class="pull-left">
@@ -49,6 +52,7 @@
 							</div>
 						</div>
 					</div>
+					<%end%>
 					<%end%>
 				</div>
 			</div>

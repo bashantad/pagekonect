@@ -51,6 +51,8 @@
 	padding:0px;
 }
 .mini-user-name{
-	margin:6px 6px 0px 6px;
-	
+	margin:6px 6px 0px 6px;	
+}
+.comments{
+	margin:10px; border:1px solid #fff
 }

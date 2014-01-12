@@ -5,12 +5,14 @@
 </head>
 <body>
 	<div class="containers">
+		
 		<% if notice %>
 		<div class="alert alert-success flash-msg"><%= notice %></div>
 		<% end %>
 		<% if alert %>
 		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
+		<%=render "layouts/searchbox"%>
 		<%= yield %>
 	</div>
 </body>

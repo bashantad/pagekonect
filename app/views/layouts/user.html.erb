@@ -41,7 +41,7 @@
 		      <ul class="nav navbar-nav navbar-right">
 		        <li>
 				<% if user_signed_in?%>
-					<%=render "layouts/person", :size => "mini"%>
+					<%=render "layouts/person", :size => "mini", :person => current_user%>
 				<%else%>
 				  <%=link_to "About us", "#about_us_path"%>
 				<%end%>

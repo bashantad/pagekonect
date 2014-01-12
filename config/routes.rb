@@ -1,5 +1,9 @@
 Pagekonect::Application.routes.draw do
   resources :uploads
+  resources :events
+  resources :news
+  resources :videos
+  
   resources :profiles do
     get 'upload_banner'
     get 'upload_avatar'

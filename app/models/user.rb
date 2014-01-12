@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :contents
+  has_many :news
 
   has_attached_file :avatar, 
                     :styles => { :medium => "400x400>", :thumb => "132x132>" }, 

@@ -4,6 +4,9 @@
 	<%=render "layouts/head"%>
 </head>
 <body>
+
+	<%= render partial: "shared/navbar" %>
+
 	<div class="containers">
 		<% if notice %>
 		<div class="alert alert-success flash-msg"><%= notice %></div>
@@ -11,7 +14,9 @@
 		<% if alert %>
 		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
+
 		<%= yield %>
 	</div>
+	
 </body>
 </html>

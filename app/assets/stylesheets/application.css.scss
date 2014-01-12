@@ -13,7 +13,9 @@
  *= require custom
  *= require custom_responsive
  *= require registration
+ *= require bootstrap
+ *= require font-awesome
+ *= require base
  *= require_tree .
  */
-@import "bootstrap";
-@import "font-awesome";
+ 

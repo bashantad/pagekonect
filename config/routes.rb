@@ -1,4 +1,5 @@
 Pagekonect::Application.routes.draw do
+  get "dashboard/home"
   resources :uploads
   resources :profiles do
     get 'upload_banner'
@@ -21,6 +22,9 @@ Pagekonect::Application.routes.draw do
     get '/login'  => 'sessions#new'
     get '/logout' => 'sessions#destroy'
   end
+
+  get '/deals' =>  "deals#deals"
+  get '/home' => 'dashboard#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

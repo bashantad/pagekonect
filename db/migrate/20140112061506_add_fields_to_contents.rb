@@ -6,6 +6,5 @@ class AddFieldsToContents < ActiveRecord::Migration
     add_column :contents, :is_searchable, :boolean
     add_column :contents, :view_count, :integer
     add_column :contents, :type, :string
-    add_attachment :contents, :image
   end
 end

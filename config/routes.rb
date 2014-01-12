@@ -1,7 +1,14 @@
 Pagekonect::Application.routes.draw do
   get "dashboard/home"
   resources :uploads
-  resources :profiles
+  resources :events
+  resources :news
+  resources :videos
+  
+  resources :profiles do
+    get 'upload_banner'
+    get 'upload_avatar'
+  end
   resources :pages
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   

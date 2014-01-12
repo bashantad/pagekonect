@@ -2,7 +2,7 @@
 /* No media query since this is the default in Bootstrap */
 
 .form-item{
-	padding:10px;
+	padding:6px;
 }
 .four-section .jumbotron{
 	padding:20px;
@@ -16,7 +16,6 @@
 }
 
 #search-engine{
-	background:#edeff1;
 	padding-bottom:20px;
 }
 .login-footer li{
@@ -29,4 +28,31 @@
 }
 .four-section .jumbotron:hover{
 	background:#ddd;
+}
+.banner-pic{
+	max-width:200px;
+	height:200px;
+}
+#banner-wrapper{
+	margin:0px auto;
+	width:210px;
+}
+.flash-msg{
+	margin-bottom:0px;
+}
+.mini-user{
+	border:1px solid #eee;
+	margin:4px;
+}
+.mini-icon {
+	height:32px;
+	width:32px;
+	margin:0px;
+	padding:0px;
+}
+.mini-user-name{
+	margin:6px 6px 0px 6px;	
+}
+.comments{
+	margin:10px; border:1px solid #fff
 }

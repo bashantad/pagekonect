@@ -1,0 +1,42 @@
+<div class="btn btn-block btn-large btn-default">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="control-group clearfix">
+				<div class="pull-left">
+					<h5>Headlines</h5>
+				</div>
+				<div class="pull-right">
+				<h5>	<%=link_to "Create your own news", new_news_path%></h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="news">
+	<%count = 0%>
+	<% @news.each do |row| %>
+	<%if count%2 == 0%>
+	<div class="row">
+		<%end %>
+		<%count = count + 1%>
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<div class="news-title"><%= row.title %></div>
+				<div class="news-description">
+					<div class="row">
+						<div class="col-md-4">
+							<%=image_tag row.image.url(:thumb), :class => "thumbnail news-icon"%>
+						</div>
+						<div class="col-md-8">
+						<%= truncate(row.description, :length => 200)%><%= link_to 'Read full story', row %>
+						</div>
+					</div>
+				</div>					
+			</div>
+		</div>
+		<%if count%2==0%>
+	</div>
+	<%end%>
+	<% end %>
+</div>

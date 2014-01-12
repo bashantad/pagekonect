@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%= @news.title %></h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-5">
+						<%=image_tag @news.image.url(:medium), :class => "responsive full-image"%>
+					</div>
+					<div class="col-md-7">
+						<%= @news.description %>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<%if current_user == @news.user%>
+				<div class="control-group clearfix">
+					<div class="pull-left">
+						<%= link_to 'Edit', edit_news_path(@news), :class => "btn btn-info btn-sm" %>
+					</div>
+					<div class="pull-right">
+						<%= link_to 'Delete', @news, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+					</div>
+				</div>
+				<%end%>
+				<div id="comment-wrapp" style="font-size:12px;">
+					<div class="comments">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
+							</span>
+							<input type="text" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">Comment</button>
+							</span>
+						</div>
+					</div>
+
+					<%@news.comments.each do |comment|%>
+					<div class="comments">
+						<div class="control-group clearfix">
+							<div class="pull-left">
+								<%=render "layouts/person", :person => comment.user%>
+							</div>
+							<div class="pull-left" style="margin:12px;">
+								<%=comment.description%>
+							</div>
+						</div>
+					</div>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

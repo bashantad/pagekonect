@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pagekonect</title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
-	<style type="text/css">
-	#search-engine{
-		background:url('/assets/bg3.jpg') #fff repeat; 
-	}
-	</style>
+	<%=render "layouts/head"%>
 </head>
 <body>
 
 	<%= render partial: "shared/navbar" %>
 
 	<div class="containers">
+		
 		<% if notice %>
-		<div class="alert alert-success"><%= notice %></div>
+		<div class="alert alert-success flash-msg"><%= notice %></div>
 		<% end %>
 		<% if alert %>
-		<div class="alert alert-danger"><%= alert %></div>
+		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
-
+		<%=render "layouts/searchbox"%>
 		<%= yield %>
 	</div>
 	

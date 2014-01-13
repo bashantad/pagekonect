@@ -1,9 +1,13 @@
 Pagekonect::Application.routes.draw do
   get "dashboard/home"
+  get "comments/create"
+  concern :commentable do
+    resources :comments
+  end
   resources :uploads
-  resources :events
-  resources :news
-  resources :videos
+  resources :events, concerns: :commentable
+  resources :news, concerns: :commentable
+  resources :videos, concerns: :commentable
   
   resources :profiles do
     get 'upload_banner'

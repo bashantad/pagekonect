@@ -25,30 +25,46 @@
 					</div>
 				</div>
 				<%end%>
-				<div id="comment-wrapp" style="font-size:12px;">
+
+				<div id="comment-wrapp" style="font-size:12px;">		
+					<% if user_signed_in? %>
+						
 					<div class="comments">
+						<%= form_for [@news, @news.comments.new(user_id: current_user.id)] do |f| %>
 						<div class="input-group">
 							<span class="input-group-btn">
 								<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
 							</span>
-							<input type="text" class="form-control">
+							
+							<%= f.hidden_field :commentable_id %>
+							<%= f.hidden_field :commentable_type %>
+							<%= f.hidden_field :user_id %>
+							<%= f.text_field :description, :class => "form-control" %>
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">Comment</button>
+								<%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
 							</span>
 						</div>
+						<% end %>
 					</div>
-
+					<% end %>
+				</div>
+				
 					<%@news.comments.each do |comment|%>
+					<% if comment.persisted? %>
 					<div class="comments">
 						<div class="control-group clearfix">
 							<div class="pull-left">
 								<%=render "layouts/person", :person => comment.user%>
 							</div>
 							<div class="pull-left" style="margin:12px;">
-								<%=comment.description%>
+								<%=comment.description%> &nbsp;
+								<%if current_user == comment.user%>
+								<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@news, comment), :method => :delete%>
+								<%end%>
 							</div>
 						</div>
 					</div>
+					<%end%>
 					<%end%>
 				</div>
 			</div>

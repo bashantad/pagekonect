@@ -58,7 +58,7 @@
 							</div>
 							<div class="pull-left" style="margin:12px;">
 								<%=comment.description%> &nbsp;
-								<%if current_user = comment.user%>
+								<%if current_user != comment.user%>
 								<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@news, comment), :method => :delete%>
 								<%end%>
 							</div>

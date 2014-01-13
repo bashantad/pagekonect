@@ -1,0 +1,50 @@
+section.home-banner
+  .row.align-with-navbar
+    span.col-md-4
+      = link_to root_path do
+        i.fa.fa-envelope.fa-3x
+    span.col-md-4
+      span.dropdown
+        = link_to "#", 'data-toggle' => "dropdown" do
+          i.fa.fa-camera.fa-3x
+        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
+          li
+            =link_to "Take a picture", "#", :class => "fancybox"
+          li
+            =link_to "Upload picture", "#", :class => "fancybox"
+    span.col-md-4
+      = link_to edit_user_registration_path do
+        i.fa.fa-pencil.fa-3x
+
+section.home-category-navigation
+  .row.align-with-navbar
+    = link_to "#" do
+      .category
+        = image_tag "home-category/deals.jpeg", class: "img-rounded"
+        span Deals
+    = link_to "#" do
+      .category
+        = image_tag "home-category/what_to_do.jpeg", class: "img-rounded"
+        span What to do
+    = link_to "#" do
+      .category
+        = image_tag "home-category/news.jpeg", class: "img-rounded"
+        span News
+    = link_to "#" do
+      .category
+        = image_tag "home-category/videos.jpeg", class: "img-rounded"
+        span Videos
+    = link_to "#" do
+      .category
+        = image_tag "home-category/following.jpeg", class: "img-rounded"
+        span Following
+    = link_to "#" do
+      .category
+        = image_tag "home-category/sale.jpeg", class: "img-rounded"
+        span Buy Snap Sale
+    = link_to "#" do
+      .category
+        = image_tag "home-category/create_page.jpeg", class: "img-rounded"
+        span Create page
+
+

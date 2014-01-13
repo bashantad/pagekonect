@@ -13,14 +13,14 @@
 						<%if user_signed_in?%>
 						<li><%=link_to "&nbsp;Edit your account".html_safe, edit_user_registration_path, :class => "fa fa-pencil"%></li>
 						<li class="divider"></li>
-		        <li><%=link_to "&nbsp;Upload profile picture".html_safe, profile_upload_avatar_path(current_user), :class => "fa fa-upload"%></li>
+		        <li><%=link_to "&nbsp;Profile picture".html_safe, profile_upload_avatar_path(current_user), :class => "fa fa-upload"%></li>
 						<li class="divider"></li>
 						 <li><%=link_to "&nbsp;Upload Banner picture".html_safe, profile_upload_banner_path(current_user), :class => "fa fa-upload"%></li>
 						<li class="divider"></li>
-						<li><%=link_to "&nbsp;View profile picture".html_safe, profile_path(current_user.id), :class => "fa fa-camera-retro"%></li>
-						<li class="divider"></li>
 						<li><%=link_to "&nbsp;News".html_safe, news_index_path, :class => "fa fa-info-circle"%></li>
 						<li class="divider"></li>
+							<li><%=link_to "&nbsp;Dashboard design".html_safe, dashboard_home_path, :class => "fa fa-dashboard"%></li>
+					<li class="divider"></li>
    					<li><%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
 						<%else%>
 			      <li><%=link_to "&nbsp;Sign in".html_safe, new_user_session_path, :class => "fancybox fa fa-sign-in"%></li>
@@ -47,3 +47,8 @@
 		</div>
 	</div>
 </div>
+<script>
+$('.search-data').typeahead({
+	prefetch: '../pages/all/search'
+});
+</script>

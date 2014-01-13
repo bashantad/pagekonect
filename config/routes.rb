@@ -1,11 +1,10 @@
 Pagekonect::Application.routes.draw do
-
-
   get "comments/create"
   concern :commentable do
     resources :comments
   end
 
+  get "dashboard/home"
   resources :uploads
   resources :events, concerns: :commentable
   resources :news, concerns: :commentable
@@ -32,6 +31,9 @@ Pagekonect::Application.routes.draw do
     get '/login'  => 'sessions#new'
     get '/logout' => 'sessions#destroy'
   end
+
+  get '/deals' =>  "deals#deals"
+  get '/home' => 'dashboard#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

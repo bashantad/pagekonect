@@ -4,16 +4,17 @@
 	<%=render "layouts/head"%>
 </head>
 <body>
-	<div class="containers">
-		
+	<div class="containers">	
 		<% if notice %>
 		<div class="alert alert-success flash-msg"><%= notice %></div>
 		<% end %>
 		<% if alert %>
 		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
+		<%if params[:controller] != "dashboard"%>
 		<%=render "layouts/searchbox"%>
+		<%end%>
 		<%= yield %>
-	</div>
+	</div>	
 </body>
 </html>

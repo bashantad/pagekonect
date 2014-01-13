@@ -1,0 +1,39 @@
+<header role="banner" class="navbar navbar-default navbar-fixed-top bs-docs-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%=link_to "&nbsp;Home".html_safe, root_path, :class => "navbar-brand fa fa-home"%>
+        </div>
+        <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in?%>
+            <li><%=link_to "&nbsp;Edit your account".html_safe, edit_user_registration_path, :class => "fa fa-pencil"%></li>
+            <li><%=link_to "&nbsp;Profile picture".html_safe, profile_upload_avatar_path(current_user), :class => "fa fa-upload"%></li>
+            <li><%=link_to "&nbsp;Upload banner image".html_safe, profile_upload_banner_path(current_user), :class => "fa fa-upload"%></li>
+			<li>
+				<%=link_to "&nbsp;Dashboard design".html_safe, dashboard_home_path, :class => "fa fa-dashboard"%>
+			</li>
+            <li><%=link_to "&nbsp;Logout".html_safe,destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %></li>
+            <%else%>
+            <li>
+              <%=link_to "&nbsp;Sign in".html_safe, new_user_session_path, :class => "fa fa-sign-in"%>
+            </li>
+            <%end%>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+        <% if user_signed_in?%>
+          <%=render "layouts/person", :person => current_user%>
+        <%else%>
+          <%=link_to "About us", "#about_us_path"%>
+        <%end%>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>

@@ -11,7 +11,7 @@
 		<% if alert %>
 		<div class="alert alert-danger flash-msg"><%= alert %></div>
 		<% end %>
-		<%if !(params[:controller] != "dashboard" || params[:controller] != "deals")%>
+		<%if params[:controller] != "dashboard" %>
 		<%=render "layouts/searchbox"%>
 		<%end%>
 		<%= yield %>

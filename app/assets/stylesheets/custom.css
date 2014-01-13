@@ -56,3 +56,23 @@
 .comments{
 	margin:10px; border:1px solid #fff
 }
+.deal-image{
+	border: 2px solid black;
+	overflow: hidden;
+}
+
+.deal-item{
+	overflow: hidden;
+	padding: 5px;
+}
+#deal_container{
+	background: white;
+	border-radius: 5px;
+}
+.social-stats ul{
+	padding: 3px;
+}
+.social-stats li{
+	list-style: none ;
+
+}

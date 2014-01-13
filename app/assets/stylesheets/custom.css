@@ -55,24 +55,17 @@
 }
 .comments{
 	margin:10px; border:1px solid #fff
+
 }
-.deal-image{
-	border: 2px solid black;
-	overflow: hidden;
+ .deal-image img{
+    width: 100%;
+    height: 150px;
 }
 
-.deal-item{
-	overflow: hidden;
-	padding: 5px;
-}
-#deal_container{
-	background: white;
-	border-radius: 5px;
-}
-.social-stats ul{
-	padding: 3px;
-}
-.social-stats li{
-	list-style: none ;
 
+.deal-item a{
+   color: black
+}
+.deal-item a :hover{
+     color:blue
 }

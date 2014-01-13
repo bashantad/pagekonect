@@ -10,7 +10,7 @@ gem 'devise'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'rails_12factor', group: :production
-
+gem "ckeditor"
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'coffee-rails', '~> 4.0.0'

@@ -42,6 +42,9 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    ckeditor (4.0.7)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -187,6 +190,7 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass (~> 3.0.3.0)
   capistrano (~> 2.15)
+  ckeditor
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-rails

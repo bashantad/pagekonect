@@ -1,4 +1,5 @@
 Pagekonect::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get "dashboard/home"
   get "comments/create"
   get "deals/deals"

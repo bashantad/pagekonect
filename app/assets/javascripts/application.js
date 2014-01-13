@@ -17,4 +17,7 @@
 //= require typeahead
 //= require custom
 //= require search
+//= require ckeditor/override
+//= require ckeditor/init
+//= require ckeditor/config
 //= require_tree .

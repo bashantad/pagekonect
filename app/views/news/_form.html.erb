@@ -17,7 +17,8 @@
   </div>
   <div class="form-item">
     <%= f.label :description %>
-    <%= f.text_area :description, :class => "form-control", :rows => 10 %>
+  	<%= f.cktext_area :description, :value => "", :id => "sometext" %>
+    <%#= f.text_area :description, :class => "form-control", :rows => 10 %>
   </div>
   <div class="form-item">
 	<%=f.label :upload_image%>

@@ -1,6 +1,7 @@
 Pagekonect::Application.routes.draw do
   get "dashboard/home"
   get "comments/create"
+  get "deals/deals"
   concern :commentable do
     resources :comments
   end

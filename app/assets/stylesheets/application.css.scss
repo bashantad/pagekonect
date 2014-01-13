@@ -9,17 +9,14 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require typeahead
- *= require custom
- *= require custom_responsive
-<<<<<<< HEAD
  *= require bootstrap
  *= require font-awesome
- *= require base
-=======
+ *= require custom
+ *= require custom_responsive
  *= require registration
  *= require news
->>>>>>> master
+ *= require base
+ *= require typeahead
  *= require_tree .
  */
  

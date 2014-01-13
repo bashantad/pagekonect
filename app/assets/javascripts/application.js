@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require typeahead
 //= require custom
+//= require search
 //= require_tree .

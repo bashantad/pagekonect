@@ -1,7 +1,7 @@
 section.home-banner
   .row.align-with-navbar
     span.col-md-4
-      = link_to "#" do
+      = link_to root_path do
         i.fa.fa-envelope.fa-3x
     span.col-md-4
       span.dropdown
@@ -11,9 +11,9 @@ section.home-banner
           li
             =link_to "Take a picture", "#", :class => "fancybox"
           li
-            =link_to "Upload picture", new_profile_path, :class => "fancybox"
+            =link_to "Upload picture", "#", :class => "fancybox"
     span.col-md-4
-      = link_to "#" do
+      = link_to edit_user_registration_path do
         i.fa.fa-pencil.fa-3x
 
 section.home-category-navigation

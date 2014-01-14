@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  validates :full_name, :email, :presence => true
   has_many :news
-
+  
   has_attached_file :avatar, 
                     :styles => { :medium => "400x400>", :thumb => "132x132>" }, 
                     :url => "/users/avatar/:id/:style/:basename.:extension",

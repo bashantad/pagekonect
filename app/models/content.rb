@@ -2,6 +2,7 @@ class Content < ActiveRecord::Base
   include Commentable
   acts_as_votable
   belongs_to :user
+  validates :title, :presence => true
   has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "145x145>" }, 
       :url => "/contents/:class/:id/:style/:basename.:extension",
       :path => "/contents/:class/:id/:style/:basename.:extension",

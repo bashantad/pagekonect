@@ -2,7 +2,7 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 	<%error=devise_errors%>
 	<div class="form-item">
-		<%=f.label :full_name%>
+		<%=f.label :your_nam_for_people_to_see%>
 		<%=f.text_field :full_name, :autofocus => true, :class => "form-control"%>
 		<% if error && error[:full_name].present? %>
 			<div class="text-danger"><%=error[:full_name][0]%> </div>
@@ -23,33 +23,50 @@
 		<%end%>
 	</div>
 
-	<div class="form-item"><%= f.label :street_address %>
+	<div class="form-item"><%= f.label :your_home_address %>
 		<%= f.text_field :street, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:street].present? %>
 			<div class="text-danger"><%=error[:street][0]%> </div>
 		<%end%>
 	</div>
 	
-	<div class="form-item"><%= f.label :city %>
+	<div class="form-item"><%= f.label :your_city %>
 		<%= f.text_field :city, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:city].present? %>
 			<div class="text-danger"><%=error[:city][0]%> </div>
 		<%end%>
 	</div>
 	
-	<div class="form-item"><%= f.label :zip %>
+	<div class="form-item"><%= f.label :your_zip_code %>
 		<%= f.text_field :zip, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:zip].present? %>
 			<div class="text-danger"><%=error[:zip][0]%> </div>
 		<%end%>
 	</div>
 	
-	<div class="form-item"><%= f.label :state %>
+	<div class="form-item"><%= f.label :your_state %>
 		<%= f.text_field :state, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:state].present? %>
 			<div class="text-danger"><%=error[:state][0]%> </div>
 		<%end%>
 	</div>
+	
+	<div class="form-item"><%= f.label :your_occupation %>
+		<%= f.text_field :occupation, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:occupation].present? %>
+			<div class="text-danger"><%=error[:occupation][0]%> </div>
+		<%end%>
+	</div>
+	
+	<div class="form-item">
+		<%= f.label :your_gender %>
+		<%= f.select(:gender, ['Male', "Female"], {}, { :class => 'form-control' }) %>
+		<% if error && error[:gender].present? %>
+			<div class="text-danger"><%=error[:gender][0]%> </div>
+		<%end%>
+	</div>
+	
+	
 	
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 		<div class="form-item">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

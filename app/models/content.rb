@@ -2,7 +2,7 @@ class Content < ActiveRecord::Base
   include Commentable
   acts_as_votable
   belongs_to :user
-  has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "132x132>" }, 
+  has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "145x145>" }, 
       :url => "/contents/:class/:id/:style/:basename.:extension",
       :path => "/contents/:class/:id/:style/:basename.:extension",
       :default_url => "/assets/news.png"
@@ -28,5 +28,5 @@ class Content < ActiveRecord::Base
       "/assets/event.png"
     end
   end
-  
 end
+

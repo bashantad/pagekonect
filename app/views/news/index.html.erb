@@ -14,28 +14,26 @@
 </div>
 
 <div id="news">
-	<%count = 0%>
-	<% @news.each do |row| %>
-	<%if count%2 == 0%>
+	<% @news.each_with_index do |row, index| %>
+	<%if (index+1)%2 == 0%>
 	<div class="row">
 		<%end %>
-		<%count = count + 1%>
 		<div class="col-md-6">
-			<div class="jumbotron">
-				<div class="news-title"><%= row.title %></div>
-				<div class="news-description">
+			<div class="panel panel-success ">
+				<div class="panel-heading"><%= truncate(row.title, :length => 80)%></div>
+				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-4">
 							<%=image_tag row.image.url(:thumb), :class => "thumbnail news-icon"%>
 						</div>
 						<div class="col-md-8">
-						<%= truncate(row.description, :length => 200)%><%= link_to 'Read full story', row %>
+							<%= truncate(row.description.html_safe, :length => 200)%> <%= link_to 'Read full story', row %>
 						</div>
 					</div>
-				</div>					
+				</div>
 			</div>
 		</div>
-		<%if count%2==0%>
+		<%if (index+1)%2==0%>
 	</div>
 	<%end%>
 	<% end %>

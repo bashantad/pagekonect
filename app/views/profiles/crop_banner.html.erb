@@ -1,0 +1,42 @@
+<% content_for :heading, "Crop banner image" %>
+<% content_for(:head) do %>
+<%= stylesheet_link_tag "jquery.Jcrop.min" %>
+<%= javascript_include_tag "jquery.Jcrop.min" %>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 500, 500],
+    aspectRatio: 1
+  });
+});
+
+function update_crop(coords) {
+  var ratio = <%= @user.avatar_geometry(:original).width %> / <%= @user.avatar_geometry(:large).width %>;
+  $("#crop_x").val(Math.round(coords.x * ratio));
+  $("#crop_y").val(Math.round(coords.y * ratio));
+  $("#crop_w").val(Math.round(coords.w * ratio));
+  $("#crop_h").val(Math.round(coords.h * ratio));
+}
+</script>
+<% end %>
+<div class="row">
+	<div class="col-md-12">
+		<div id="banner-wrapper">
+			<%= image_tag @user.banner_image.url, :id => "cropbox", :class => "banner-pic" %>
+		</div>
+	</div>
+</div>
+
+
+<%= form_for @user, :url =>  profile_path(@user.id), :method => "patch", :html => { :multipart => true } do |f| %>
+  <% [:crop_x, :crop_y, :crop_w, :crop_h].each do |attribute| %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+	<div class="control-group clearfix">
+  <div class="form-item pull-right">
+		<%= f.submit "Crop", :class => "btn btn-primary" %>
+	</div>
+</div>
+<% end %>

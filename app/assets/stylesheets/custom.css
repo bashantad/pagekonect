@@ -29,14 +29,6 @@
 .four-section .jumbotron:hover{
 	background:#ddd;
 }
-.banner-pic{
-	max-width:200px;
-	height:200px;
-}
-#banner-wrapper{
-	margin:0px auto;
-	width:210px;
-}
 .flash-msg{
 	margin-bottom:0px;
 }
@@ -62,8 +54,6 @@
     width: 100%;
     height: 150px;
 }
-
-
 .deal-item a{
    color: black
 }
@@ -71,3 +61,11 @@
      color:blue
 }
 
+#banner-wrapper{
+	width:740px;
+	margin:0px auto;
+}
+.banner-pic{
+	max-width:700px;
+	height:700px;
+}

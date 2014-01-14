@@ -14,7 +14,9 @@ Pagekonect::Application.routes.draw do
   resources :profiles do
     get 'upload_banner'
     get 'upload_avatar'
+    get 'crop_banner'
   end
+  
   resources :pages
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   

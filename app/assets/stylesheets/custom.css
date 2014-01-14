@@ -54,8 +54,9 @@
 	margin:6px 6px 0px 6px;	
 }
 .comments{
-	margin:10px; border:1px solid #fff
-
+	margin:6px; 
+	border:1px solid #eee;
+	background:#efefef;
 }
  .deal-image img{
     width: 100%;
@@ -69,3 +70,4 @@
 .deal-item a :hover{
      color:blue
 }
+

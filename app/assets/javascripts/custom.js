@@ -9,4 +9,7 @@ $(document).ready(function() {
 		].join(''),
 		engine: Hogan
 	});
+	$(document).on("click", ".flash-msg .close", function(){
+		 $(this).parents(".flash-msg").remove();
+	 });
 });

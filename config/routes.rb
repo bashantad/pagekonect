@@ -8,8 +8,10 @@ Pagekonect::Application.routes.draw do
   end
   resources :uploads
   resources :events, concerns: :commentable
-  resources :news, concerns: :commentable
+  resources :news, concerns: :commentable, :member => {:get => 'detail'}
   resources :videos, concerns: :commentable
+  
+  get 'news/:id/detail' => 'news#detail', as: :news_detail
   
   resources :profiles do
     get 'upload_banner'

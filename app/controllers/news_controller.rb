@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :set_news, only: [:show, :edit, :update, :destroy, :detail]
 
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :detail]
 
   def index
     @news = News.all.order("id desc")
@@ -17,7 +17,11 @@ class NewsController < ApplicationController
 
   def edit
   end
-
+  
+  def detail
+    
+  end
+  
   def create
     @news = current_user.news.new(news_params)
     respond_to do |format|
@@ -59,6 +63,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:title, :description, :image)
+      params.require(:news).permit(:title, :description, :image, :image_description, :url, :is_searchable)
     end
 end

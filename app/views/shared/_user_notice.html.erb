@@ -1,9 +1,10 @@
-<div class="container">
-    <div style="padding-top:60px;">
-    <% if notice %>
-    <div class="alert alert-success"><%= notice %></div>
-    <% end %>
-    <% if alert %>
-    <div class="alert alert-danger"><%= alert %></div>
-    <% end %>
+<% if notice %>
+<div class="alert alert-success flash-msg">
+	<%= notice %> <button type="button" class="close" aria-hidden="true">&times;</button>
 </div>
+<% end %>
+<% if alert %>
+<div class="alert alert-danger flash-msg">
+	<%= alert %> <button type="button" class="close" aria-hidden="true">&times;</button>
+</div>
+<% end %>

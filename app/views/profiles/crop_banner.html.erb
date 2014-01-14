@@ -28,8 +28,6 @@ function update_crop(coords) {
 		</div>
 	</div>
 </div>
-
-
 <%= form_for @user, :url =>  profile_path(@user.id), :method => "patch", :html => { :multipart => true } do |f| %>
   <% [:crop_x, :crop_y, :crop_w, :crop_h].each do |attribute| %>
     <%= f.hidden_field attribute, :id => attribute %>

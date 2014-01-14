@@ -5,7 +5,11 @@
 	<%=yield(:head)%>
 </head>
 <body>
-		<%= render partial: "shared/user_notice" %>
+	<div class="container">
+		<div style="padding-top:60px;">
+			<%= render partial: "shared/user_notice" %>
+		</div>
+	</div>
 		<%= render partial: "shared/navbar" %>
 		<div class="row" id="user-auth">
 			<%if params[:controller] == "profiles"%>

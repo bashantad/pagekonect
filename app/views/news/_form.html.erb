@@ -20,10 +20,25 @@
   	<%= f.cktext_area :description, :id => "sometext" %>
     <%#= f.text_area :description, :class => "form-control", :rows => 10 %>
   </div>
-  <div class="form-item">
-	<%=f.label :upload_image%>
-	<%=f.file_field :image%>
-  </div>
+	<div class="form-item">
+		<%=f.label :upload_image%>
+		<%=f.file_field :image%>
+	</div>
+	<div class="form-item">
+		<%=f.label :image_description%>
+		<%=f.text_field :image_description, :class => "form-control"%>
+	</div>
+	
+	<div class="form-item">
+		<%=f.label :url%>
+		<%=f.url_field :url, :class => "form-control"%>
+	</div>
+	
+	<div class="form-item">
+		<label>Would you like people to search this on search engine?</label>
+		<%=f.check_box :is_searchable%> Yes
+	</div>
+
   <div class="actions">
     <%= f.submit(:class => "btn btn-primary") %>
   </div>

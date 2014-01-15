@@ -1,0 +1,6 @@
+CKEDITOR.config.toolbarGroups = [
+{ name: 'clipboard', groups: [ 'clipboard', 'undo', 'Redo', 'Cut', 'Copy', 'Paste', 'list', 'align', 'tools' , 'colors']},
+'/',
+{ name: 'basicstyles', groups : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+{ name: 'styles', groups : [ 'Styles','Format','Font','FontSize' ] },
+];

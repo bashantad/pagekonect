@@ -32,8 +32,12 @@
 				</div>
 			</div>
 			<%end%>
+
+			<div class="votable-wrapp" id="votable-wrapp-<%= @news.id %>">
+				<%= render partial: "contents/votable_wrapp", locals: { content: @news } %>
+			</div>
 			
-			<div id="comment-wrapp">		
+			<div id="comment-wrapp">
 				<% if user_signed_in? %>
 				<div class="comments">
 					<%= form_for [@news, @news.comments.new(user_id: current_user.id)] do |f| %>

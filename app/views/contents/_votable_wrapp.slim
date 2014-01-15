@@ -1,0 +1,8 @@
+- if user_signed_in?
+  - if current_user.liked? content, votable_type: "Content"
+    = link_to "Unlike", vote_down_content_path(content), class: "like-button", remote: true
+  - else
+    = link_to "Like", vote_up_content_path(content), class: "like-button", remote: true
+i.fa.fa-thumbs-o-up
+span.votes-count
+  = content.likes.size

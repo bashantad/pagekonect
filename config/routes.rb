@@ -3,6 +3,7 @@ Pagekonect::Application.routes.draw do
   get "dashboard/home"
   get "comments/create"
   get "deals/deals"
+
   concern :commentable do
     resources :comments
   end
@@ -20,6 +21,7 @@ Pagekonect::Application.routes.draw do
   end
   
   resources :pages
+
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   
   get 'home/about_us' => 'home#about_us', as: :about_us
@@ -39,6 +41,13 @@ Pagekonect::Application.routes.draw do
 
   get '/deals' =>  "deals#deals"
   get '/home' => 'dashboard#home'
+
+  resources :contents do
+    member do
+      get 'vote_up'
+      get 'vote_down'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

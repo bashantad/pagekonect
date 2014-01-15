@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem "font-awesome-rails"
+gem "protected_attributes"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -31,7 +32,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # https://github.com/ryanto/acts_as_votable
-gem "acts_as_votable", "~> 0.8.0"
+gem "acts_as_votable", git: "git@github.com:pratuat/act_as_votable.git", branch: :master
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

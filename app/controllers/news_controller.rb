@@ -5,6 +5,7 @@ class NewsController < ApplicationController
 
   def index
     @news = News.all.order("id desc")
+    @desc_length = 150
   end
 
   def show
@@ -59,10 +60,12 @@ class NewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_news
       @news = News.find(params[:id])
+      @news.increment_views(request.remote_ip) if @news.present?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
       params.require(:news).permit(:title, :description, :image, :image_description, :url, :is_searchable)
+      params.permit(:ip_address)
     end
 end

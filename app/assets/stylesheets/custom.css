@@ -79,3 +79,25 @@
 #user-auth{
 	padding:20px;
 }
+
+#content-popularity .pull-right{
+	padding-left:10px;
+}
+a.like-button:hover{
+	text-decoration:none;
+	font-weight:bold;
+}
+.news-block{
+	margin-left:0px;
+	margin-right:0px;
+}
+#content-popularity{
+	border-top: 1px solid #eee;
+	background: #fcfcfc;
+	font-weight: bold;
+	padding:0px 10px;
+}
+.like-wrapp{
+	text-align: right;
+	padding-right: 20px;
+}

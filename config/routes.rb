@@ -1,12 +1,13 @@
 Pagekonect::Application.routes.draw do
+  resources :uploads
+
   mount Ckeditor::Engine => '/ckeditor'
   get "dashboard/home"
   get "comments/create"
   get "deals/deals"
   concern :commentable do
     resources :comments
-  end
-  resources :uploads
+  end  
   resources :events, concerns: :commentable
   resources :news, concerns: :commentable, :member => {:get => 'detail'}
   resources :videos, concerns: :commentable

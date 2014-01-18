@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Upload pictures</h3>
+			</div>
+			<div class="panel-body">
+				<%= form_for @upload do |f| %>
+				  <%= f.label :photo, "Upload photos:" %>
+				  <%= f.file_field :photo %>
+				<div class="form-item">
+				  <%=f.submit("Upload", :class => "btn btn-primary")%>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+

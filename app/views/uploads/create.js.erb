@@ -1,0 +1,5 @@
+<% if @upload.new_record? %>
+  alert("Failed to upload photo: <%= j @upload.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#uploads").append("<%= j render(@upload) %>");
+<% end %>

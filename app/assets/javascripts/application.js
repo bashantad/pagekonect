@@ -20,4 +20,5 @@
 //= require ckeditor/override
 //= require ckeditor/init
 //= require ckeditor/config
+//= require jquery-fileupload
 //= require_tree .

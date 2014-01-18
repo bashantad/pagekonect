@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 1.2'
 
 # https://github.com/ryanto/acts_as_votable
 gem "acts_as_votable", "~> 0.8.0"
-
+gem 'jquery-fileupload-rails'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

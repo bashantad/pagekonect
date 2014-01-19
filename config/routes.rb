@@ -1,6 +1,7 @@
 Pagekonect::Application.routes.draw do
-  resources :uploads
-
+  resources :uploads do 
+    get 'preview', on: :collection
+  end
   mount Ckeditor::Engine => '/ckeditor'
   get "dashboard/home"
   get "comments/create"
@@ -14,7 +15,7 @@ Pagekonect::Application.routes.draw do
   resources :videos, concerns: :commentable
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail
-  
+
   resources :profiles do
     get 'upload_banner'
     get 'upload_avatar'

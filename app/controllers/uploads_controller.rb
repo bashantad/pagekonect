@@ -11,6 +11,10 @@ class UploadsController < ApplicationController
           format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
     end
   end
+  
+  def preview
+    @uploads = current_user.uploads.all
+  end
 
   # GET /uploads/1
   # GET /uploads/1.json
@@ -48,7 +52,7 @@ class UploadsController < ApplicationController
   # PATCH/PUT /uploads/1
   # PATCH/PUT /uploads/1.json
   def update
-    @upload.update(upload_params)
+    @upload.update(params[:name] => params[:value])
   end
 
   # DELETE /uploads/1

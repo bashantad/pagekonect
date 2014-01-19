@@ -1,0 +1,42 @@
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Preview your photos</h3>
+			</div>
+			<div class="panel-body" id="uploads">
+				<%@uploads.each_with_index do |upload,index|%>
+				<div class="row row-div">
+					<div class="col-sm-4">
+						<%=image_tag upload.photo.url(:thumb)%>
+					</div>
+					<div class="col-sm-4">
+						<a href="#" class="photo_description" data-type="text" data-pk="1" data-url="/uploads/<%=upload.id%>" data-title="Enter photo description">
+							<%=upload.photo_description%>
+						</a>
+					</div>	
+					<div class="col-sm-4">
+						Photo tag
+						<%=upload.photo_tag%>
+					</div>
+				</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$.fn.editable.defaults.mode = 'inline';
+$.fn.editable.defaults.ajaxOptions = {type: "PUT"};
+$(document).ready(function() {
+    $('.photo_description').editable({
+	    name : "photo_description"
+	    success: function(response, newValue) {
+				
+			});
+    });
+});
+
+</script>

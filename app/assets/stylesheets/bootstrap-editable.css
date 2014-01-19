@@ -136,7 +136,11 @@
 
 .editable-pre-wrapped {
    white-space: pre-wrap;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> included bootstrap editable css and js
 .editable-container.editable-popup {
     max-width: none !important; /* without this rule poshytip/tooltip does not stretch */
 }  
@@ -157,7 +161,11 @@
 .editable-container.ui-widget {
    font-size: inherit;  /* jqueryui widget font 1.1em too big, overwrite it */
    z-index: 9990; /* should be less than select2 dropdown z-index to close dropdown first when click */
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> included bootstrap editable css and js
 .editable-click, 
 a.editable-click, 
 a.editable-click:hover {
@@ -203,7 +211,11 @@ a.editable-click.editable-disabled:hover {
     display:inline-block;
 }
 
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> included bootstrap editable css and js
 /*!
  * Datepicker for Bootstrap
  *
@@ -652,4 +664,8 @@ a.editable-click.editable-disabled:hover {
   border: 1px solid #ccc;
   margin-left: -5px;
   margin-right: -5px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> included bootstrap editable css and js

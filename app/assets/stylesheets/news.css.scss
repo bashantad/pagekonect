@@ -3,8 +3,11 @@
 }
 #news .panel{
 	padding:0px;
-	font-size:15px;
-	height:190px;
+	font-size:13px;
+	height:180px;
+}
+#news .panel-body{
+	padding:8px;
 }
 .news-title{
 	background-color: #dff0d8;
@@ -15,11 +18,19 @@
 	font-size:18px;
 }
 .news-description{
-  padding:10px;
+  height:90px;
 }
 #comment-wrapp{
 	font-size:12px;
 	margin-top:20px;
 	border-top:1px solid #eee;
 	padding:10px;
+}
+.news-icon{
+	width:82px;
+	height:82px;
+	margin-bottom:0px;
+}
+.news-block{
+	padding:8px;
 }

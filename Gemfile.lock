@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:pratuat/act_as_votable.git
+  remote: git://github.com/pratuat/act_as_votable.git
   revision: 5d348524746d7d1a00251780845b8e412fd1ccd2
   branch: master
   specs:

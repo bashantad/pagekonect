@@ -2,7 +2,16 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Your photos</h3>
+				<h3 class="panel-title">
+					<div class="control-group clearfix">
+						<div class="pull-left">
+							Your photos
+						</div>
+						<div class="pull-right">
+							<%=link_to "Tag photos", preview_uploads_path %>
+						</div>
+					</div>
+				</h3>
 			</div>
 			<div class="panel-body" id="uploads">
 				<div class="container">
@@ -145,7 +154,6 @@
 	        fu._reflow = fu._transition && template.length &&
 	          template[0].offsetWidth;
 	        template.addClass('in');
-	        $('#loading').remove();
 	      });
 
 	  });

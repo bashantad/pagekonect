@@ -8,6 +8,7 @@ class Content < ActiveRecord::Base
       :url => "/contents/:class/:id/:style/:basename.:extension",
       :path => "/contents/:class/:id/:style/:basename.:extension",
       :default_url => "/assets/news.png"
+  attr_accessible :title, :description, :image, :image_description, :url, :is_searchable
   def is_news?
     self.instance_of? News
   end

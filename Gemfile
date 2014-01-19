@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 1.2'
 
 # https://github.com/ryanto/acts_as_votable
 gem 'jquery-fileupload-rails'
-gem "acts_as_votable", git: "git@github.com:pratuat/act_as_votable.git", branch: :master
+gem "acts_as_votable", git: "git://github.com/pratuat/act_as_votable.git", branch: :master
 #gem 'acts_as_votable', '~> 0.8.0'
 
 group :doc do

@@ -6,6 +6,11 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem "rgeo", "~> 0.3.20"
+gem "rgeo-activerecord", "~> 0.5.0"
+gem "activerecord-postgis-adapter", "~> 0.6.5"
+gem "rgeo-geojson"
+
 gem 'devise'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'

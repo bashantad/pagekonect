@@ -16,3 +16,11 @@ news3 = News.create({user:user_c, title: "Perth top place to be: NY Times", desc
 news4 = News.create({user: user_a, title: "Test news ", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat", is_searchable: true})
 comment_a = news1.comments.create({ description: "Hurry!! I am just loving it", user: user_b })
 comment_b = news2.comments.create({ description: "OMG!! it's horifying", user: user_c })
+
+event_1 = Event.create({
+  user: user_c,
+  title: "Summer Dance Party",
+  description: "24 hour summer dance party in the lakeside Pokhara.",
+  location: "POINT(28.2145 83.9564)",
+  is_searchable: true})
+

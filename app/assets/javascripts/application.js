@@ -21,4 +21,5 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require jquery-fileupload
+//= require 'location-picker'
 //= require_tree .

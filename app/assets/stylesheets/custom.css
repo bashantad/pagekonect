@@ -4,6 +4,9 @@
 .form-item{
 	padding:6px;
 }
+.search-wrapper{
+	height:116px;
+}
 .four-section .jumbotron{
 	padding:20px;
 	margin:10px;
@@ -108,4 +111,12 @@ a.like-button:hover{
 .row-div{
 	padding:10px;
 	margin:0px;
+}
+#videos .panel{
+	padding:0px;
+	font-size:13px;
+	height:320px;
+}
+.popover{
+	width:276px;
 }

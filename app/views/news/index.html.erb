@@ -14,6 +14,7 @@
 </div>
 
 <div id="news">
+	<%="No news" if @news.blank?%>
 	<% @news.each_with_index do |row, index| %>
 	<%if (index+1)%4 == 0%>
 	<div class="row news-row">

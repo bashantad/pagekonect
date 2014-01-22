@@ -52,7 +52,7 @@ class NewsController < ApplicationController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to news_url }
+      format.html { redirect_to news_url, notice: 'news was successfully deleted' }
       format.json { head :no_content }
     end
   end

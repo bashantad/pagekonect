@@ -31,6 +31,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem "video_info", "~> 2.0.2"
+
 
 # https://github.com/ryanto/acts_as_votable
 gem 'jquery-fileupload-rails'

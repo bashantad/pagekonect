@@ -12,7 +12,7 @@ Pagekonect::Application.routes.draw do
   end  
   resources :events, concerns: :commentable
   resources :news, concerns: :commentable, :member => {:get => 'detail'}
-  resources :videos, concerns: :commentable
+  resources :videos, concerns: :commentable, :member => {:get => 'detail'}
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail
 

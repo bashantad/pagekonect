@@ -1,13 +1,22 @@
 = form_for @event do |f|
+  - errors = @event.errors
+
   = f.label :title
   = f.text_field :title
+  - if errors && errors[:title]
+    .text-danger
+      = errors[:title][0]
 
   = f.label :description
   = f.text_field :description
+  - if errors && errors[:description]
+    .text-danger
+      = errors[:description][0]
+
+  = f.submit "Submit"
 
   fieldset.gllpLatlonPicker
     .gllpMap Google Maps
     = hidden_field_tag "event[latitude]", nil, class: "gllpLatitude"
     = hidden_field_tag "event[longitude]", nil, class: "gllpLongitude"
     = hidden_field_tag :zoom, class: "gllpZoom"
-

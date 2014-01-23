@@ -1,22 +1,28 @@
-= form_for @event do |f|
-  - errors = @event.errors
+.container.event-new
+  h3.content-title Create Event
+  = form_for @event do |f|
+    - errors = @event.errors
+    .row
+      .col-md-4.section-left
+        .form-group
+          = f.label :title
+          = f.text_field :title, class: "form-control"
+          - if errors && errors[:title]
+            .text-danger
+              = errors[:title][0]
 
-  = f.label :title
-  = f.text_field :title
-  - if errors && errors[:title]
-    .text-danger
-      = errors[:title][0]
+        .form-group
+          = f.label :description
+          = f.text_area :description, class: "form-control"
+          - if errors && errors[:description]
+            .text-danger
+              = errors[:description][0]
 
-  = f.label :description
-  = f.text_field :description
-  - if errors && errors[:description]
-    .text-danger
-      = errors[:description][0]
+        = f.submit "Submit", class: "btn btn-default"
 
-  = f.submit "Submit"
-
-  fieldset.gllpLatlonPicker
-    .gllpMap Google Maps
-    = hidden_field_tag "event[latitude]", nil, class: "gllpLatitude"
-    = hidden_field_tag "event[longitude]", nil, class: "gllpLongitude"
-    = hidden_field_tag :zoom, class: "gllpZoom"
+      .col-md-8.section-right
+        .gllpLatlonPicker
+          .gllpMap Google Maps
+          = hidden_field_tag "event[latitude]", nil, class: "gllpLatitude"
+          = hidden_field_tag "event[longitude]", nil, class: "gllpLongitude"
+          = hidden_field_tag :zoom, class: "gllpZoom"

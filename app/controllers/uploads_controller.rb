@@ -53,6 +53,9 @@ class UploadsController < ApplicationController
   # PATCH/PUT /uploads/1.json
   def update
     @upload.update(params[:name] => params[:value])
+    respond_to do |format|
+      format.json { render json: nil, status: :ok }
+    end
   end
 
   # DELETE /uploads/1

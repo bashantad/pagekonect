@@ -4,7 +4,7 @@
 
   = f.label :description
   = f.text_field :description
-
+  = f.submit :submit
   fieldset.gllpLatlonPicker
     .gllpMap Google Maps
     = hidden_field_tag "event[latitude]", nil, class: "gllpLatitude"

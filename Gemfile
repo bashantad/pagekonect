@@ -22,7 +22,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem "font-awesome-rails"
-gem 'protected_attributes'
 gem 'x-editable-rails'
 
 

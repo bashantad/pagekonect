@@ -1,0 +1,40 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@event.errors.count, "error") %> prohibited this video from being saved:</h4>
+
+      	<ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-item">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+  <div class="form-item">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "form-control", :rows => 8 %>
+  </div>
+  <div class="form-item">
+      <%f.label :pick_location%>
+      <fieldset class="gllpLatlonPicker">
+          <div class="gllpMap"> 
+          <%= f.hidden_field :latitude, :class => "gllpLatitude" %>
+          <%= f.hidden_field :longitude, :class => "gllpLongitude" %>
+          <%= f.hidden_field :zoom, :class => "gllpZoom" %>
+          </div>
+    </fieldset>
+  </div>
+  <div class="form-item">
+		<label>Would you like people to search this on search engine?</label>
+		<%=f.check_box :is_searchable%> Yes
+	</div>
+
+  <div class="actions">
+    <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+<% end %>

@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
                     
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :coming_action
   after_update :reprocess_banner, :if => :cropping?
-  attr_accessible :full_name, :email, :phone, :street, :city, :zip, :state, :occupation, :gender, :password, :password_confirmation, :avatar, :banner_image
   
   def cropping?
       !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?

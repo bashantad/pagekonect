@@ -3,8 +3,8 @@ h2 Event Show
   = @event.title
 .event-description
   = @event.description
-
-#map-canvas style="width:300px;height:200px;" data-lat="#{@event.location.lat}" data-lon="#{@event.location.lon}"
+-if @event.location
+  #map-canvas style="width:600px;height:400px;" data-lat="#{@event.location.lat}" data-lon="#{@event.location.lon}"
 
 javascript:
   $('document').ready(function(){

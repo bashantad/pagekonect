@@ -8,7 +8,6 @@ class Upload < ActiveRecord::Base
                     :default_url => "/assets/missing.png"
     
   include Rails.application.routes.url_helpers
-  attr_accessible :photo_description, :photo_tag, :photo
   
   def to_jq_upload
       {

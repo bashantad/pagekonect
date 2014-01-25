@@ -1,3 +1,2 @@
 class News < Content
-  
 end

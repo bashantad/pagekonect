@@ -7,7 +7,7 @@
 			<div class="panel-body" style="padding:0 15px">
                 <div class="control-group clearfix">
                     <div class="pull-right">
-                        <small><strong>Published at : </strong><%=@news.created_at.localtime.to_datetime.strftime(" %A, %d %B %Y %l %p")%></small>
+                        <small><strong>Published at : </strong><%=@news.created_at.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%></small>
                     </div>
                 </div>
 				<div class="row">

@@ -25,6 +25,7 @@ gem "font-awesome-rails"
 gem 'protected_attributes'
 gem 'x-editable-rails'
 
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -42,7 +43,7 @@ gem "video_info", "~> 2.0.2"
 # https://github.com/ryanto/acts_as_votable
 gem 'jquery-fileupload-rails'
 gem "acts_as_votable", git: "git://github.com/pratuat/act_as_votable.git", branch: :master
-#gem 'acts_as_votable', '~> 0.8.0'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

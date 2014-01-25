@@ -1,0 +1,17 @@
+<div class="col-md-3 col-sm-6 video-block">
+	<div class="panel panel-info">
+		<div class="panel-heading"><%= truncate(row.title, :length => @title_length)%></div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-justify">
+						<%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full event', row, :style => "font-weight:bold;" %>
+					</div>
+				</div>	
+			</div>
+			<div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
+				<%= render partial: "contents/votable_wrapp", locals: { content: row } %>
+			</div>
+		</div>		
+	</div>
+</div>

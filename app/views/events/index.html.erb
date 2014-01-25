@@ -1,0 +1,31 @@
+<div class="btn btn-block btn-large btn-default">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="control-group clearfix">
+                <div class="pull-left">
+                    <h5>What to do?</h5>
+                </div>
+                <div class="pull-right">
+                    <h5>	<%=link_to "Create new event", new_event_path%></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="events">
+    <%if @events.blank?%>
+        <div class="alert alert-info">
+            No Registered Events
+        </div>
+    <%end%>
+    <% @events.each_with_index do |row, index| %>
+        <%if (index+1)%4 == 0%>
+            <div class="row news-row">
+        <%end %>
+            <%=render "events/event_block", :row => row%>
+        <%if (index+1)%4==0%>
+            </div>
+        <%end%>
+    <% end %>
+</div>

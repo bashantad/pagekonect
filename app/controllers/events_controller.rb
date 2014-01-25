@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @desc_length = 100
+    @title_length = 40   
   end
 
   def new

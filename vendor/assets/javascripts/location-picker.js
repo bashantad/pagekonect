@@ -27,9 +27,9 @@ var GMapsLatLonPicker = (function() {
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// PARAMETERS (MODIFY THIS PART) //////////////////////////////////////////////////////////////
 	_self.params = {
-		defLat : 0,
-		defLng : 0,
-		defZoom : 1,
+		defLat : -33.859012,
+		defLng : 151.207151,
+		defZoom : 13,
 		queryLocationNameWhenLatLngChanges: true,
 		queryElevationWhenLatLngChanges: true,
 		mapOptions : {

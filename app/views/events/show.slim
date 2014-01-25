@@ -3,27 +3,27 @@ h2 Event Show
   = @event.title
 .event-description
   = @event.description
--if @event.location
-  #map-canvas style="width:600px;height:400px;" data-lat="#{@event.location.lat}" data-lon="#{@event.location.lon}"
+- if @event.location.present?  
+  #map-canvas style="width:300px;height:200px;" data-lat="#{@event.location.lat}" data-lon="#{@event.location.lon}"
 
-javascript:
-  $('document').ready(function(){
-    function initialize() {
-
-      var element = $('#map-canvas')
-      var myLatlng = new google.maps.LatLng(element.data().lat, element.data().lon);
-      var mapOptions = {
-        zoom: 13,
-        center: myLatlng
+  javascript:
+    $('document').ready(function(){
+      function initialize() {
+  
+        var element = $('#map-canvas')
+        var myLatlng = new google.maps.LatLng(element.data().lat, element.data().lon);
+        var mapOptions = {
+          zoom: 10,
+          center: myLatlng
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
       }
-      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-      var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Hello World!'
-      });
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-  })
+  
+      google.maps.event.addDomListener(window, 'load', initialize);
+    })

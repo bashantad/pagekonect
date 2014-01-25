@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :detail]
-  before_filter :authenticate_user!, except: [:index, :show, :detail]
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def index
     @videos = Video.all.order("id desc")
@@ -19,10 +19,6 @@ class VideosController < ApplicationController
   end
 
   def edit
-  end
-
-  def detail
-
   end
 
   def create

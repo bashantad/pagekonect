@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new event_params
+    @event = current_user.events.new event_params
 
     if @event.save
       redirect_to event_path(@event), notice: "Event created successfully."
@@ -22,11 +22,37 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
+  def update
+     respond_to do |format|
+       if @event.update(event_params)
+         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+         format.json { head :no_content }
+       else
+         format.html { render action: 'edit' }
+         format.json { render json: @event.errors, status: :unprocessable_entity }
+       end
+     end
+   end
 
-  private
+   def destroy
+     @event.destroy
+     respond_to do |format|
+       format.html { redirect_to events_url, notice: 'Event was successfully deleted.' }
+       format.json { head :no_content }
+     end
+   end
+
+   def show
+      
+    end
+    
+   private
+   # Use callbacks to share common setup or constraints between actions.
+   def set_event
+     @event = Event.find(params[:id])
+     @event.increment_views(request.remote_ip) if @event.present?
+   end
+
     def event_params
       params[:event][:location] = "POINT (#{params[:event][:longitude]} #{params[:event][:latitude]})"
       event_attributes = [:title, :description, :location]

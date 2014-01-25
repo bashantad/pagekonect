@@ -7,6 +7,12 @@
 					<div class="text-justify">
 						<%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full event', row, :style => "font-weight:bold;" %>
 					</div>
+					
+					<div class="time-desc">
+					    <small>
+					        Event at : <%=row.created_at.to_datetime.strftime("%d %B %Y") %>
+					    </small>
+					</div>
 				</div>	
 			</div>
 			<div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">

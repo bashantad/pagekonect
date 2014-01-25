@@ -23,9 +23,9 @@
       <%f.label :pick_location%>
       <fieldset class="gllpLatlonPicker">
           <div class="gllpMap"> 
-          <%= f.hidden_field :latitude, :class => "gllpLatitude" %>
-          <%= f.hidden_field :longitude, :class => "gllpLongitude" %>
-          <%= f.hidden_field :zoom, :class => "gllpZoom" %>
+          <%= hidden_field_tag :latitude, :class => "gllpLatitude" %>
+          <%= hidden_field_tag :longitude, :class => "gllpLongitude" %>
+          <%= hidden_field_tag :zoom, :class => "gllpZoom" %>
           </div>
     </fieldset>
   </div>

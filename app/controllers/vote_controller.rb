@@ -1,16 +1,15 @@
-class ContentsController < ApplicationController
-
+class VoteController < ApplicationController
   before_filter :authenticate_user!
 
   def vote_up
-    content.liked_by current_user
+    votable.liked_by current_user
     respond_to do |format|
       format.js { render 'vote.coffee' }
     end
   end
 
   def vote_down
-    content.unliked_by voter: current_user
+    votable.unliked_by voter: current_user
     respond_to do |format|
       format.js { render 'vote.coffee' }
     end
@@ -18,7 +17,7 @@ class ContentsController < ApplicationController
 
   private
 
-    def content
-      @content = Content.find(params[:id])
+    def votable
+      @votable = params[:type].constantize.find(params[:id])
     end
 end

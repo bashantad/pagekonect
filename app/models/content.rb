@@ -1,8 +1,9 @@
 class Content < ActiveRecord::Base
   include Commentable
+  include Viewable
+  
   acts_as_votable
   belongs_to :user
-  has_many :views
   validates :title, :presence => true
   has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "145x145>" }, 
       :url => "/contents/:class/:id/:style/:basename.:extension",
@@ -32,6 +33,10 @@ class Content < ActiveRecord::Base
   
   def increment_views(ip)
     self.views.create(:ip_address => ip) if self.views.where(:ip_address => ip).blank?
+  end
+
+  def is_content?
+    true
   end
 end
 

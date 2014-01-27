@@ -44,12 +44,8 @@ Pagekonect::Application.routes.draw do
   get '/deals' =>  "deals#deals"
   get '/home' => 'dashboard#home'
 
-  resources :contents do
-    member do
-      get 'vote_up'
-      get 'vote_down'
-    end
-  end
+  get 'vote_up' => "vote#vote_up"
+  get 'vote_down' => "vote#vote_down"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

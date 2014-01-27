@@ -1,13 +1,14 @@
 div.like-wrapp
 	- if user_signed_in?
-  		- if current_user.liked? content, votable_type: "Content"
-    		= link_to " Unlike", vote_down_content_path(content), class: "like-button fa fa-thumbs-o-down", remote: true
-  		- else
-    		= link_to " Like", vote_up_content_path(content), class: "like-button fa fa-thumbs-o-up", remote: true
+		- if current_user.liked? content, votable_type: class_name(content)
+			= link_to " Unlike", vote_down_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-down", remote: true
+		- else
+			= link_to " Like", vote_up_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-up", remote: true
+
 div.control-group.clearfix#content-popularity
 	div.pull-right.views-count
-		=pluralize(content.views.size, "view")
+		= pluralize(content.views.size, "view")
 	div.pull-right.votes-count
-  		=pluralize(content.likes.size, "like") 
+		= pluralize(content.likes.size, "like") 
 	div.pull-right.comments-count
-		=pluralize(content.comments.size, "comment")
+		= pluralize(content.comments.size, "comment")

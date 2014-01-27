@@ -7,6 +7,21 @@
 			<div class="panel-body">
 				<%=image_tag @upload.photo.url, :class => "img-responsive"%>
 			</div>
+
+			<%if current_user == @upload.user%>
+				<div class="panel-footer">
+					<div class="control-group clearfix">
+						<div class="pull-right">
+							<%= link_to 'Delete', @upload, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+						</div>
+					</div>
+				</div>
+			<%end%>
+
+			<div class="votable-wrapp" id="votable-wrapp-<%= @upload.id %>">
+				<%= render partial: "contents/votable_wrapp", locals: { content: @upload } %>
+			</div>
+
 		</div>
 	</div>
 </div>

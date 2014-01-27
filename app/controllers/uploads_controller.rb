@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show, :edit, :update, :destroy]
+  before_action :set_upload, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
   # GET /uploads
   # GET /uploads.json
@@ -19,6 +19,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1
   # GET /uploads/1.json
   def show
+    @upload = Upload.find(params[:id])
   end
 
   # GET /uploads/new

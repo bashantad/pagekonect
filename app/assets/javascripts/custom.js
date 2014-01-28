@@ -12,4 +12,8 @@ $(document).ready(function() {
 	$(document).on("click", ".flash-msg .close", function(){
 		 $(this).parents(".flash-msg").remove();
 	 });
+	 $(".popover-btn").popover({
+	 	trigger :'focus hover', 
+	    placement: 'top'
+	 });
 });

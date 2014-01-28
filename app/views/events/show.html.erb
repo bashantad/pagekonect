@@ -20,7 +20,7 @@
 					<div class="col-md-7 text-justify">
 						<%= @event.description.html_safe %>
 						<div>
-						    <strong>Event date:  </strong> <%=@event.event_date.to_datetime.strftime("%l %p %A, %d %B %Y")%>
+						    <strong>Event date:  </strong> <%=@event.event_date.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%>
 						</div>
 						<div><strong>Event address: </strong><a  href="http://maps.google.com?q=<%=@event.address%>"><%=@event.address%></a>
 					</div>

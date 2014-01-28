@@ -20,6 +20,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1.json
   def show
     @upload = Upload.find(params[:id])
+    @upload.increment_views(request.remote_ip) if @upload.present?
   end
 
   # GET /uploads/new

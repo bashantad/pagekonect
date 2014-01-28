@@ -30,10 +30,6 @@ class Content < ActiveRecord::Base
       "/assets/event.png"
     end
   end
-  
-  def increment_views(ip)
-    self.views.create(:ip_address => ip) if self.views.where(:ip_address => ip).blank?
-  end
 
   def is_content?
     true

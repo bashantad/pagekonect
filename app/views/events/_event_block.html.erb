@@ -10,7 +10,7 @@
                     <%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full event', row, :style => "font-weight:bold;" %>
                     <div>
                         <small>
-                            Event at : <%=row.event_date.to_datetime.strftime("%d %B %Y") if row.event_date.present? %>
+                            Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %>
                         </small>
                     </div>
                 </div>

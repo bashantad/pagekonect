@@ -2,7 +2,6 @@ development:
   adapter: postgresql
   encoding: unicode
   database: pagekonect_dev
-  postgis_extension: postgis
   pool: 5
 
 test:

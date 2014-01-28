@@ -54,8 +54,7 @@ class EventsController < ApplicationController
    end
 
     def event_params
-      params[:event][:location] = "POINT (#{params[:event][:longitude]} #{params[:event][:latitude]})"
-      event_attributes = [:title, :description, :location]
+      event_attributes = [:title, :description, :image, :is_searchable, :address, :event_date]
       params.require(:event).permit(event_attributes)
     end
 end

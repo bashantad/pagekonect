@@ -21,5 +21,6 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require jquery-fileupload
-//= require 'location-picker'
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .

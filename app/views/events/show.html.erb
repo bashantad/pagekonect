@@ -1,0 +1,89 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%= @event.title %></h3>
+			</div>
+			<div class="panel-body" style="padding:0 15px">
+                <div class="control-group clearfix">
+                    <div class="pull-right">
+                        <small><strong>Created at : </strong><%=@event.created_at.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%></small>
+                    </div>
+                </div>
+				<div class="row">
+				    <div class="col-md-5">
+						<%=image_tag @event.image.url(:medium), :class => "responsive full-image"%>
+						<div class="image-description">
+						<%=@event.image_description%>
+					</div>
+					</div>
+					<div class="col-md-7 text-justify">
+						<%= @event.description.html_safe %>
+						<div>
+						    <strong>Event date:  </strong> <%=@event.event_date.to_datetime.strftime("%l %p %A, %d %B %Y")%>
+						</div>
+						<div><strong>Event address: </strong><a  href="http://maps.google.com?q=<%=@event.address%>"><%=@event.address%></a>
+					</div>
+				</div>
+			</div>
+			<%if current_user == @event.user%>
+			<div class="panel-footer">
+				<div class="control-group clearfix">
+					<div class="pull-left">
+						<%= link_to 'Edit', edit_event_path(@event), :class => "btn btn-info btn-sm" %>
+					</div>
+					<div class="pull-right">
+						<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+					</div>
+				</div>
+			</div>
+			<%end%>
+
+			<div class="votable-wrapp" id="votable-wrapp-<%= @event.id %>">
+				<%= render partial: "contents/votable_wrapp", locals: { content: @event } %>
+			</div>
+			
+			<div id="comment-wrapp">
+				<% if user_signed_in? %>
+				<div class="comments">
+					<%= form_for [@event, @event.comments.new(user_id: current_user.id)] do |f| %>
+					<div class="input-group">
+						<span class="input-group-btn">
+							<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
+						</span>
+							
+						<%= f.hidden_field :commentable_id %>
+						<%= f.hidden_field :commentable_type %>
+						<%= f.hidden_field :user_id %>
+						<%= f.text_field :description, :class => "form-control" %>
+						<span class="input-group-btn">
+							<%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
+						</span>
+					</div>
+					<% end %>
+				</div>
+				<% end %>
+				
+				
+				<%@event.comments.each do |comment|%>
+				<% if comment.persisted? %>
+				<div class="comments">
+					<div class="control-group clearfix">
+						<div class="pull-left">
+							<%=render "layouts/person", :person => comment.user%>
+						</div>
+						<div class="pull-left" style="margin:12px;">
+							<%=comment.description%> &nbsp;
+							<%if current_user == comment.user%>
+							<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@event, comment), :method => :delete%>
+							<%end%>
+						</div>
+					</div>
+				</div>
+				<%end%>
+				<%end%>
+				
+			</div>
+		</div>
+	</div>
+</div>

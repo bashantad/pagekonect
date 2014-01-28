@@ -1,24 +1,25 @@
 <div class="col-md-3 col-sm-6 video-block">
 	<div class="panel panel-info">
-		<div class="panel-heading"><%= truncate(row.title, :length => @title_length)%></div>
-		<div class="panel-body" style="padding:0px 10px 10px 10px;">
-		    <div class="time-desc">
-			    <small>
-			        Event at : <%=row.created_at.to_datetime.strftime("%d %B %Y") %>
-			    </small>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="text-justify">
-						<%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full event', row, :style => "font-weight:bold;" %>
-					</div>
-					
-					
-				</div>	
-			</div>
-			<div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
-				<%= render partial: "contents/votable_wrapp", locals: { content: row } %>
-			</div>
-		</div>		
-	</div>
+        <div class="panel-heading"><%= truncate(row.title, :length => @title_length)%></div>
+        <div class="panel-body" style="padding:0px 10px 10px 10px;">
+            <div class="row">
+                <div class="col-xs-4">
+                    <%=image_tag row.image.url(:thumb), :class => "thumbnail news-icon"%>
+                </div>
+                <div class="col-xs-8 text-justify news-description">
+                    <%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full event', row, :style => "font-weight:bold;" %>
+                    <div>
+                        <small>
+                            Event at : <%=row.event_date.to_datetime.strftime("%d %B %Y") if row.event_date.present? %>
+                        </small>
+                    </div>
+                </div>
+
+
+            </div>	
+        </div>
+        <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
+            <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
+        </div>
+    </div>		
 </div>

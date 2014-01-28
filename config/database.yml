@@ -1,31 +1,17 @@
 development:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  postgis_extension: true
-  schema_search_path: public,postgis
   database: pagekonect_dev
-  postgis_extension: postgis
   pool: 5
-  username: <%= ENV['PG_SUPER_USER_NAME'] %>
-  password: <%= ENV['PG_SUPER_USER_PASSWORD'] %>
-
 
 test:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  postgis_extension: true
-  schema_search_path: public,postgis
   database: pagekonect_test
   pool: 5
-  username: <%= ENV['PG_SUPER_USER_NAME'] %>
-  password: <%= ENV['PG_SUPER_USER_PASSWORD'] %>
 
 production:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  postgis_extension: true
-  schema_search_path: public,postgis
   database: pagekonect_prod
   pool: 5
-  username: <%= ENV['PG_SUPER_USER_NAME'] %>
-  password: <%= ENV['PG_SUPER_USER_PASSWORD'] %>

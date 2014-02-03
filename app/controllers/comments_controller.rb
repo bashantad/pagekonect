@@ -9,8 +9,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = "Error Adding Comment"
     end
-
-    redirect_to send("#{@comment.commentable.type.underscore}_path", @comment.commentable)
+    redirect_to send("#{@comment.commentable.class.name.underscore}_path", @comment.commentable)
 
   end
   
@@ -20,7 +19,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = "Error deleting comment"
     end
-    redirect_to send("#{@comment.commentable.type.underscore}_path", @comment.commentable)
+    redirect_to send("#{@comment.commentable.class.name.underscore}_path", @comment.commentable)
   end
   
   private
@@ -29,7 +28,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.user != current_user
       flash[:alert] = "You can't delete other people's comment"
-      redirect_to send("#{@comment.commentable.type.underscore}_path", @comment.commentable)
+      redirect_to send("#{@comment.commentable.class.name.underscore}_path", @comment.commentable)
     end
   end
   

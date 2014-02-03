@@ -1,4 +1,8 @@
 class Upload < ActiveRecord::Base
+  include Commentable
+  include Viewable
+
+  acts_as_votable
   belongs_to :user
   validates :photo, :presence => true
   has_attached_file :photo, 

@@ -2,13 +2,26 @@
 <html>
 <head>
 	<%=render "layouts/head"%>
+    <style>
+        body{background:#fff;background-image:none;}
+        .status-bar{
+            background:#29FA11; color:#fff; text-align:center; margin-bottom:10px;
+        }
+    </style>
 </head>
 <body>
 	<div class="containers">	
 		<%= render partial: "shared/user_notice" %>
-		<%if params[:controller] != "dashboard" %>
-		<%=render "layouts/searchbox"%>
-		<%end%>
+        <div class="row" id="search-engine">
+        	<h2 class="text-center"><span id="time"></span></h2>
+        	<div class="text-center date-wrapp"><span  id="date"></span></div>
+            <%if params[:controller] == "pages" && params[:action] == "index" %>
+                <%=render "layouts/searchbox"%>
+            <%else%>
+                <div class="status-bar">Pagekonect has<br><span style="color:#000">58000</span> thousand viewers, <span style="color:#000">10000</span> comments, <span style="color:#000">2100000</span> likes 
+                </div>
+            <%end%>
+        </div>
 		<%= yield %>
 	</div>	
 </body>

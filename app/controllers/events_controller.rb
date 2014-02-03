@@ -54,7 +54,7 @@ class EventsController < ApplicationController
    end
 
     def event_params
-      event_attributes = [:title, :description, :image, :is_searchable, :address, :event_date]
+      event_attributes = [:title, :description, :image, :is_searchable, :address, :event_date, :facebook_url, :twitter_url, :start_time, :end_time]
       params.require(:event).permit(event_attributes)
     end
 end

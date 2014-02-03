@@ -2,7 +2,6 @@ function updateTime() {
 	var currentDate = new Date();
 	var hours = currentDate.getHours();
 	var minutes = currentDate.getMinutes();
-	var seconds = currentDate.getSeconds();
 	var month = currentDate.getMonth();
 	var year = currentDate.getFullYear();
 	var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
@@ -13,15 +12,12 @@ function updateTime() {
 	if (minutes < 10){
 		minutes = "0" + minutes;
 	}
-	if (seconds < 10){
-		seconds = "0" + seconds;
-	}
-	var dateValue = ''+d+' '+months[month]+' '+' '+year + ', ' +days[day];
+	var dateValue = '' + days[day] + ', ' +  d + ' ' + months[month] + ', ' + year;
 	var timeValue; 
 	if(hours > 12){
-		timeValue =  (hours - 12) + ":" + minutes + ":" + seconds + " ";
+		timeValue =  (hours - 12) + ":" + minutes + " ";
 	}else{
-		timeValue = hours + ":" + minutes + ":" + seconds + " ";
+		timeValue = hours + ":" + minutes + " ";
 	}
 
 	if(hours > 11){

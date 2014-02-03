@@ -26,7 +26,7 @@
 				          <span>Add files...</span>
 				          <%= f.file_field :photo, multiple: true, name: "upload[photo]" %>
 				        </span>
-				        <button type="submit" class="btn btn-primary start">
+				        <button type="submit" class="btn btn-custom start">
 				          <i class="icon-upload icon-white"></i>
 				          <span>Start upload</span>
 				        </button>
@@ -91,7 +91,7 @@
 		</div>
 	    </td>
 	    <td class="start">{% if (!o.options.autoUpload) { %}
-	      <button class="btn btn-primary">
+	      <button class="btn btn-custom">
 	        <i class="icon-upload icon-white"></i>
 	        <span>{%=locale.fileupload.start%}</span>
 	      </button>

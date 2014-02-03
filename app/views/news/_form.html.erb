@@ -15,31 +15,41 @@
             <%= f.text_field :title, :class => "form-control" %>
         </div>
         <div class="form-item">
-            <%= f.label :description %>
-            <%= f.text_area :description, :class => "form-control", :rows => 8 %>
+            <label>Describe in detail what this newsfeed is about</label>
+            <%= f.text_area :description, :class => "form-control", :rows => 4 %>
         </div>
 
         <div class="form-item">
-            <%=f.label :upload_image%>
+            <label>Upload an image that best suits the story</label>
             <%=f.file_field :image%>
         </div>
        
         <div class="form-item">
-            <%=f.label :image_description%>
+            <label>Tag this image</label>
             <%=f.text_field :image_description, :class => "form-control"%>
         </div>
 
         <div class="form-item">
-            <%=f.label :url%>
+            <label>Does this newsfeed have a website?</label>
             <%=f.url_field :url, :class => "form-control"%>
         </div>
-
+        
+        <div class="form-item">
+            <label>Does this newsfeed have a facebook page?</label>
+            <%=f.url_field :facebook_url, :class => "form-control"%>
+        </div>
+        
+        <div class="form-item">
+            <label>Does this newsfeed have a twitter page?</label>
+            <%=f.url_field :twitter_url, :class => "form-control"%>
+        </div>
+        
         <div class="form-item">
             <label>Would you like people to search this on search engine?</label>
             <%=f.check_box :is_searchable%> Yes
         </div>
 
         <div class="actions">
-            <%= f.submit(:class => "btn btn-primary") %>
+            <%= f.submit(:class => "btn btn-custom") %>
         </div>
 <% end %>

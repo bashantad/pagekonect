@@ -2,7 +2,14 @@
 <html>
 <head>
 	<%=render "layouts/head"%>
-	<%=yield(:head)%>
+    <style type="text/css">
+    body{
+    	<%if user_signed_in? && current_user.banner_image.url.present? %>
+    		background:url("<%=current_user.banner_image.url%>") #fff repeat;
+    	<%end%>
+    }
+    </style>
+    <%=yield(:head)%>
 </head>
 <body>
 	<div class="container">

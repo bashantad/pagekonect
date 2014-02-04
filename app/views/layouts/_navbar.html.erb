@@ -1,40 +1,40 @@
 <li>
     <%=link_to "&nbsp;Home".html_safe, root_path, :class => "fa fa-home"%>
 </li>
-<li class="divider"></li>
+
 <li>
        <%=link_to "&nbsp;Deals".html_safe, "/deals", :class => "fa fa-thumbs-up"%>
 </li>
-<li class="divider"></li>
+
 <li>
        <%=link_to "&nbsp;What to do?".html_safe, events_path, :class => "fa fa-calendar"%>
 </li>
-<li class="divider"></li>
+
 <li>
        <%=link_to "&nbsp;News".html_safe, news_index_path, :class => "fa fa-info-circle"%>
 </li>
-<li class="divider"></li>
+
 <li>
    <%=link_to "&nbsp;Videos".html_safe, videos_path, :class => "fa fa-youtube-play "%>
 </li>
-<li class="divider"></li>
+
 <%if user_signed_in?%>
     <li>
         <%=link_to "&nbsp;Edit your account".html_safe, edit_user_registration_path, :class => "fa fa-pencil"%>
     </li>
-    <li class="divider"></li>
+    
     <li>
         <%=link_to "&nbsp;Profile picture".html_safe, profile_upload_avatar_path(current_user), :class => "fa fa-upload"%>
     </li>
-    <li class="divider"></li>
+    
     <li>
         <%=link_to "&nbsp;Upload Banner picture".html_safe, profile_upload_banner_path(current_user), :class => "fa fa-upload"%>
     </li>
-       <li class="divider"></li>    
+           
     <li>
         <%=link_to "&nbsp;Dashboard design".html_safe, dashboard_home_path, :class => "fa fa-dashboard"%>
     </li>
-    <li class="divider"></li>
+    
 
     <li>
         <%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %>
@@ -43,7 +43,7 @@
     <li>
         <%=link_to "&nbsp;Sign in".html_safe, new_user_session_path, :class => "fancybox fa fa-sign-in"%>
     </li>
-    <li class="divider"></li>
+    
     <li>
         <%=link_to "&nbsp;Sign up".html_safe, new_user_registration_path, :class => "fancybox fa fa-user"%>
     </li>

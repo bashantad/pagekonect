@@ -1,0 +1,58 @@
+<style>
+.status-bar{
+    text-align:center;
+    font-size:16px;
+    width:330px;
+    margin:0px auto;
+    margin-bottom:10px;
+}
+.status-description{
+    background:#29FA11; 
+    color:#fff;
+    padding:0px 10px;
+}
+.status-number{
+    color:#444;
+}
+.status-heading{
+    font-weight:bold;
+}
+.other-menu{
+    padding:30px 0px 0px 30px;
+}
+.other-menu div{
+    padding:0px 20px;
+}
+.other-menu a{
+    color:#29FA11;  
+}
+.other-list{
+    border-right:1px solid #29FA11;
+}
+
+</style>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="other-menu control-group clearfix">
+            <div class="other-list pull-left"> <%=link_to '<span class="fa fa-search fa-2x popover-btn"></span'.html_safe, root_path%></div>
+            <div class="other-list pull-left"> <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, uploads_path%></div>
+            <div class="pull-left"> <%=link_to '<span class="fa fa-th fa-2x">&nbsp;</span>'.html_safe, root_path%></div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="status-bar">
+            <div class="status-heading">Currently</div>
+            <div class="control-group status-description clearfix">
+                <div class="pull-left">
+                    <span class="status-num">2800000</span> VIEWING <br>
+                    <span class="status-num">1680000</span> SHARING
+                </div>
+                <div class="pull-right">
+                    <span class="status-num">150000</span> UPLOADS <br>
+                    <span class="status-num">220000</span> COMMENTS
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>

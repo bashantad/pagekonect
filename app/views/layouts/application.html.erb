@@ -4,9 +4,6 @@
 	<%=render "layouts/head"%>
     <style>
         body{background:#fff;background-image:none;}
-        .status-bar{
-            background:#29FA11; color:#fff; text-align:center; margin-bottom:10px;
-        }
     </style>
 </head>
 <body>
@@ -18,9 +15,7 @@
             <%if params[:controller] == "pages" && params[:action] == "index" %>
                 <%=render "layouts/searchbox"%>
             <%else%>
-            <div class="text-center"><%=link_to '<span class="fa fa-home fa-2x">'.html_safe, root_path%></span></div>
-                <div class="status-bar">Pagekonect has<br><span style="color:#000">58000</span> thousand viewers, <span style="color:#000">10000</span> comments, <span style="color:#000">2100000</span> likes 
-                </div>
+                <%=render "layouts/statusbar"%>
             <%end%>
         </div>
 		<%= yield %>

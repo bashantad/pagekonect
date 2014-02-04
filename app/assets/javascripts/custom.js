@@ -13,7 +13,7 @@ $(document).ready(function() {
 		 $(this).parents(".flash-msg").remove();
 	 });
 	 $(".popover-btn").popover({
-	 	trigger :'focus hover', 
+	 	  trigger :'focus hover', 
 	    placement: 'top'
 	 });
 });

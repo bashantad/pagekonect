@@ -117,18 +117,25 @@ a.like-button:hover{
 .popover{
 	width:276px;
 }
-.containers .panel-heading, .btn-custom, .popover, .home-menu{
+.containers .panel-heading, .btn-custom, .popover{
   background:#29FA11;
   color:#FFF;
 }
-.popover, .home-menu{
+.popover{
   border:1px solid #29FA11;
+}
+.home-menu, .btn-icon{
+	background:#4D90FE;
+	color:#FFF;
+}
+.home-menu {
+	border:1px solid #4D90FE;
 }
 .home-menu.dropdown-menu > li > a{
   color:#fff;
 }
 .home-menu.dropdown-menu > li > a:hover{
-  background:#98E866;
+  background:#377CED;
 }
 .containers .panel-default{
   border:1px solid #29FA11;

@@ -11,32 +11,49 @@
     color:#fff;
     padding:0px 10px;
 }
-.status-number{
+.status-num{
     color:#444;
 }
 .status-heading{
     font-weight:bold;
 }
 .other-menu{
-    padding:30px 0px 0px 30px;
+    padding:38px 0px 0px 30px;
 }
-.other-menu div{
-    padding:0px 20px;
-}
+
 .other-menu a{
-    color:#29FA11;  
+    color:#4D90FE;  
 }
-.other-list{
-    border-right:1px solid #29FA11;
+.other-list a{
+    padding:0px 16px;    
+    display:block;
+    border-right:1px solid #4D90FE;
+    float:left;
+}
+.other-list:last-child{
+    border-right:none;
 }
 
 </style>
 <div class="row">
     <div class="col-sm-3">
         <div class="other-menu control-group clearfix">
-            <div class="other-list pull-left"> <%=link_to '<span class="fa fa-search fa-2x popover-btn"></span'.html_safe, root_path%></div>
-            <div class="other-list pull-left"> <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, uploads_path%></div>
-            <div class="pull-left"> <%=link_to '<span class="fa fa-th fa-2x">&nbsp;</span>'.html_safe, root_path%></div>
+            <span class="other-list">
+                <%=link_to "<span class='fa fa-home fa-2x'></span>".html_safe, root_path, "data-content" => "Go to homepage", :class => "popover-btn"%>
+            </span>
+            <span class="other-list">
+                <%=link_to '<span class="fa fa-search fa-2x"></span>'.html_safe, root_path, "data-content" => "Search", :class => "popover-btn"%>
+            </span>
+            <span class="other-list"> 
+                <%controller =  params[:controller]%>
+                <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events"%>
+                <% new_url, new_message = get_create_link_with_msg(controller)%>
+                    <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn" %>
+                <% end %>
+            </span>
+            <span class="other-list"> 
+                <%=link_to '<span class="fa fa-th fa-2x"></span>'.html_safe, root_path, "data-content" => "Category search", :class => "popover-btn"%>
+            </span>
         </div>
     </div>
     <div class="col-sm-6">

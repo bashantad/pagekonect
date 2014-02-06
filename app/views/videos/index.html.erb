@@ -1,27 +1,12 @@
-<div class="btn btn-block btn-large btn-default">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="control-group clearfix">
-				<div class="pull-left">
-					<h5>Videos</h5>
-				</div>
-				<div class="pull-right">
-				<h5>	<%=link_to "Share youtube video", new_video_path%></h5>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div id="videos">
 	<%="No videos" if @videos.blank?%>
 	<% @videos.each_with_index do |row, index| %>
-	<%if (index+1)%4 == 0%>
-	<div class="row news-row">
-		<%end %>
-		<%=render "videos/video_block", :row => row, :vid_info => VideoInfo.new(row.url)%>
-		<%if (index+1)%4==0%>
-	</div>
-	<%end%>
+       <%if (index+1)%4 == 0%>
+           <div class="row news-row">
+       <%end %>
+            <%=render "videos/video_block", :row => row, :vid_info => VideoInfo.new(row.url)%>
+       <%if (index+1)%4==0%>
+           </div>
+       <%end%>
 	<% end %>
 </div>

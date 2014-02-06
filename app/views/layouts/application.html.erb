@@ -4,14 +4,17 @@
 	<%=render "layouts/head"%>
     <style>
         body{background:#fff;background-image:none;}
+        #datetime-wrapp{height:74px;}
     </style>
 </head>
 <body>
 	<div class="containers">	
 		<%= render partial: "shared/user_notice" %>
         <div class="row" id="search-engine">
-            <h2 class="text-center"><span id="time"></span></h2>
-        	<div class="text-center date-wrapp"><span  id="date"></span></div>
+            <div id="datetime-wrapp">
+                <h2 class="text-center"><span id="time"></span></h2>
+        	    <div class="text-center date-wrapp"><span  id="date"></span></div>
+        	</div>
             <%if params[:controller] == "pages" && params[:action] == "index" %>
                 <%=render "layouts/searchbox"%>
             <%else%>

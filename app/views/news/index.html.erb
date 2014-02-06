@@ -1,18 +1,3 @@
-<div class="btn btn-block btn-large btn-default">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="control-group clearfix">
-				<div class="pull-left">
-					<h5>Headlines</h5>
-				</div>
-				<div class="pull-right">
-				<h5>	<%=link_to "Create your own news", new_news_path%></h5>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div id="news">
 	<%="No news" if @news.blank?%>
 	<% @news.each_with_index do |row, index| %>

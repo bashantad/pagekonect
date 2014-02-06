@@ -33,7 +33,7 @@
 	margin-bottom:0px;
 }
 .mini-user{
-	border:1px solid #eee;
+	border:1px solid #FCFCfC;
 	margin:4px;
 }
 .mini-icon {
@@ -80,7 +80,7 @@
 	padding:20px;
 }
 
-#content-popularity .pull-right{
+.full-block #content-popularity .pull-right{
 	padding-left:10px;
 }
 a.like-button:hover{
@@ -91,13 +91,17 @@ a.like-button:hover{
 	margin-left:0px;
 	margin-right:0px;
 }
-#content-popularity{
+.full-block #content-popularity{
 	border-top: 1px solid #eee;
 	background: #fcfcfc;
 	color :#777;
 	padding:0px 10px;
 }
-.like-wrapp{
+.full-block .count-block{
+	float:right;
+	padding:3px;
+}
+.full-block .like-wrapp{
 	text-align: right;
 	padding-right: 20px;
 }

@@ -6,9 +6,11 @@ div.like-wrapp
 			= link_to " Like", vote_up_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-up", remote: true
 
 div.control-group.clearfix#content-popularity
-	div.pull-right.views-count
+	div.count-block.views-count
 		= pluralize(content.views.size, "view")
-	div.pull-right.votes-count
+	div.count-block.votes-count
 		= pluralize(content.likes.size, "like") 
-	div.pull-right.comments-count
+	div.count-block.comments-count
 		= pluralize(content.comments.size, "comment")
+	div.count-block.shares-count
+	    = pluralize(0, "share")

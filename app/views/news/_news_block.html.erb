@@ -1,18 +1,23 @@
+<style>
+.content-block{
+    border:1px solid #eee;padding:16px;margin:10px;background:#FDFDFD
+}
+.content-block:hover{
+    background:#F9F9F9;
+}
+</style>
 <div class="col-md-3 col-sm-6 news-block">
-	<div class="panel panel-primary">
-		<div class="panel-heading"><%= truncate(row.title, :length => @title_length)%></div>
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-xs-4">
-					<%=image_tag row.image.url(:thumb), :class => "thumbnail news-icon"%>
-				</div>
-				<div class="col-xs-8 text-justify news-description">
-					<%= truncate(row.description, :length => @desc_length)%> <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
-				</div>	
-			</div>
-			<div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
-				<%= render partial: "contents/votable_wrapp", locals: { content: row } %>
-			</div>
-		</div>		
-	</div>
+    <div class="content-block">
+        <%=render "layouts/person", :person => row.user %> 
+        created this event on <%created_at = row.created_at.localtime.to_datetime%>
+        <%=created_at.strftime("%d %B %Y") %> at <%=created_at.strftime("%I:%M %p")%>. 
+            <%= truncate(row.title, :length => @title_length)%><br>
+            <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
+        <div class="div-img-wrapp" style="margin:0px auto;">
+            <a href="<%=news_path(row)%>"><%=image_tag row.image.url(:thumb), :class => "thumbnail", :style => "width:212px"%></a>
+        </div>
+        <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
+            <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
+        </div>
+    </div>
 </div>

@@ -6,7 +6,7 @@ class NewsController < ApplicationController
   def index
     @news = News.all.order("id desc")
     @desc_length = 100
-    @title_length = 40
+    @title_length = 83
   end
 
   def show

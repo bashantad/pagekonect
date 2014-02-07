@@ -19,6 +19,9 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem "font-awesome-rails"
 gem 'x-editable-rails'
 
+# Use for multiple search across different tables, for more https://github.com/Casecommons/pg_search
+gem "pg_search", "~> 0.7.3"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

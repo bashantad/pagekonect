@@ -56,6 +56,15 @@
   </div>
   
   <div class="form-item">
+      <label>Are you suggesting this event or creator?</label>
+      <div class="checkbox">
+          Suggesting an event? <%=f.radio_button :is_suggestor, 'suggestor'%>
+      </div>
+      <div class="checkbox">
+          Creator of an event? <%=f.radio_button :is_suggestor, 'creator'%>
+      </div>      
+  </div>
+  <div class="form-item">
       <label>Does this event have a website?</label>
       <%=f.url_field :url, :class => "form-control"%>
   </div>

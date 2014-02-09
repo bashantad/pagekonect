@@ -7,8 +7,7 @@
         <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
         <a href="<%=deal_path(row)%>"><%=image_tag row.image.url(:thumb), :class => "thumbnail block-img"%></a>
         <small>
-                Deal starts at : <%=row.start_time if row.start_time.present? %><br>
-                Deal ends at : <%=row.end_time if row.end_time.present?%><br>
+                Deal starts at : <%=row.start_time if row.start_time.present? %> and ends at : <%=row.end_time if row.end_time.present?%><br>
 			    <strong>Deal old price:  </strong>$<%=row.old_price%><br>
 			    <strong>Deal new price: </strong>$<%=row.new_price%><br>
                 <%=render "contents/url_links", :row => row%>

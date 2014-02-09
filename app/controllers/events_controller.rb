@@ -14,7 +14,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.new event_params
-
     if @event.save
       redirect_to event_path(@event), notice: "Event created successfully."
     else
@@ -54,7 +53,9 @@ class EventsController < ApplicationController
    end
 
     def event_params
-      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time]
-      params.require(:event).permit(event_attributes)
+      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time, :is_suggestor]
+      parameters = params.require(:event).permit(event_attributes)
+      parameters[:is_suggestor] = parameters[:is_suggestor] == "suggestor" ? true : false
+      parameters
     end
 end

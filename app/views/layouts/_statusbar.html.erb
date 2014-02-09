@@ -34,6 +34,9 @@
     border-right:none;
 }
 
+.right-menu{
+    padding-top:24px;
+}
 </style>
 <div class="row">
     <div class="col-sm-3">
@@ -46,7 +49,7 @@
             </span>
             <span class="other-list"> 
                 <%controller =  params[:controller]%>
-                <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events"%>
+                <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
                 <% new_url, new_message = get_create_link_with_msg(controller)%>
                     <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn" %>
                 <% end %>
@@ -61,15 +64,24 @@
             <div class="status-heading">Currently</div>
             <div class="control-group status-description clearfix">
                 <div class="pull-left">
-                    <span class="status-num">2800000</span> viewing <br>
+                    <span class="status-num"><%=@no_views%></span> viewing <br>
                     <span class="status-num">1680000</span> sharing
                 </div>
                 <div class="pull-right">
-                    <span class="status-num">150000</span> uploads <br>
-                    <span class="status-num">220000</span> comments
+                    <span class="status-num"><%=@no_uploads%></span> uploads <br>
+                    <span class="status-num"><%=@no_comments%></span> comments
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+        <div class="right-menu control-group clearfix">
+            <button type="button" class="btn btn-blue dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-list fa-2x popover-btn home-icon" data-content="Click here to see all the menu options"></i>
+            </button>
+            <ul class="dropdown-menu home-menu">
+                <%=render "layouts/navbar"%>
+            </ul>
+        </div>
+    </div>
 </div>

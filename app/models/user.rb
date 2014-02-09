@@ -24,19 +24,23 @@ class User < ActiveRecord::Base
   after_update :reprocess_banner, :if => :cropping?
   
   def cropping?
-      !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-    end
-  
-    def avatar_geometry(style = :original)
-       @geometry ||= {}
-       banner_image_path = (banner_image.options[:storage] == :s3) ? banner_image.url(style) : banner_image.path(style)
-       @geometry[style] ||= Paperclip::Geometry.from_file(banner_image_path)
-     end
-  
-    private
-  
-    def reprocess_banner
-      banner_image.assign(banner_image)
-      banner_image.save
-    end
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    banner_image_path = (banner_image.options[:storage] == :s3) ? banner_image.url(style) : banner_image.path(style)
+    @geometry[style] ||= Paperclip::Geometry.from_file(banner_image_path)
+  end
+
+  def full_address
+    ['street', 'city', 'state', 'zip', 'country'].collect { |s| self[s].nil? ? '' : self[s] }.join ' '
+  end
+
+  private
+
+  def reprocess_banner
+    banner_image.assign(banner_image)
+    banner_image.save
+  end
 end 

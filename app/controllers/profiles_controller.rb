@@ -19,6 +19,14 @@ class ProfilesController < ApplicationController
     
   end
   
+  def view
+    @profile = User.find(params[:profile_id])
+    @events_count = @profile.events.count
+    @news_count = @profile.news.count
+    @videos_count = @profile.videos.count
+    @uploads_count = @profile.uploads.count
+  end
+  
   def show
     @profile = User.find(current_user.id)
   end

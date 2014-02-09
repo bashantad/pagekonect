@@ -15,6 +15,11 @@ class UploadsController < ApplicationController
   def preview
     @uploads = current_user.uploads.all
   end
+  
+  def publish
+    @uploads = Upload.all
+    @title_length = 83
+  end
 
   # GET /uploads/1
   # GET /uploads/1.json

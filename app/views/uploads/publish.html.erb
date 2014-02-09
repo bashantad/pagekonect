@@ -1,0 +1,16 @@
+<div id="news">
+    <%if @uploads.blank?%>
+        <div class="alert alert-info">
+            No Registered Events
+        </div>
+    <%end%>
+    <% @uploads.each_with_index do |row, index| %>
+        <%if (index+1)%4 == 0%>
+            <div class="row news-row">
+        <%end %>
+            <%=render "uploads/upload_block", :row => row%>
+        <%if (index+1)%4==0%>
+            </div>
+        <%end%>
+    <% end %>
+</div>

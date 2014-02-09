@@ -12,8 +12,10 @@ module ApplicationHelper
        [new_deal_path, "Create new deal"]
     when "videos"
        [new_video_path, "Create new video"]
-    else
+    when "events"
        [new_event_path, "Create new event or suggest one"]
+    else
+       [uploads_path, "Upload photos"]  
     end
   end
 end

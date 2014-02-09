@@ -6,8 +6,8 @@ class VideosController < ApplicationController
     @videos = Video.all.order("id desc")
     @desc_length = 60
     @title_length = 40
-    @iframe_width = 260
-    @iframe_height = 180
+    @iframe_width = 230
+    @iframe_height = 150
   end
 
   def show

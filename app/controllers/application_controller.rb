@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-
+  before_filter :get_count
+  
   layout 'application'
   
   protect_from_forgery with: :exception
@@ -17,6 +18,12 @@ class ApplicationController < ActionController::Base
 
   def resource_class
     devise_mapping.to
+  end
+  
+  def get_count
+    @no_uploads = Upload.all.size + Content.all.size
+    @no_views = View.all.count
+    @no_comments = Comment.all.size
   end
 
   helper_method :resource, :resource_name, :devise_mapping

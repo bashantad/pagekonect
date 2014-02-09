@@ -3,7 +3,9 @@ Pagekonect::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   get "dashboard/home"
   get "comments/create"
-  get "deals/deals"
+  resources :deals do
+    get 'deals'
+  end
 
   concern :commentable do
     resources :comments
@@ -14,6 +16,7 @@ Pagekonect::Application.routes.draw do
   resources :videos, concerns: :commentable, :member => {:get => 'detail'}
   resources :uploads, concerns: :commentable do
     get 'preview', on: :collection
+    get 'publish', on: :collection
   end
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail
@@ -22,6 +25,7 @@ Pagekonect::Application.routes.draw do
     get 'upload_banner'
     get 'upload_avatar'
     get 'crop_banner'
+    get 'view'
   end
   
   resources :pages
@@ -43,7 +47,6 @@ Pagekonect::Application.routes.draw do
     get '/logout' => 'sessions#destroy'
   end
 
-  get '/deals' =>  "deals#deals"
   get '/home' => 'dashboard#home'
 
   get 'vote_up' => "vote#vote_up"

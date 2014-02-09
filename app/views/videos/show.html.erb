@@ -9,7 +9,8 @@
 					<div class="col-md-offset-1 col-md-10 col-md-offset-1">
 						<%=@vid_info.embed_code(iframe_attributes: { width: 800, height: 600}, url_attributes: { autoplay: 1 }).html_safe%>
 						<div class="text-justify form-item">
-							<%= @video.description.html_safe %>
+							<%= @video.description.html_safe %><br>
+							<%=render "contents/url_links", :row => @video%>
 						</div>
 					</div>
 				</div>

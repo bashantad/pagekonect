@@ -5,7 +5,8 @@
         <%=created_at.strftime("%d %B %Y") %> at <%=created_at.strftime("%I:%M %p")%>. </span>
         <%= truncate(row.title, :length => @title_length)%><br>
         <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
-        <%=vid_info.embed_code(iframe_attributes: { width: @iframe_width, height: @iframe_height}, url_attributes: {controls: 0, showinfo: 0}).html_safe%>
+        <%=vid_info.embed_code(iframe_attributes: { width: @iframe_width, height: @iframe_height}, url_attributes: {controls: 0, showinfo: 0}).html_safe%><br>
+        <%=render "contents/url_links", :row => row%>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
 				<%= render partial: "contents/votable_wrapp", locals: { content: row } %>
 			</div>

@@ -1,1 +1,16 @@
-Yet to come
+<div id="news">
+    <%if @deals.blank?%>
+        <div class="alert alert-info">
+            No Registered Events
+        </div>
+    <%end%>
+    <% @deals.each_with_index do |row, index| %>
+        <%if (index+1)%4 == 0%>
+            <div class="row news-row">
+        <%end %>
+            <%=render "deals/deals_block", :row => row%>
+        <%if (index+1)%4==0%>
+            </div>
+        <%end%>
+    <% end %>
+</div>

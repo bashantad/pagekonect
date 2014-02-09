@@ -1,0 +1,82 @@
+<%= form_for(@deal) do |f| %>
+  <% if @deal.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@deal.errors.count, "error") %> prohibited this deal from being saved:</h4>
+
+      	<ul>
+      <% @deal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-item">
+      <label>What is this deal?</label>
+      <%= f.text_field :title, :class => "form-control" %>
+  </div>
+  
+  <div class="form-item">
+        <label>What was the old price?</label>
+        <%= f.text_field :old_price, :class => "form-control" %>
+  </div>
+  
+  <div class="form-item">
+        <label>What is the new price?</label>
+        <%= f.text_field :new_price, :class => "form-control" %>
+    </div>
+  
+  <div class="form-item">
+      <label>What time does this deal start?</label>
+      <%=f.text_field :start_time, :class => "form-control"%>
+  </div>
+  
+  <div class="form-item">
+      <label>What time does this deal finish?</label>
+      <%=f.text_field :end_time, :class => "form-control"%>
+  </div>
+
+  <div class="form-item">
+      <label>Describe more about this deal</label>
+    <%= f.text_area :description, :class => "form-control", :rows => 4 %>
+  </div>
+           
+  <div class="form-item">
+      <label>Does this deal have a location?</label>
+     <%=f.text_field :address, :class => "form-control", :placeholder => "Where is it happening?"%>
+  </div>    
+  
+  <div class="form-item">
+      <label>Upload an image suitable for this deal</label>
+	  <%=f.file_field :image%>
+  </div>
+  
+  <div class="form-item">
+      <label>Tag this image</label>
+      <%=f.text_field :image_description, :class => "form-control"%>
+  </div>
+  
+  <div class="form-item">
+      <label>Does this deal have a website?</label>
+      <%=f.url_field :url, :class => "form-control"%>
+  </div>
+  
+  <div class="form-item">
+      <label>Does this deal have a facebook page?</label>
+      <%=f.url_field :facebook_url, :class => "form-control"%>
+  </div>
+  
+  <div class="form-item">
+      <label>Does this deal have a twitter page?</label>
+      <%=f.url_field :twitter_url, :class => "form-control"%>
+  </div>
+  
+  <div class="form-item">
+      <label>Would you like people to search this on search engine?</label>
+	  <%=f.check_box :is_searchable%> Yes
+  </div>
+
+  <div class="actions">
+    <%= f.submit(:class => "btn btn-custom") %>
+  </div>
+<% end %>

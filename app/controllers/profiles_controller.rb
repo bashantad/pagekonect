@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
     @news_count = @profile.news.count
     @videos_count = @profile.videos.count
     @uploads_count = @profile.uploads.count
+    @deals_count = @profile.deals.count
   end
   
   def show

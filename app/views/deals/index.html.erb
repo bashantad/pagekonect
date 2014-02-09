@@ -1,7 +1,7 @@
 <div id="news">
     <%if @deals.blank?%>
         <div class="alert alert-info">
-            No Registered Events
+            No Registered deals
         </div>
     <%end%>
     <% @deals.each_with_index do |row, index| %>

@@ -1,7 +1,7 @@
 <div class="col-md-3 col-sm-6 video-block">
     <div class="content-block">
         <%=render "layouts/person", :person => row.user %> 
-        <span class="created-info">created this event on <%created_at = row.created_at.localtime.to_datetime%>
+        <span class="created-info"><%=row.is_suggestor ? "suggested" : "created"%> this event on <%created_at = row.created_at.localtime.to_datetime%>
         <%=created_at.strftime("%d %B %Y") %> at <%=created_at.strftime("%I:%M %p")%>. </span>
         <%= truncate(row.title, :length => @title_length)%><br>
         <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>

@@ -16,6 +16,8 @@ Pagekonect::Application.routes.draw do
     get 'preview', on: :collection
     get 'publish', on: :collection
   end
+
+  resources :search, only: :index
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail
 

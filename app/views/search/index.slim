@@ -1,0 +1,7 @@
+h1 Search#index
+p Find me in app/views/search/index.html.slim
+
+- if @search_results.present?
+  - @search_results.each do |result|
+    - klass = (base_name = result.class.base_class.name).eql?("Content") ? result.type : base_name
+    = render partial: "contents/search_index/#{klass.downcase}", locals: { content: result }

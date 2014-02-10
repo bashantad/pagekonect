@@ -1,8 +1,11 @@
 class Upload < ActiveRecord::Base
   include Commentable
   include Viewable
+  include PgSearch
 
   acts_as_votable
+  multisearchable :against => [:photo_tag, :photo_description]
+
   belongs_to :user
   validates :photo, :presence => true
   has_attached_file :photo, 

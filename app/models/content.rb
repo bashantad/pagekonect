@@ -1,8 +1,11 @@
 class Content < ActiveRecord::Base
   include Commentable
   include Viewable
+  include PgSearch
   
   acts_as_votable
+  multisearchable :against => [:title, :description, :image_file_name, :image_description], :if => :is_searchable?
+
   belongs_to :user
   validates :title, :presence => true
   has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "145x145>" }, 

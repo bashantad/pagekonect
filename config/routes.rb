@@ -15,6 +15,8 @@ Pagekonect::Application.routes.draw do
   resources :uploads, concerns: :commentable do
     get 'preview', on: :collection
   end
+
+  resources :search, only: :index
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail
 

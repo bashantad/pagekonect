@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
   # GET /uploads
   # GET /uploads.json
   def index

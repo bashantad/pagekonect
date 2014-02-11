@@ -1,0 +1,14 @@
+<% if @search_results.present? %>
+<% @search_results.each_with_index do |result, index| %>
+    <%if (index+1)%4 == 0%>
+        <div class="row news-row">
+    <%end %>
+        <% klass = (base_name = result.class.base_class.name).eql?("Content") ? result.type : base_name %>
+        <%= render partial: "#{klass.pluralize.downcase}/#{klass.downcase}_block", :locals => {:row => result} %>
+    <%if (index+1)%4==0%>
+        </div>
+    <%end%>
+<% end %>
+<% else %>
+    <%=render :partial => "search/fourbox"%>
+<% end %>

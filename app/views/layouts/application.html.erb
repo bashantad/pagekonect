@@ -15,7 +15,7 @@
                 <h2 class="text-center"><span id="time"></span></h2>
         	    <div class="text-center date-wrapp"><span  id="date"></span></div>
         	</div>
-            <%if params[:controller] == "pages" && params[:action] == "index" %>
+            <%if params[:controller] == "search" && params[:action] == "index" %>
                 <%=render "layouts/searchbox"%>
             <%else%>
                 <%=render "layouts/statusbar"%>

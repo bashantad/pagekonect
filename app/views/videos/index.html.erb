@@ -4,7 +4,7 @@
        <%if (index+1)%4 == 0%>
            <div class="row news-row">
        <%end %>
-            <%=render "videos/video_block", :row => row, :vid_info => VideoInfo.new(row.url)%>
+            <%=render "videos/video_block", :row => row%>
        <%if (index+1)%4==0%>
            </div>
        <%end%>

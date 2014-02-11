@@ -34,7 +34,7 @@ Pagekonect::Application.routes.draw do
   
   get 'home/about_us' => 'home#about_us', as: :about_us
   
-  root :to => 'pages#index'
+  root :to => 'search#index'
   
   devise_for :users, :controllers => {
     :registrations => 'registrations',

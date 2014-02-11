@@ -20,14 +20,17 @@ module ApplicationHelper
   end
   def get_created_at(time_diff)
     time_diff = (time_diff/60).round
-    if time_diff/(24*60*30) > 0
-      "#{time_diff/(24*60*30)} months ago"
-    elsif time_diff/(24*60) > 0
-         "#{time_diff/(24*60)} days ago"
-    elsif time_diff/24 >0
-        "#{time_diff/60} hours ago"
+    no_months = time_diff/(24*60*30)
+    no_days = time_diff/(24*60)
+    no_hours = time_diff/24
+    if no_months > 0
+      "#{pluralize(no_months, 'month')} ago"
+    elsif no_days > 0
+      "#{pluralize(no_days, 'day')} ago"
+    elsif no_hours > 0
+      "#{pluralize(no_hours, 'hour')} ago"
     else
-        "#{time_diff} minutes ago"
+      "#{pluralize(time_diff, 'minute')} ago"
     end
   end
 end

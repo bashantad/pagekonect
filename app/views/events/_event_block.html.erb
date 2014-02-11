@@ -1,11 +1,17 @@
 <div class="col-md-3 col-sm-6 video-block">
     <div class="content-block">
         <%=render "layouts/person", :person => row.user %> 
-        <span class="created-info"><%=row.is_suggestor ? "suggested" : "created"%> this event on <%created_at = row.created_at.localtime.to_datetime%>
-        <%=created_at.strftime("%d %B %Y") %> at <%=created_at.strftime("%I:%M %p")%>. </span>
-        <%= truncate(row.title, :length => @title_length)%><br>
-        <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
-        <a href="<%=event_path(row)%>"><%=image_tag row.image.url(:thumb), :class => "thumbnail block-img"%></a>
+        <small class="created-info">
+            <%=row.is_suggestor ? "suggested" : "created"%> this event <%= get_created_at(Time.now - row.created_at)%>
+        </small>
+        <div class="block-heading">
+            <a href="<%=event_path(row)%>">
+                <%= truncate(row.title, :length => @title_length)%>
+            </a>
+        </div>
+        <a href="<%=event_path(row)%>">
+            <%=image_tag row.image.url(:thumb), :class => "block-img"%>
+        </a>
         <small>
                 Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br>
                 <%=render "contents/url_links", :row => row%>

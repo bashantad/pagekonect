@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :detail]
 
   def index
-    @news = News.all.order("id desc")
+    @news = News.all.order("created_at desc")
     @desc_length = 100
     @title_length = 83
   end

@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @videos = Video.all.order("id desc")
+    @videos = Video.all.order("created_at desc")
     @desc_length = 60
     @title_length = 40
     @iframe_width = 230

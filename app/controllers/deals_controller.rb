@@ -3,7 +3,7 @@ class DealsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @deals = Deal.all
+    @deals = Deal.all.order("created_at desc")
     @desc_length = 60
     @title_length = 40   
   end

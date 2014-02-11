@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
   def index
-    @uploads = current_user.uploads.all
+    @uploads = current_user.uploads.order("created_at desc")
     @upload = Upload.new
     respond_to do |format|
           format.html # index.html.erb
@@ -13,11 +13,11 @@ class UploadsController < ApplicationController
   end
   
   def preview
-    @uploads = current_user.uploads.all
+    @uploads = current_user.uploads.order("created_at desc")
   end
   
   def publish
-    @uploads = Upload.all
+    @uploads = Upload.all.order("created_at desc")
     @title_length = 83
   end
 

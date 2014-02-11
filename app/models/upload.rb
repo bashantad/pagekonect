@@ -9,7 +9,7 @@ class Upload < ActiveRecord::Base
   belongs_to :user
   validates :photo, :presence => true
   has_attached_file :photo, 
-                    :styles => {:thumb => "132x132>" }, 
+                    :styles => {:thumb => "212x212>" }, 
                     :url => "/users/uploads/:id/:style/:basename.:extension",
                     :path => "users/uploads/:id/:style/:basename.:extension",
                     :default_url => "/assets/missing.png"

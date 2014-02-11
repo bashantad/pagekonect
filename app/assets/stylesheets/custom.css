@@ -161,12 +161,10 @@ a.like-button:hover{
 .content-block:hover{
     background:#F9F9F9;
 }
-.created-info{
-    font-weight:bold;
-}
 .block-img{
 	width:212px;
   height:212px;
+  border:1px solid #DDD;
 	margin-bottom:0px;
 }
 .btn-blue{
@@ -179,4 +177,8 @@ a.like-button:hover{
 .display-item{
 	padding-left:10px;
 	border-bottom:1px solid #f7f7f7;
+}
+
+.block-heading{
+  font-weight:bold;
 }

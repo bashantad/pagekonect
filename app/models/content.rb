@@ -8,7 +8,7 @@ class Content < ActiveRecord::Base
 
   belongs_to :user
   validates :title, :presence => true
-  has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "145x145>" }, 
+  has_attached_file :image, :styles => { :medium => "350x350>", :thumb => "212x212>" }, 
       :url => "/contents/:class/:id/:style/:basename.:extension",
       :path => "/contents/:class/:id/:style/:basename.:extension",
       :default_url => "/assets/news.png"

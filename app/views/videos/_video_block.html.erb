@@ -2,10 +2,14 @@
     <div class="content-block">
         <%=render "layouts/person", :person => row.user %> 
         <%vid_info = VideoInfo.new(row.url)%>
-        <span class="created-info">created this event on <%created_at = row.created_at.localtime.to_datetime%>
-        <%=created_at.strftime("%d %B %Y") %> at <%=created_at.strftime("%I:%M %p")%>. </span>
-        <%= truncate(row.title, :length => @title_length)%><br>
-        <%= link_to 'Read full story', row, :style => "font-weight:bold;" %>
+        <small class="created-info">
+            created this video <%= get_created_at(Time.now - row.created_at)%>. 
+        </small>
+        <div class="block-heading">
+            <a href="<%=video_path(row)%>">
+                <%= truncate(row.title, :length => @title_length)%>
+            </a>
+        </div>
         <%= vid_info.embed_code(iframe_attributes: { width: @iframe_width, height: @iframe_height}, url_attributes: {controls: 0, showinfo: 0}).html_safe%><br>
         <%=render "contents/url_links", :row => row%>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">

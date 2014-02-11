@@ -10,6 +10,16 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="form-item">
+      <label>Upload an image suitable for this event</label>
+	  <%=f.file_field :image%>
+  </div>
+  
+  <div class="form-item">
+      <label>Tag this image</label>
+      <%=f.text_field :image_description, :class => "form-control"%>
+  </div>
 
   <div class="form-item">
       <label>What is this event?</label>
@@ -44,16 +54,6 @@
       <label>Does this event have a location?</label>
      <%=f.text_field :address, :class => "form-control", :placeholder => "Where is it happening?"%>
   </div>    
-  
-  <div class="form-item">
-      <label>Upload an image suitable for this event</label>
-	  <%=f.file_field :image%>
-  </div>
-  
-  <div class="form-item">
-      <label>Tag this image</label>
-      <%=f.text_field :image_description, :class => "form-control"%>
-  </div>
   
   <div class="form-item">
       <label>Are you suggesting this event or creator?</label>

@@ -11,15 +11,6 @@
         <% end %>
 
         <div class="form-item">
-            <%= f.label :title %>
-            <%= f.text_field :title, :class => "form-control" %>
-        </div>
-        <div class="form-item">
-            <label>Describe in detail what this newsfeed is about</label>
-            <%= f.text_area :description, :class => "form-control", :rows => 4 %>
-        </div>
-
-        <div class="form-item">
             <label>Upload an image that best suits the story</label>
             <%=f.file_field :image%>
         </div>
@@ -27,6 +18,15 @@
         <div class="form-item">
             <label>Tag this image</label>
             <%=f.text_field :image_description, :class => "form-control"%>
+        </div>
+        
+        <div class="form-item">
+            <%= f.label :title %>
+            <%= f.text_field :title, :class => "form-control" %>
+        </div>
+        <div class="form-item">
+            <label>Describe in detail what this newsfeed is about</label>
+            <%= f.text_area :description, :class => "form-control", :rows => 4 %>
         </div>
 
         <div class="form-item">

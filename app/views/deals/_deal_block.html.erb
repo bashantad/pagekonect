@@ -16,7 +16,7 @@
         </div>
         <small>
                 <strong>starts at</strong> : <%=row.start_time if row.start_time.present? %> and <strong>ends at</strong> : <%=row.end_time if row.end_time.present?%><br>
-			    <strong>Original price:  </strong>$<%=row.old_price%>
+			    <strong>original price:  </strong>$<%=row.old_price%>
 			    <strong>new price: </strong>$<%=row.new_price%><br>
                 <%=render "contents/url_links", :row => row%>
         </small>

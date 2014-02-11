@@ -5,7 +5,7 @@
     </div>
     <div class="pull-left">
         <div class="display-item">
-            Email address: <%=@profile.email%>
+            Email address: <a href="mailto:<%=@profile.email%>"><%=@profile.email%></a>
         </div>
         
         <% if @profile.gender.present?%>

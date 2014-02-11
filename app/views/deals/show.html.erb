@@ -20,11 +20,11 @@
 					<div class="col-md-7 text-justify">
 						<%= @deal.description.html_safe %>
 						<div>
-						    <strong>Deal start at:  </strong> <%=@deal.start_time%><br>
-						    <strong>Deal end at: </strong> <%=@deal.end_time%><br>
-						    <strong>Deal old price:  </strong>$<%=@deal.old_price%><br>
-						    <strong>Deal new price: </strong>$<%=@deal.new_price%><br>
-						    <strong>Deal location: </strong> 
+						    <strong>Start at:  </strong> <%=@deal.start_time%><br>
+						    <strong>End at: </strong> <%=@deal.end_time%><br>
+						    <strong>Original price:  </strong>$<%=@deal.old_price%><br>
+						    <strong>New price: </strong>$<%=@deal.new_price%><br>
+						    <strong>Location: </strong> 
 						        <a  href="http://maps.google.com?q=<%=@deal.address%>"><%=@deal.address%></a><br>
 						        <%=render "contents/url_links", :row => @deal%>
 						</div>

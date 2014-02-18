@@ -27,6 +27,7 @@
 						    <strong>Location: </strong> 
 						        <a  href="http://maps.google.com?q=<%=@deal.address%>"><%=@deal.address%></a><br>
 						        <%=render "contents/url_links", :row => @deal%>
+                                <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus', 'pinterest'], :url => deal_path(@deal) %>
 						</div>
 					</div>
 				</div>

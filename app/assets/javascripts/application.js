@@ -23,4 +23,5 @@
 //= require jquery-fileupload
 //= require moment
 //= require bootstrap-datetimepicker
+//= require social-share-button
 //= require_tree .

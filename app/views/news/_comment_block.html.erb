@@ -29,9 +29,11 @@
                     <div class="columns c2">
                         <%= link_to "#{commenter.full_name}", profile_view_path(commenter.id)%>
                         <%=comment.description%> &nbsp;
+                        
                         <%if current_user == comment.user%>
                             <%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@news, comment), :method => :delete%>
                         <%end%>
+                        <div class="time-ago"><%= time_ago_in_words(comment.created_at)%> ago.</div>
                     </div>
                 </div>
             </div>

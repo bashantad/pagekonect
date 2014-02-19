@@ -202,3 +202,6 @@ a.like-button:hover{
   padding-right: 10px;
   word-wrap: break-word;
 }
+.time-ago{
+  color:#787878;
+}

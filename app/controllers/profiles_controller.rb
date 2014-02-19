@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :set_user
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:view]
   layout 'user'
   
   def upload_banner

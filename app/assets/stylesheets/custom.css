@@ -46,11 +46,14 @@
 	margin:6px 6px 0px 6px;	
 }
 .comments{
-	margin:6px; 
-	border:1px solid #eee;
-	background:#efefef;
+	margin:1px 0px; 
+	border:1px solid #FFF;
+	background:#F5F5F5;
 }
- .deal-image img{
+.comments:hover{
+  background:#EEE;
+}
+.deal-image img{
     width: 100%;
     height: 150px;
 }
@@ -182,4 +185,20 @@ a.like-button:hover{
 
 .block-heading{
   font-weight:bold;
+}
+.content { 
+  padding: 2px; 
+  overflow: hidden;
+}
+.columns { 
+  position: relative;
+  float: left;
+  padding-right: 10px;
+  margin-bottom: 0px;
+}
+.c2 {
+  float: none;
+  overflow: hidden;
+  padding-right: 10px;
+  word-wrap: break-word;
 }

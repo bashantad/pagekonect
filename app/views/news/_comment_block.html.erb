@@ -1,0 +1,40 @@
+<div id="comment-wrapp">
+    <% if user_signed_in? %>
+    <div class="comments">
+        <%= form_for [@news, @news.comments.new(user_id: current_user.id)] do |f| %>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
+                </span>
+                <%= f.hidden_field :commentable_id %>
+                <%= f.hidden_field :commentable_type %>
+                <%= f.hidden_field :user_id %>
+                <%= f.text_field :description, :class => "form-control" %>
+                <span class="input-group-btn">
+                    <%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
+                </span>
+            </div>
+        <% end %>
+    </div>
+    <% end %>
+	
+    <%@news.comments.each do |comment|%>
+        <% if comment.persisted? && comment.user.present?%>
+            <div class="comments">
+                <div class="content">
+                    <div class="columns">
+                        <%commenter = comment.user%>
+                        <%=image_tag(commenter.avatar.url(:thumb), :class => "mini-icon")%>
+                    </div>
+                    <div class="columns c2">
+                        <%= link_to "#{commenter.full_name}", profile_view_path(commenter.id)%>
+                        <%=comment.description%> &nbsp;
+                        <%if current_user == comment.user%>
+                            <%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@news, comment), :method => :delete%>
+                        <%end%>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    <%end%>	
+</div>

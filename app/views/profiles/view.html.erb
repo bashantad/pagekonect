@@ -1,7 +1,7 @@
 <% content_for :heading, "#{@profile.full_name}" %>
 <div class="control-group clearfix">
     <div class="pull-left">
-        <%= image_tag @user.avatar.url(:medium), :class => "thumbnail text-center" %>
+        <%= image_tag @profile.avatar.url(:medium), :class => "thumbnail text-center" %>
     </div>
     <div class="pull-left">
         <div class="display-item">
@@ -30,25 +30,26 @@
             <div class="display-item">
                 Occupation : <%=@profile.occupation %>
             </div>
-        <% end %>        
+        <% end %>  
+        <div class="display-item">
+          <%=@deals_count%> deals created
+        </div>
+        <div class="display-item">
+            <%=@events_count %> events created
+        </div>
+
+        <div class="display-item">
+            <%=@news_count %> news created 
+        </div>
+
+        <div class="display-item">
+            <%=@videos_count %> videos uploaded 
+        </div>
+
+        <div class="display-item">
+            <%=@uploads_count%> photos uploaded
+        </div>      
     </div>
 </div>
 
-<div class="display-item">
-  <%=@deals_count%> deals created
-</div>
-<div class="display-item">
-    <%=@events_count %> events created
-</div>
 
-<div class="display-item">
-    <%=@news_count %> news created 
-</div>
-
-<div class="display-item">
-    <%=@videos_count %> videos uploaded 
-</div>
-
-<div class="display-item">
-    <%=@uploads_count%> photos uploaded
-</div>

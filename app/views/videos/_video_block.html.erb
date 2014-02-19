@@ -3,7 +3,7 @@
         <%=render "layouts/person", :person => row.user %> 
         <%vid_info = VideoInfo.new(row.url)%>
         <small class="created-info">
-            created this video <%= get_created_at(Time.now - row.created_at)%>. 
+            created this video <%= time_ago_in_words(row.created_at)%> ago. 
         </small>
         <div class="block-heading">
             <a href="<%=video_path(row)%>">

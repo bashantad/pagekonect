@@ -7,21 +7,27 @@
 			<div class="panel-body" style="padding:0 15px">
                 <div class="control-group clearfix">
                     <div class="pull-right">
-                        <small><strong>Created at : </strong><%=@event.created_at.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%></small>
+                        <small>Created this event <%=time_ago_in_words(@event.created_at)%> ago.</small>
                     </div>
                 </div>
 				<div class="row">
-				    <div class="col-md-5">
+				    <div class="col-md-7">
 						<%=image_tag @event.image.url(:medium), :class => "responsive full-image"%>
 						<div class="image-description">
-						<%=@event.image_description%>
+						    <%=@event.image_description%>
+					    </div>
 					</div>
-					</div>
-					<div class="col-md-7 text-justify">
+					<div class="col-md-5 text-justify">
 						<%= @event.description.html_safe %>
 						<div>
-						    <strong>Event date:  </strong> <%=@event.event_date.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%>
+						    <strong>Event date:  </strong> <%=@event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
 						</div>
+                        <div>
+                            <strong>Start time: </strong> <%=@event.start_time%>
+                        </div>
+                        <div>
+                            <strong>Finish time: </strong> <%=@event.end_time%>
+                        </div>
 						<div><strong>Event location: </strong><a  href="http://maps.google.com?q=<%=@event.address%>"><%=@event.address%></a><br>
 						    <%=render "contents/url_links", :row => @event%>
 						    

@@ -93,8 +93,6 @@ a.like-button:hover{
 }
 .full-block #content-popularity{
 	border-top: 1px solid #eee;
-	background: #fcfcfc;
-	color :#777;
 	padding:0px 10px;
 }
 .full-block .count-block{
@@ -122,11 +120,11 @@ a.like-button:hover{
 	width:276px;
 }
 .btn-custom, .popover{
-  background:#29FA11;
+  background:#377CED;
   color:#FFF;
 }
 .popover{
-  border:1px solid #29FA11;
+  border:1px solid #377CED;
 }
 .home-menu, .btn-icon, .containers .panel-heading{
 	background:#4D90FE;
@@ -148,15 +146,18 @@ a.like-button:hover{
   color:#fff;
 }
 .btn-custom:hover{
-  background:#29FA11;
+  background:#377CED;
   color:#FFF;
   font-weight:bold;
 }
 .popover-btn:focus{
-  color:#29FA11;
+  color:#377CED;
 }
 .content-block{
-    border:1px solid #eee;padding:16px;margin:10px;background:#FDFDFD
+    border:1px solid #CDCDCD;
+    padding:16px;
+    margin:10px;
+    background:#FDFDFD
 }
 .content-block:hover{
     background:#F9F9F9;

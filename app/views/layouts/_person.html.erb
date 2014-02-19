@@ -1,9 +1,11 @@
-<div class="control-group clearfix mini-user">
-	<div class="pull-left mini-user-img">
-		<%=image_tag(person.avatar.url(:thumb), :class => "mini-icon")%>
-	</div>
-	<div class="pull-left mini-user-name">
-		<%= link_to "#{person.full_name}", profile_view_path(person.id)%>
-	</div>
-</div>
+<% unless person.nil? %>
+    <div class="control-group clearfix mini-user">
+        <div class="pull-left mini-user-img">
+		    <%=image_tag(person.avatar.url(:thumb), :class => "mini-icon")%>
+        </div>
+        <div class="pull-left mini-user-name">
+		    <%= link_to "#{person.full_name}", profile_view_path(person.id)%>
+	    </div>
+    </div>
+<% end %>
 

@@ -2,7 +2,7 @@
     <div class="content-block">
         <%=render "layouts/person", :person => row.user %> 
         <small class="created-info">
-            uploaded this photo <%= get_created_at(Time.now - row.created_at)%>. 
+            uploaded this photo <%= time_ago_in_words(row.created_at)%> ago. 
         </small>
         <div class="block-heading">
             <a href="<%=upload_path(row)%>">

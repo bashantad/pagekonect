@@ -2,7 +2,7 @@
     <div class="content-block">
         <%=render "layouts/person", :person => row.user %> 
         <small class="created-info">
-            <%=row.is_suggestor ? "suggested" : "created"%> this event <%= get_created_at(Time.now - row.created_at)%>
+            <%=row.is_suggestor ? "suggested" : "created"%> this event <%= time_ago_in_words(row.created_at)%> ago.
         </small>
         <div class="block-heading">
             <a href="<%=event_path(row)%>">

@@ -7,17 +7,17 @@
 			<div class="panel-body" style="padding:0 15px">
                 <div class="control-group clearfix">
                     <div class="pull-right">
-                        <small><strong>Created at : </strong><%=@deal.created_at.localtime.to_datetime.strftime("%l %p %A, %d %B %Y")%></small>
+                        <small>created this deal <%= time_ago_in_words(@deal.created_at)%> ago.</small>
                     </div>
                 </div>
 				<div class="row">
-				    <div class="col-md-5">
+				    <div class="col-md-7">
 						<%=image_tag @deal.image.url(:medium), :class => "responsive full-image"%>
 						<div class="image-description">
-						<%=@deal.image_description%>
+						    <%=@deal.image_description%>
+					    </div>
 					</div>
-					</div>
-					<div class="col-md-7 text-justify">
+					<div class="col-md-5 text-justify">
 						<%= @deal.description.html_safe %>
 						<div>
 						    <strong>Start at:  </strong> <%=@deal.start_time%><br>

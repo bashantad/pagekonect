@@ -27,6 +27,15 @@
   </div>
   
   <div class="form-item">
+      <label>What date does this event start?</label>
+      <div class="form-group">
+          <div class='input-group date' id='datetimepicker1'>
+              <%=f.text_field :event_date, :class => "form-control", "data-format" => "YYYY-MM-DD hh:mm"%><span class="input-group-addon popover-btn" data-content="Click here to choose date and time"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="form-item">
       <label>What time does this event start?</label>
       <%=f.text_field :start_time, :class => "form-control"%>
   </div>
@@ -36,15 +45,6 @@
       <%=f.text_field :end_time, :class => "form-control"%>
   </div>
 
-  <div class="form-item">
-      <label>What date does this event start?</label>
-      <div class="form-group">
-          <div class='input-group date' id='datetimepicker1'>
-              <%=f.text_field :event_date, :class => "form-control", "data-format" => "YYYY-MM-DD hh:mm"%><span class="input-group-addon popover-btn" data-content="Click here to choose date and time"><span class="glyphicon glyphicon-calendar"></span></span>
-          </div>
-      </div>
-  </div>
-  
   <div class="form-item">
       <label>Describe more about this event</label>
     <%= f.text_area :description, :class => "form-control", :rows => 4 %>

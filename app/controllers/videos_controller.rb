@@ -57,7 +57,11 @@ class VideosController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_video
-    @video = Video.find(params[:id])
+    if params[:action] == "show"
+      @video = Video.find(params[:id])
+    else
+      @video = current_user.videos.find(params[:id])
+    end
     @vid_info = VideoInfo.new(@video.url)
     @video.increment_views(request.remote_ip) if @video.present?
   end

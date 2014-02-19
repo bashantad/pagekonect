@@ -60,7 +60,11 @@ class NewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news
-      @news = News.find(params[:id])
+      if params[:action] == "show"
+        @news = News.find(params[:id])
+      else
+        @news = current_user.news.find(params[:id])
+      end
       @news.increment_views(request.remote_ip) if @news.present?
     end
 

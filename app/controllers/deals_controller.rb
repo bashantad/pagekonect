@@ -53,7 +53,11 @@ class DealsController < ApplicationController
    private
    # Use callbacks to share common setup or constraints between actions.
    def set_deal
-     @deal = Deal.find(params[:id])
+     if params[:action] == "show"
+       @deal = Deal.find(params[:id])
+     else
+       @deal = current_user.deals.find(params[:id])
+     end
      @deal.increment_views(request.remote_ip) if @deal.present?
    end
 

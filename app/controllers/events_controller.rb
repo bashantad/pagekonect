@@ -48,7 +48,11 @@ class EventsController < ApplicationController
    private
    # Use callbacks to share common setup or constraints between actions.
    def set_event
-     @event = Event.find(params[:id])
+     if params[:action] == "show"
+       @event = Event.find(params[:id])
+     else
+       @event = current_user.events.find(params[:id])
+     end
      @event.increment_views(request.remote_ip) if @event.present?
    end
 

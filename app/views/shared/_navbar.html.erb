@@ -13,7 +13,6 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in?%>
             <li><%=link_to "&nbsp;Edit your account".html_safe, edit_user_registration_path, :class => "fa fa-pencil"%></li>
-            <li><%=link_to "&nbsp;Profile picture".html_safe, profile_upload_avatar_path(current_user), :class => "fa fa-upload"%></li>
             <li><%=link_to "&nbsp;Upload banner image".html_safe, profile_upload_banner_path(current_user), :class => "fa fa-upload"%></li>
 			<li>
 				<%=link_to "&nbsp;Dashboard design".html_safe, dashboard_home_path, :class => "fa fa-dashboard"%>

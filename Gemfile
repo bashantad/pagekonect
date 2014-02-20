@@ -21,6 +21,7 @@ gem 'x-editable-rails'
 gem 'social-share-button'
 gem 'shareable'
 
+
 # Use for multiple search across different tables, for more https://github.com/Casecommons/pg_search
 gem "pg_search", "~> 0.7.3"
 

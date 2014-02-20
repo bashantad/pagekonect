@@ -7,18 +7,15 @@
 			<div class="panel-body" style="padding:0px 15px;">
                 <div class="control-group clearfix">
                     <div class="pull-right">
-                        uploaded this photo <%= time_ago_in_words(@upload.created_at)%> ago.
+                        uploaded this photo <%= time_ago_in_words(@upload.created_at)%> ago by <%=@upload.user.full_name%>.
                     </div>
                 </div>
 				<%=image_tag @upload.photo.url, :class => "img-responsive"%>
 			</div>
-
 			<%if current_user == @upload.user%>
-				<div class="panel-footer">
-					<div class="control-group clearfix">
-						<div class="pull-right">
-							<%= link_to 'Delete', @upload, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
-						</div>
+				<div class="control-group clearfix">
+					<div class="pull-right form-item">
+						<%= link_to '&nbsp;Delete'.html_safe, @upload, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
 					</div>
 				</div>
 			<%end%>
@@ -27,7 +24,7 @@
 				<%= render partial: "contents/votable_wrapp", locals: { content: @upload } %>
 			</div>
 
-			<div id="comment-wrapp">
+			<div class="comment-wrapp">
 				<% if user_signed_in? %>
 					<div class="comments">
 						<%= form_for [@upload, @upload.comments.new(user_id: current_user.id)] do |f| %>

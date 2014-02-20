@@ -4,7 +4,7 @@
         <img alt="" class="created-logo" src="<%=person.avatar.url(:thumb)%>">
     </div>
     <div class="columns c2">
-        <%=link_to person.full_name, profile_path(person)%>
+        <%=link_to person.full_name, profile_view_path(person)%>
         <div class="time-ago">
             <% if row.instance_of? Upload %>
                 uploaded 

@@ -25,7 +25,7 @@
             			<div class="full-block votable-wrapp" id="votable-wrapp-<%= news.id %>">
             				<%= render partial: "contents/votable_wrapp", locals: { content: news } %>
             			</div>
-                        <%=render "news/comment_block", :row => news%>
+                        <%=render "comments/comment_block", :row => news%>
             			<%if current_user == news.user%>
             				<div class="control-group clearfix">
             					<div class="pull-right form-item">

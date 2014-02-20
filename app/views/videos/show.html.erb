@@ -36,7 +36,7 @@
 				<%= render partial: "contents/votable_wrapp", locals: { content: @video } %>
 			</div>
 
-			<div id="comment-wrapp">
+			<div class="comment-wrapp">
 				<% if user_signed_in? %>
 				<div class="comments">
 					<%= form_for [@video, @video.comments.new(user_id: current_user.id)] do |f| %>

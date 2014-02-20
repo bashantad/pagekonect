@@ -18,20 +18,20 @@ module ApplicationHelper
        [uploads_path, "Upload photos"]  
     end
   end
-  def get_created_at(time_diff)
-    time_diff = (time_diff/60).round
-    no_months = time_diff/(24*60*30)
-    no_days = time_diff/(24*60)
-    no_hours = time_diff/24
-    if no_months > 0
-      "#{pluralize(no_months, 'month')} ago"
-    elsif no_days > 0
-      "#{pluralize(no_days, 'day')} ago"
-    elsif no_hours > 0
-      "#{pluralize(no_hours, 'hour')} ago"
-    else
-      "#{pluralize(time_diff, 'minute')} ago"
+  
+  def comment_delete_url(row, comment)
+    if row.instance_of? Upload
+      url = upload_comment_path(row, comment)
+    elsif row.is_news?
+      url = news_comment_path(row, comment)
+    elsif row.is_deal?
+      url = deal_comment_path(row, comment)
+    elsif row.is_video?
+      url = video_comment_path(row, comment)
+    elsif row.is_event?
+      url = event_comment_path(row, comment)
     end
+    url
   end
 end
 

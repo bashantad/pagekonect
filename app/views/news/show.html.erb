@@ -1,44 +1,41 @@
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%= @news.title %></h3>
-			</div>
-			<div class="panel-body" style="padding:0 15px">
-                <div class="control-group clearfix">
-                    <div class="pull-right">
-                        <small>Published this news <%= time_ago_in_words(@news.created_at)%> ago.</small>
-                    </div>
-                </div>
-				<div class="row">
-				    <div class="col-md-7">
-						<%=image_tag @news.image.url(:medium), :class => "responsive full-image"%>
-						<div class="image-description">
-						    <%=@news.image_description%>
-                        </div>
-					</div>
-					<div class="col-md-5 text-justify">
-						<%= @news.description.html_safe %>
-						<%if @news.url.present?%>
-						    <%=link_to "Detail news", news_detail_path(@news)%>
-						<%end%>
-            			<div class="full-block votable-wrapp" id="votable-wrapp-<%= @news.id %>">
-            				<%= render partial: "contents/votable_wrapp", locals: { content: @news } %>
-            			</div>
-                        <%=render "news/comment_block"%>
-            			<%if current_user == @news.user%>
-            				<div class="control-group clearfix">
-            					<div class="pull-right form-item">
-            						<%= link_to '&nbsp;Edit'.html_safe, edit_news_path(@news), :class => "fa fa-pencil" %>
-            					</div>
-            					<div class="pull-right form-item">
-            						<%= link_to '&nbsp;Delete'.html_safe, @news, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
-            					</div>
-            				</div>
-            			<%end%>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<style>
+.carousel-control{
+    width:9%;
+}
+.carousel-control .glyphicon-chevron-left{
+    left:75%;
+}
+.carousel-control .glyphicon-chevron-right{
+    right:75%;
+}
+</style>
+<div id="my-carousel" class="carousel slide" data-ride="carousel" style="height:535;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <% @all_news.each_with_index do |news, index| %>
+            <li data-target="#my-carousel" data-slide-to="<%=index%>" class="<%=(news.id==@news.id) ? "active" : ""%>"></li>
+        <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <%@all_news.each_with_index do |news, index|%>
+        <div class="item <%="active" if news.id == @news.id %>">
+            <%=render "show_block", :news => news%>
+        </div>
+        <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
 </div>
+
+<script>
+$('#my-carousel').carousel()
+</script>
+

@@ -10,7 +10,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    
+    @all_news = @news.user.news
   end
 
   def new

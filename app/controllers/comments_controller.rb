@@ -2,12 +2,11 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!
   before_action :check_ownership, only: [:destroy]
   def create
-    @comment = Comment.new(comment_params)
-
+    @comment = current_user.comments.new(comment_params)
     if @comment.save
-      flash[:notice] = "Comment Created"
+      flash[:notice] = "Your comment is successfully posted"
     else
-      flash[:alert] = "Error Adding Comment"
+      flash[:alert] = "Error while adding a comment"
     end
     redirect_to send("#{@comment.commentable.class.name.underscore}_path", @comment.commentable)
 
@@ -33,6 +32,6 @@ class CommentsController < ApplicationController
   end
   
   def comment_params
-    params.require(:comment).permit(:description, :commentable_id, :commentable_type, :user_id)
+    params.require(:comment).permit(:description, :commentable_id, :commentable_type)
   end
 end

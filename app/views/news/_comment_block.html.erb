@@ -1,7 +1,7 @@
 <div id="comment-wrapp">
     <% if user_signed_in? %>
     <div class="comments">
-        <%= form_for [@news, @news.comments.new(user_id: current_user.id)] do |f| %>
+        <%= form_for [row, row.comments.new(user_id: current_user.id)] do |f| %>
             <div class="input-group">
                 <span class="input-group-btn">
                     <%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
@@ -18,7 +18,7 @@
     </div>
     <% end %>
 	
-    <%@news.comments.each do |comment|%>
+    <%row.comments.each do |comment|%>
         <% if comment.persisted? && comment.user.present?%>
             <div class="comments">
                 <div class="content">
@@ -31,7 +31,8 @@
                         <%=comment.description%> &nbsp;
                         
                         <%if current_user == comment.user%>
-                            <%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@news, comment), :method => :delete%>
+                        <% delete_url = news_comment_path(row, comment) %>
+                            <%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, delete_url , :method => :delete%>
                         <%end%>
                         <div class="time-ago"><%= time_ago_in_words(comment.created_at)%> ago.</div>
                     </div>

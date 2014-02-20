@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :videos
   has_many :events
   has_many :deals
+  has_many :comments
   has_attached_file :avatar, 
                     :styles => { :medium => "400x400>", :thumb => "132x132>" }, 
                     :url => "/users/avatar/:id/:style/:basename.:extension",

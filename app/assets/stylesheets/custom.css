@@ -187,7 +187,6 @@ a.like-button:hover{
   font-weight:bold;
 }
 .content { 
-  padding: 2px; 
   overflow: hidden;
 }
 .columns { 
@@ -204,4 +203,12 @@ a.like-button:hover{
 }
 .time-ago{
   color:#787878;
+}
+.created-logo{
+  height:40px;
+  width:40px;
+}
+.created-block{
+  border:1px solid #FFFFFF;
+  margin-bottom:8px;
 }

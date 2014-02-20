@@ -1,0 +1,21 @@
+<div class="content created-block">
+    <div class="columns">
+        <% person = row.user %>
+        <img alt="" class="created-logo" src="<%=person.avatar.url(:thumb)%>">
+    </div>
+    <div class="columns c2">
+        <%=link_to person.full_name, profile_path(person)%>
+        <div class="time-ago">
+            <% if row.instance_of? Upload %>
+                uploaded 
+            <% elsif row.is_video? %>
+                uploaded
+            <% elsif row.is_event? %>
+                <%=row.is_suggestor ? "suggested" : "created"%>
+            <% else %>
+                created 
+            <% end %>
+            <%= time_ago_in_words(row.created_at)%> ago. 
+        </div>
+    </div>
+</div>

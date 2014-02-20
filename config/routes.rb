@@ -26,6 +26,9 @@ Pagekonect::Application.routes.draw do
     get 'upload_avatar'
     get 'crop_banner'
     get 'view'
+    member do
+      get 'take_pic'
+    end
   end
   
   resources :pages
@@ -51,7 +54,6 @@ Pagekonect::Application.routes.draw do
 
   get 'vote_up' => "vote#vote_up"
   get 'vote_down' => "vote#vote_down"
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

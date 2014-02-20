@@ -23,10 +23,10 @@ Pagekonect::Application.routes.draw do
 
   resources :profiles do
     get 'upload_banner'
-    get 'upload_avatar'
     get 'crop_banner'
     get 'view'
     member do
+      match 'upload_avatar', to: 'profiles#upload_avatar', via: :all      
       get 'take_pic'
     end
   end

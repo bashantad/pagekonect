@@ -8,7 +8,12 @@ class ProfilesController < ApplicationController
   end
   
   def upload_avatar
-    
+    binding.pry
+         File.open(upload_path, 'wb') do |f|
+      f.write request.raw_post
+    end
+    render :text => "ok"
+
   end
   
   def crop_banner
@@ -68,4 +73,17 @@ class ProfilesController < ApplicationController
   def set_user
     @user = current_user
   end
+
+
+  def take_pic
+    @profile = User.find(params[:id])
+  end
+
+
+  private
+
+  def upload_path # is used in upload and create
+    File.join(Rails.root, 'tmp', 'avatar.jpg')
+  end
+
 end

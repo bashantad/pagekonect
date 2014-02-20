@@ -7,7 +7,7 @@
 			<div class="panel-body" style="padding:0 15px;">
                 <div class="control-group clearfix">
                     <div class="pull-right">
-                        created this video <%= time_ago_in_words(@video.created_at)%> ago.
+                        uploaded this video <%= time_ago_in_words(@video.created_at)%> ago by <%=@video.user.full_name%>.
                     </div>
                 </div>
 				<div class="row">
@@ -21,16 +21,14 @@
 				</div>
 			</div>
 			<%if current_user == @video.user%>
-			<div class="panel-footer">
 				<div class="control-group clearfix">
-					<div class="pull-left">
-						<%= link_to 'Edit', edit_video_path(@video), :class => "btn btn-info btn-sm" %>
+					<div class="pull-right form-item">
+						<%= link_to '&nbsp;Edit'.html_safe, edit_video_path(@video), :class => "fa fa-pencil" %>
 					</div>
-					<div class="pull-right">
-						<%= link_to 'Delete', @video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+					<div class="pull-right form-item">
+						<%= link_to '&nbsp;Delete'.html_safe, @video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
 					</div>
 				</div>
-			</div>
 			<%end%>
 			<div class="full-block votable-wrapp" id="votable-wrapp-<%= @video.id %>">
 				<%= render partial: "contents/votable_wrapp", locals: { content: @video } %>

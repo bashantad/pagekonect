@@ -24,4 +24,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require social-share-button
+//= require webcam
 //= require_tree .

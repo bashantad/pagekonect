@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.all.order("created_at desc")
+    @events = Event.uniq_users.collect{ |user| user.events.last }
     @desc_length = 60
     @title_length = 40   
   end

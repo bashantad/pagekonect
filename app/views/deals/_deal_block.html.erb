@@ -15,10 +15,16 @@
             </a>
         </div>
         <small>
-                <strong>starts at</strong> : <%=row.start_time if row.start_time.present? %> and <strong>ends at</strong> : <%=row.end_time if row.end_time.present?%><br>
-			    <strong>original price:  </strong>$<%=row.old_price%>
-			    <strong>new price: </strong>$<%=row.new_price%><br>
-                <%=render "contents/url_links", :row => row%>
+            <strong>starts at</strong> : <%=row.start_time if row.start_time.present? %> and <strong>ends at</strong> : <%=row.end_time if row.end_time.present?%><br>
+            <strong>original price:  </strong>$<%=row.old_price%>
+            <strong>new price: </strong>$<%=row.new_price%><br>
+            <%=render "contents/url_links", :row => row%>
+            <div>
+                <% no_deals = row.user.deals.size%>
+                <% if no_deals > 1 && params[:query].blank?%>
+                    <%=link_to "#{pluralize((no_deals - 1), 'more deal')} from #{row.user.full_name}".html_safe, deal_path(row) %>
+                <% end %>
+            </div>
         </small>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
             <%= render partial: "contents/votable_wrapp", locals: { content: row } %>

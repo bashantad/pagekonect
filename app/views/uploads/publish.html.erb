@@ -1,7 +1,7 @@
 <div id="news">
     <%if @uploads.blank?%>
         <div class="alert alert-info">
-            No Registered Events
+            No photos uploaded yet
         </div>
     <%end%>
     <% @uploads.each_with_index do |row, index| %>

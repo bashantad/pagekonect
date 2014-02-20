@@ -14,6 +14,12 @@
                 <%=image_tag row.image.url(:thumb), :class => "block-img"%>
             </a>
         </div>
+        <div>
+            <% no_of_news = row.user.news.size%>
+            <% if no_of_news > 1 && params[:query].blank?%>
+                <%=link_to "#{pluralize((no_of_news - 1), 'more news')} from #{row.user.full_name}".html_safe, news_path(row) %>
+            <% end %>
+        </div>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
             <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
         </div>

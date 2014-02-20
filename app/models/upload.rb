@@ -26,4 +26,8 @@ class Upload < ActiveRecord::Base
         "delete_type" => "DELETE" 
       }
   end
+  
+  def self.uniq_users
+    self.all.order("created_at desc").collect(&:user).uniq
+  end
 end

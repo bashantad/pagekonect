@@ -24,6 +24,10 @@ class Content < ActiveRecord::Base
     self.instance_of? Event
   end
   
+  def is_deal?
+    self.instance_of? Deal
+  end
+  
   def get_default_url
     if self.is_news?
       "/assets/news.png"
@@ -32,6 +36,10 @@ class Content < ActiveRecord::Base
     else
       "/assets/event.png"
     end
+  end
+  
+  def self.uniq_users
+    self.all.order("created_at desc").collect(&:user).uniq
   end
 
   def is_content?

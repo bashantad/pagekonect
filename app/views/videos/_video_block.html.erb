@@ -10,8 +10,15 @@
                 <%= truncate(row.title, :length => @title_length)%>
             </a>
         </div>
+        
         <%= vid_info.embed_code(iframe_attributes: { width: @iframe_width, height: @iframe_height}, url_attributes: {controls: 0, showinfo: 0}).html_safe%><br>
         <%=render "contents/url_links", :row => row%>
+        <div>
+            <% no_of_videos = row.user.videos.size%>
+            <% if no_of_videos > 1  && params[:query].blank?%>
+                <%=link_to "#{pluralize((no_of_videos - 1), 'more video')} from #{row.user.full_name}".html_safe, video_path(row) %>
+            <% end %>
+        </div>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
 				<%= render partial: "contents/votable_wrapp", locals: { content: row } %>
 			</div>

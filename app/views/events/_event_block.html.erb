@@ -12,10 +12,18 @@
         <a href="<%=event_path(row)%>">
             <%=image_tag row.image.url(:thumb), :class => "block-img"%>
         </a>
-        <small>
+        <div>
+            <small>
                 Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br>
                 <%=render "contents/url_links", :row => row%>
-        </small>
+                <div>
+                    <% no_of_events = row.user.events.size%>
+                    <% if no_of_events > 1 && params[:query].blank? %>
+                        <%=link_to "#{pluralize((no_of_events - 1), 'more event')} from #{row.user.full_name}".html_safe, event_path(row) %>
+                    <% end %>
+                </div>
+            </small>
+        </div>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
             <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
         </div>

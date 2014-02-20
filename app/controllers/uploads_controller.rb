@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:publish, :show]
   # GET /uploads
   # GET /uploads.json
   def index
@@ -17,7 +17,7 @@ class UploadsController < ApplicationController
   end
   
   def publish
-    @uploads = Upload.all.order("created_at desc")
+    @uploads = Upload.uniq_users.collect{|user| user.uploads.last}
     @title_length = 83
   end
 

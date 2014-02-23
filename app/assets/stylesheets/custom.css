@@ -212,3 +212,7 @@ a.like-button:hover{
   border:1px solid #FFFFFF;
   margin-bottom:8px;
 }
+.modal-body{
+  max-width:600px;
+  margin:0px auto;
+}

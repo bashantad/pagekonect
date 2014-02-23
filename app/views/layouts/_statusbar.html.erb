@@ -51,7 +51,10 @@
                 <%controller =  params[:controller]%>
                 <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
                 <% new_url, new_message = get_create_link_with_msg(controller)%>
-                    <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn" %>
+                <% if params[:controller] == "deals"%>
+                    <% modal_class = "modal-link"%>
+                <% end %>
+                    <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn #{modal_class}" %>
                 <% end %>
             </span>
             <span class="other-list"> 

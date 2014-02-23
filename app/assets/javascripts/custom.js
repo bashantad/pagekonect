@@ -16,4 +16,36 @@ $(document).ready(function() {
 	 	trigger :'focus hover', 
 	    placement: 'top'
 	 });
+	$(document).on("click", ".modal-link", function(e){
+		e.preventDefault();
+		var href = $(this).attr("href");
+		$(".modal").modal({
+			keyboard: false,
+			remote: href
+		});
+		$.ajax({
+			type: 'get',
+			url: href,
+			success:function(res){
+				$(".modal-content").replaceWith(res);
+			}
+		});
+	});
+  $(document).on("click", ".modald input:submit", function(e){
+    e.preventDefault();
+    var form = $(this).parents("form");
+    var form_data = form.serialize();
+    var href = form.attr("action");
+    $.ajax({
+      url : href,
+      type: 'post',
+      data : form_data,
+      success:function(res){
+        if(res.text == "error"){
+          $(".modal .modal-body").replaceWith(res);
+          return false;
+        }
+      }
+    });
+  });
 });

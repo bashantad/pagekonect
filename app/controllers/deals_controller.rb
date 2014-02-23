@@ -1,6 +1,7 @@
 class DealsController < ApplicationController
   before_action :set_deal, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  layout "modal", :only => [:edit, :new]
 
   def index
     @deals = Deal.uniq_users.collect{ |user| user.deals.last}
@@ -14,6 +15,10 @@ class DealsController < ApplicationController
   
   def deals
   
+  end
+  
+  def edit
+    
   end
 
   def create
@@ -33,7 +38,7 @@ class DealsController < ApplicationController
          format.json { head :no_content }
        else
          format.html { render action: 'edit' }
-         format.json { render json: @deal.errors, status: :unprocessable_entity }
+         format.json { render json: @deal.errors, status: :unprocessable_entity, :alert => "error" }
        end
      end
    end
@@ -60,9 +65,9 @@ class DealsController < ApplicationController
      end
      @deal.increment_views(request.remote_ip) if @deal.present?
    end
-
-    def deal_params
-      deal_attributes = [:title, :description, :image, :image_description, :is_searchable, :address, :facebook_url, :twitter_url, :url, :start_time, :end_time, :old_price, :new_price]
-      params.require(:deal).permit(deal_attributes)
-    end
+   
+  def deal_params
+    deal_attributes = [:title, :description, :image, :image_description, :is_searchable, :address, :facebook_url, :twitter_url, :url, :start_time, :end_time, :old_price, :new_price]
+    params.require(:deal).permit(deal_attributes)
+  end
 end

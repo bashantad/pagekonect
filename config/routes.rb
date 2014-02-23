@@ -26,8 +26,10 @@ Pagekonect::Application.routes.draw do
     get 'crop_banner'
     get 'view'
     member do
-      match 'upload_avatar', to: 'profiles#upload_avatar', via: :all      
+      get 'upload_avatar'
+      post 'jpegcam_upload' #, to: 'profiles#upload_avatar', via: :all      
       get 'take_pic'
+      get 'save_avatar'
     end
   end
   

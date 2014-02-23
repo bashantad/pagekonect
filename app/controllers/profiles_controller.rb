@@ -2,26 +2,41 @@ class ProfilesController < ApplicationController
   before_filter :set_user
   before_filter :authenticate_user!, :except => [:view]
   layout 'user'
+
+  protect_from_forgery except: [:jpegcam_upload]
   
   def upload_banner
-    
+  end
+
+  def upload_avatar
   end
   
-  def upload_avatar
-    binding.pry
-         File.open(upload_path, 'wb') do |f|
+  def jpegcam_upload
+    File.open(upload_path, 'wb') do |f|
       f.write request.raw_post
     end
     render :text => "ok"
+  end
 
+  def save_avatar
+    if (avatar = uploaded_avatar(@user)).present?
+      @user.avatar = avatar
+      if @user.save
+        File.delete avatar.path
+        redirect_to root_path, notice: "User Avatar Updated."
+      else
+        File.delete avatar.path
+        redirect_to take_pic_profile_path, notice: "Error Updating User Avatar."
+      end
+    else
+      redirect_to take_pic_profile_path, notice: "Retake Picture."
+    end
   end
   
   def crop_banner
-    
   end
   
   def create
-    
   end
   
   def view
@@ -40,7 +55,7 @@ class ProfilesController < ApplicationController
   def update
     if params[:coming_action] == "upload_avatar"
       if @user.update(user_params)
-        redirect_to profile_upload_avatar_path(current_user), notice: 'Profile picture updated successfully.' 
+        redirect_to upload_avatar_profile_path(current_user), notice: 'Profile picture updated successfully.' 
       else
         render(:action => "upload_avatar")
       end
@@ -79,11 +94,18 @@ class ProfilesController < ApplicationController
     @profile = User.find(params[:id])
   end
 
-
   private
 
-  def upload_path # is used in upload and create
-    File.join(Rails.root, 'tmp', 'avatar.jpg')
-  end
+    def upload_path # is used in upload and create
+      File.join(Rails.root, 'tmp/user/avatar', "avatar_#{@user.id}.jpg")
+    end
 
+    def uploaded_avatar(user)
+      file_name = "#{Rails.root}/tmp/user/avatar/avatar_#{user.id}.jpg"
+      if File.exist?(file_name)
+        File.open(file_name)
+      else
+        nil
+      end
+    end
 end

@@ -212,7 +212,16 @@ a.like-button:hover{
   border:1px solid #FFFFFF;
   margin-bottom:8px;
 }
-.modal-body{
-  max-width:600px;
-  margin:0px auto;
+.modal-dialog{
+  width:520px;
+}
+.create-icon{
+  height:48px;
+  width:48px;
+}
+.modal-header{
+  border-bottom:none;
+}
+.block-item{
+  padding:2px 0px;
 }

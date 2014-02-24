@@ -6,16 +6,32 @@
                 <%= truncate(row.title, :length => @title_length)%>
             </a>
         </div>
+        <div class="block-item">
+            <a  href="http://maps.google.com?q=<%=row.address%>"><%=row.address%></a><br>
+        </div>
+        <div class="block-item">
+            <%=row.start_time if row.start_time.present? %> to <%=row.end_time if row.end_time.present?%>
+        </div>
+        <div class="block-item control-group clearfix">
+            <div class="pull-left">
+                $<%=row.old_price %> now $<%=row.new_price%> 
+            </div>
+            <div class="pull-right" style="padding-right:20px;">
+                <% if row.user == current_user%>
+                    <%= link_to '&nbsp;Edit'.html_safe, edit_deal_path(row), :class => "fa fa-pencil modal-link" %>
+                    <% end %>
+            </div>
+        </div>
         <div class="block-img-wrapp">
             <a href="<%=deal_path(row)%>">
                 <%=image_tag row.image.url(:thumb), :class => "block-img"%>
             </a>
         </div>
-        <small>
-            <strong>starts at</strong> : <%=row.start_time if row.start_time.present? %> and <strong>ends at</strong> : <%=row.end_time if row.end_time.present?%><br>
-            <strong>original price:  </strong>$<%=row.old_price%>
-            <strong>new price: </strong>$<%=row.new_price%><br>
+        <div class="block-item">
             <%=render "contents/url_links", :row => row%>
+        </div>
+        <small>
+            
             <div>
                 <% no_deals = row.user.deals.size%>
                 <% if no_deals > 1 && params[:query].blank?%>

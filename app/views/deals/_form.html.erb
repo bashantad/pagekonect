@@ -10,75 +10,84 @@
       </ul>
     </div>
   <% end %>
-
+  <% if @deal.persisted?%>
+      <div class="form-item">
+          <%=image_tag @deal.image.url(:thumb) %>
+      </div>
+  <% end %>
   <div class="form-item">
-      <label>What is this deal?</label>
+      <label>Upload an image suitable for this deal</label>
+      <%=f.file_field :image%>
+  </div>
+      
+  <div class="form-item">
+      <label>Tag this image</label>
+      <%=f.text_field :image_description, :class => "form-control"%>
+  </div>
+      
+  <div class="form-item">
+      <label>Title for this deal?</label>
       <%= f.text_field :title, :class => "form-control" %>
   </div>
-
-  <div class="row">
-      <div class="col-sm-6">
-          <div class="form-item">
+  
+  <div class="form-item">
+      <label>Address for this deal?</label>
+     <%=f.text_field :address, :class => "form-control", :placeholder => ""%>
+  </div> 
+  <div class="form-item">
+      <div class="row">
+          <div class="col-sm-6">
+              <label>What time does this deal start?</label>
+              <%=f.text_field :start_time, :class => "form-control", :placeholder => "7 AM"%>
+          </div>
+          <div class="col-sm-6">
+              <label>What time does this deal finish?</label>
+              <%=f.text_field :end_time, :class => "form-control", :placeholder => "10 PM"%>
+          </div>
+      </div>
+  </div>
+  <div class="form-item">
+      <div class="row">
+          <div class="col-sm-6">
               <label>What was the old price?</label>
               <%= f.text_field :old_price, :class => "form-control" %>
           </div>
-      </div>
-      <div class="col-sm-6">
-          <div class="form-item">
+          <div class="col-sm-6">
               <label>What is the new price?</label>
               <%= f.text_field :new_price, :class => "form-control" %>
           </div>
       </div>
   </div>
   
-  <div class="row">
-      <div class="col-sm-6">
-          <div class="form-item">
-              <label>What time does this deal start?</label>
-              <%=f.text_field :start_time, :class => "form-control"%>
-          </div>
-      </div>
-      <div class="col-sm-6">
-          <div class="form-item">
-              <label>What time does this deal finish?</label>
-              <%=f.text_field :end_time, :class => "form-control"%>
-          </div>
-      </div>
-  </div>
-  
-  <div class="form-item">
-      <label>Upload an image suitable for this deal</label>
-	  <%=f.file_field :image%>
-  </div>
-  
-  <div class="form-item">
-      <label>Tag this image</label>
-      <%=f.text_field :image_description, :class => "form-control"%>
-  </div>
-
-  <div class="form-item">
+  <div class="form-item" style="display:none;">
       <label>Describe more about this deal</label>
     <%= f.text_area :description, :class => "form-control", :rows => 4 %>
   </div>
            
   <div class="form-item">
-      <label>Does this deal have a location?</label>
-     <%=f.text_field :address, :class => "form-control", :placeholder => "Where is it happening?"%>
-  </div>    
-  
-  <div class="form-item">
-      <label>Does this deal have a website?</label>
-      <%=f.url_field :url, :class => "form-control"%>
+      <label>Attach links</label>
+      <div class="input-group">
+          <span class="input-group-addon">W&nbsp;</span>
+          <%=f.url_field :url, :class => "form-control", :placeholder => "Paste Website"%>
+      </div>
   </div>
-  
   <div class="form-item">
-      <label>Does this deal have a facebook page?</label>
-      <%=f.url_field :facebook_url, :class => "form-control"%>
+      <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-facebook-square fa-lg"></i></span>
+          <%=f.url_field :facebook_url, :class => "form-control", :placeholder=>"Paste Facebook"%>
+      </div>
   </div>
-  
   <div class="form-item">
-      <label>Does this deal have a twitter page?</label>
-      <%=f.url_field :twitter_url, :class => "form-control"%>
+      <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-twitter-square fa-lg"></i></span>
+          <%=f.url_field :twitter_url, :class => "form-control", :placeholder => "Paste Twitter"%>
+      </div>
+  </div>
+  <div class="form-item">
+      <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-google-plus-square fa-lg"></i></span>
+          <%=f.url_field :google_plus_url, :class => "form-control", :placeholder => "Paste Google+"%>
+      </div>
   </div>
   
   <div class="form-item">
@@ -87,7 +96,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit(:class => "btn btn-custom") %>
+    <%= f.submit(:class => "btn btn-custom", :value => "Upload") %>
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
 <% end %>

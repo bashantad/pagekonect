@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -20,6 +20,7 @@ gem "font-awesome-rails"
 gem 'x-editable-rails'
 gem 'social-share-button'
 gem 'shareable'
+
 
 # Use for multiple search across different tables, for more https://github.com/Casecommons/pg_search
 gem "pg_search", "~> 0.7.3"

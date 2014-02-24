@@ -1,0 +1,53 @@
+div#container
+  div#webcam 
+  .toggle_group
+    input#take_picture type="button" value="Click" onclick="snap();"
+  .toggle_group style="display : none"
+    input#retake_picture type="button" value="Retake Picture" onclick="reset();"
+    = link_to "Upload Avatar", save_avatar_profile_path(@user), class: "btn btn-info", method: :get
+
+
+
+javascript:
+  
+  function onload_complete(msg) {
+    // fetch the CSRF meta tag data
+    var csrf_param = $('meta[name=csrf-param]').attr('content');
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+    // reset the api URL appending the auth token parameter
+    webcam.set_api_url('jpegcam_upload' + '?' + csrf_param + "=" + encodeURIComponent(csrf_token));
+  }
+
+  function upload_complete(msg) {
+    if (msg == 'ok') {
+      console.log("Clicked Okay ...")
+    } else {
+      alert('Error Occured :o');
+      webcam.reset();
+    }
+  }
+
+  function snap(){
+    $('.toggle_group').toggle();
+    webcam.snap();
+  }
+
+  function reset(){
+    $('.toggle_group').toggle();
+    webcam.reset();
+  }
+
+  $(document).ready(function(){
+    webcam.set_swf_url('/assets/webcam.swf');
+    webcam.set_api_url('jpegcam_upload');
+    webcam.set_hook('onLoad', 'onload_complete');
+    webcam.set_hook('onComplete', 'upload_complete');
+    webcam.set_quality(90);
+    webcam.set_shutter_sound(true, '/assets/shutter.mp3');
+    $('#webcam').html(webcam.get_html(600, 400));
+  });
+
+
+  
+    

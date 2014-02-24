@@ -5,7 +5,7 @@ div.like-wrapp
 		- else
 			= link_to " Like", vote_up_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-up", remote: true
 
-div.control-group.clearfix#content-popularity
+div.control-group.clearfix.content-popularity
 	div.count-block.views-count
 		= pluralize(content.views.size, "view")
 	div.count-block.votes-count

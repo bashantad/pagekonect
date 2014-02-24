@@ -52,7 +52,7 @@ class DealsController < ApplicationController
    end
 
    def show
-      
+      @all_deals = @deal.user.deals
     end
     
    private

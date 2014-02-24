@@ -16,7 +16,7 @@
             <div class="pull-left">
                 $<%=row.old_price %> now $<%=row.new_price%> 
             </div>
-            <div class="pull-right" style="padding-right:20px;">
+            <div class="pull-right" style="padding-right:30px;">
                 <% if row.user == current_user%>
                     <%= link_to '&nbsp;Edit'.html_safe, edit_deal_path(row), :class => "fa fa-pencil modal-link" %>
                     <% end %>
@@ -41,7 +41,7 @@
         </small>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
             <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
-            <%= social_share_button_tag(row.title, :url => "http://pagekonect.com/") %>
+            <%#= social_share_button_tag(row.title, :url => "http://pagekonect.com/") %>
         </div>
     </div>		
 </div>

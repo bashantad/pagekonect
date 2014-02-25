@@ -11,7 +11,7 @@
                 uploaded 
             <% elsif row.is_video? %>
                 uploaded
-            <% elsif row.is_event? %>
+            <% elsif row.is_event? || row.is_deal? %>
                 <%=row.is_suggestor ? "suggested" : "created"%>
             <% else %>
                 created 

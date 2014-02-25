@@ -48,5 +48,7 @@ $(document).ready(function() {
       }
     });
   });
-  $('#my-carousel').carousel();
+  $('#my-carousel').carousel({
+    interval :false
+  });
 });

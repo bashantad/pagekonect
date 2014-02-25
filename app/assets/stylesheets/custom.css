@@ -102,7 +102,7 @@ a.like-button:hover{
 	padding:0px 3px;
 }
  .like-wrapp{
-	text-align: right;
+	text-align: left;
 	padding-right: 20px;
 }
 .photo-update{
@@ -241,7 +241,10 @@ a.like-button:hover{
   text-align:center;
 }
 .show-block-wrapp{
-  height: 532px;
-  overflow:scroll;
+  height: 580px;
   backgroun:#FFF;
+}
+.show-desc-block{
+  overflow:scroll;
+  height:540px;
 }

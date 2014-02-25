@@ -59,8 +59,8 @@
       </div>
   </div>
   
-  <div class="form-item" style="display:none;">
-      <label>Describe more about this deal</label>
+  <div class="form-item">
+      <label>Describe more about this deal(optional)</label>
     <%= f.text_area :description, :class => "form-control", :rows => 4 %>
   </div>
            
@@ -91,10 +91,20 @@
   </div>
   
   <div class="form-item">
+      <label>Are you suggesting this deal or creator?</label>
+      <div class="checkbox">
+          Suggesting a deal? <%=f.radio_button :is_suggestor, 'suggestor'%>
+      </div>
+      <div class="checkbox">
+          Creator of a deal? <%=f.radio_button :is_suggestor, 'creator'%>
+      </div> 
+  </div>
+
+  <div class="form-item">
       <label>Would you like people to search this on search engine?</label>
 	  <%=f.check_box :is_searchable%> Yes
   </div>
-
+  
   <div class="actions">
     <%= f.submit(:class => "btn btn-custom", :value => "Upload") %>
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

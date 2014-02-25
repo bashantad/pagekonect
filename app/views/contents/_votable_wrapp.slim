@@ -1,16 +1,16 @@
 div.like-wrapp
 	- if user_signed_in?
 		- if current_user.liked? content, votable_type: class_name(content)
-			= link_to " Unlike", vote_down_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-down", remote: true
+			= link_to " Unlike", vote_down_path(type: class_name(content), id: content.id), class: "like-button", remote: true
 		- else
-			= link_to " Like", vote_up_path(type: class_name(content), id: content.id), class: "like-button fa fa-thumbs-o-up", remote: true
+			= link_to " Like", vote_up_path(type: class_name(content), id: content.id), class: "like-button", remote: true
 
 div.control-group.clearfix.content-popularity
 	div.count-block.views-count
-		= pluralize(content.views.size, "view")
+		= "view #{content.views.size}"
 	div.count-block.votes-count
-		= pluralize(content.likes.size, "like") 
+		= "like #{content.likes.size}"
 	div.count-block.comments-count
-		= pluralize(content.comments.size, "comment")
+		= "comment #{content.comments.size}"
 	div.count-block.shares-count
-	    = pluralize(1, "share")
+	    = "share 0"

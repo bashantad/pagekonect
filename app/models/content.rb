@@ -4,7 +4,6 @@ class Content < ActiveRecord::Base
   include PgSearch
   
   acts_as_votable
-  acts_as_taggable_on :category
   multisearchable :against => [:title, :description, :image_file_name, :image_description], :if => :is_searchable?
 
   belongs_to :user

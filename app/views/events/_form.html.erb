@@ -80,8 +80,8 @@
   </div>
 
   <div class="form-item">
-      <label>Add Tags (separat by commas)</label>
-      <%=f.url_field :twitter_url, :class => "form-control"%>
+      <label>Add Tags (separated by commas)</label>
+      <%=f.select :category, options_for_select(Event::CATEGORIES), :class => "form-control"%>
   </div>
   
   <div class="form-item">

@@ -23,7 +23,7 @@
 			<%if current_user == @video.user%>
 				<div class="control-group clearfix">
 					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Edit'.html_safe, edit_video_path(@video), :class => "fa fa-pencil" %>
+						<%= link_to '&nbsp;Edit'.html_safe, edit_video_path(@video), :class => "fa fa-pencil modal-link" %>
 					</div>
 					<div class="pull-right form-item">
 						<%= link_to '&nbsp;Delete'.html_safe, @video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>

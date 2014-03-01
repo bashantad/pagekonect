@@ -2,7 +2,6 @@
     <div class="show-block" style="padding:0 15px">
         <div class="row">
             <div class="col-md-7">
-                <h3 style="padding-left:15px;"><%= deal.title %></h3>
                 <%=image_tag deal.image.url(:medium), :class => "responsive full-image"%>
                 <div class="image-description">
                     <%=deal.image_description%>
@@ -12,9 +11,10 @@
                 </div>
             </div>
             <div class="col-md-5 text-left">
-                <h4><%=render "contents/created_block", :row => deal%></h4>
+                <%=render "contents/created_block", :row => deal%>
                 <div class="show-desc-block">
                     <div>
+                        <div><%= deal.title %></div>
                         <strong>Start at:  </strong> <%=deal.start_time%><br>
                         <strong>End at: </strong> <%=deal.end_time%><br>
                         <strong>Original price:  </strong>$<%=deal.old_price%><br>
@@ -31,7 +31,7 @@
                     </div>
                     <%=render "comments/comment_block", :row => deal%>
                     <%if current_user == deal.user%>
-                        <div class="control-group clearfix">
+                        <div class="control-group clearfix action-wrapp">
                             <div class="pull-right form-item">
                                 <%= link_to '&nbsp;Edit'.html_safe, edit_deal_path(deal), :class => "fa fa-pencil modal-link" %>
                             </div>

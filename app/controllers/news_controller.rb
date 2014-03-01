@@ -1,8 +1,8 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy, :detail]
-
   before_filter :authenticate_user!, except: [:index, :show, :detail]
-
+  layout "modal", :only => [:edit, :new]
+  
   def index
     @news = News.uniq_users.collect{ |user| user.news.last } 
     @desc_length = 100
@@ -70,6 +70,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:title, :description, :image, :image_description, :url, :is_searchable, :facebook_url, :twitter_url)
+      params.require(:news).permit(:title, :description, :image, :image_description, :url, :is_searchable, :facebook_url, :twitter_url, :google_plus_url)
     end
 end

@@ -1,52 +1,25 @@
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%= @event.title %></h3>
-			</div>
-			<div class="panel-body" style="padding:0 15px">
-                <div class="control-group clearfix">
-                    <div class="pull-right">
-                        <small>Created this event <%=time_ago_in_words(@event.created_at)%> ago by <%=@event.user.full_name%>.</small>
-                    </div>
-                </div>
-				<div class="row">
-				    <div class="col-md-7">
-						<%=image_tag @event.image.url(:medium), :class => "responsive full-image"%>
-						<div class="image-description">
-						    <%=@event.image_description%>
-					    </div>
-					</div>
-					<div class="col-md-5 text-justify">
-						<%= @event.description.html_safe %>
-						<div>
-						    <strong>Event date:  </strong> <%=@event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
-						</div>
-                        <div>
-                            <strong>Start time: </strong> <%=@event.start_time%>
-                        </div>
-                        <div>
-                            <strong>Finish time: </strong> <%=@event.end_time%>
-                        </div>
-						<div><strong>Event location: </strong><a  href="http://maps.google.com?q=<%=@event.address%>"><%=@event.address%></a><br>
-						    <%=render "contents/url_links", :row => @event%>
-                			<div class="full-block votable-wrapp" id="votable-wrapp-<%= @event.id %>">
-                				<%= render partial: "contents/votable_wrapp", locals: { content: @event } %>
-                			</div>
-                            <%=render "comments/comment_block", :row => @event%>
-					</div>
-				</div>
-			</div>
-			<%if current_user == @event.user%>
-				<div class="control-group clearfix">
-					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Edit'.html_safe, edit_event_path(@event), :class => "fa fa-pencil" %>
-					</div>
-					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Delete'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
-					</div>
-				</div>
-			<%end%>
-		</div>
-	</div>
+<div id="my-carousel" class="carousel slide" data-ride="carousel" style="height:535;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <% @all_events.each_with_index do |event, index| %>
+            <li data-target="#my-carousel" data-slide-to="<%=index%>" class="<%=(event.id==@event.id) ? "active" : ""%>"></li>
+        <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <%@all_events.each_with_index do |event, index|%>
+            <div class="item <%="active" if event.id == @event.id %>">
+                <%=render "show_block", :event => event%>
+            </div>
+        <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
 </div>

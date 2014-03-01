@@ -97,11 +97,11 @@ class ProfilesController < ApplicationController
   private
 
     def upload_path # is used in upload and create
-      File.join(Rails.root, 'tmp/user/avatar', "avatar_#{@user.id}.jpg")
+      File.join(Rails.root, 'tmp', "avatar_#{@user.id}.jpg")
     end
 
     def uploaded_avatar(user)
-      file_name = "#{Rails.root}/tmp/user/avatar/avatar_#{user.id}.jpg"
+      file_name = "#{Rails.root}/tmp/avatar_#{user.id}.jpg"
       if File.exist?(file_name)
         File.open(file_name)
       else

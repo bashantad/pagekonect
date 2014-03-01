@@ -1,0 +1,9 @@
+<div class="content">
+    <div class="columns">
+        <%=image_tag current_user.avatar.url(:thumb), :class => "create-icon"%>
+    </div>
+    <div class="columns c2">
+        <%=link_to current_user.full_name, profile_view_path(current_user)%>
+        <div class="time-ago">Create/Suggest</div>
+    </div>
+</div>

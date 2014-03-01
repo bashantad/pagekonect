@@ -30,18 +30,29 @@
         </div>
 
         <div class="form-item">
-            <label>Does this newsfeed have a website?</label>
-            <%=f.url_field :url, :class => "form-control"%>
+            <label>Attach links</label>
+            <div class="input-group">
+                <span class="input-group-addon">W&nbsp;</span>
+                <%=f.url_field :url, :class => "form-control", :placeholder => "Paste Website"%>
+            </div>
         </div>
-        
         <div class="form-item">
-            <label>Does this newsfeed have a facebook page?</label>
-            <%=f.url_field :facebook_url, :class => "form-control"%>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-facebook-square fa-lg"></i></span>
+                <%=f.url_field :facebook_url, :class => "form-control", :placeholder=>"Paste Facebook"%>
+            </div>
         </div>
-        
         <div class="form-item">
-            <label>Does this newsfeed have a twitter page?</label>
-            <%=f.url_field :twitter_url, :class => "form-control"%>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-twitter-square fa-lg"></i></span>
+                <%=f.url_field :twitter_url, :class => "form-control", :placeholder => "Paste Twitter"%>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-google-plus-square fa-lg"></i></span>
+                <%=f.url_field :google_plus_url, :class => "form-control", :placeholder => "Paste Google+"%>
+            </div>
         </div>
         
         <div class="form-item">
@@ -51,5 +62,6 @@
 
         <div class="actions">
             <%= f.submit(:class => "btn btn-custom") %>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
 <% end %>

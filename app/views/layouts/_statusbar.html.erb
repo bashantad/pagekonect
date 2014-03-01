@@ -47,19 +47,18 @@
             <span class="other-list">
                 <%=link_to '<span class="fa fa-search fa-2x"></span>'.html_safe, root_path, "data-content" => "Search", :class => "popover-btn"%>
             </span>
-            <span class="other-list"> 
-                <%controller =  params[:controller]%>
-                <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
-                <% new_url, new_message = get_create_link_with_msg(controller)%>
-                <% if params[:controller] == "deals"%>
-                    <% modal_class = "modal-link"%>
-                <% end %>
+            <%controller =  params[:controller]%>
+            <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
+                <span class="other-list"> 
+                    <% home_url, new_url, new_message = get_links_with_msg(controller)%>
+                    <% modal_class = controller == "uploads" ? "" : "modal-link"%>
                     <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn #{modal_class}" %>
-                <% end %>
-            </span>
-            <span class="other-list"> 
-                <%=link_to '<span class="fa fa-th fa-2x"></span>'.html_safe, root_path, "data-content" => "Category search", :class => "popover-btn"%>
-            </span>
+
+                </span>
+                <span class="other-list"> 
+                    <%=link_to '<span class="fa fa-th fa-2x"></span>'.html_safe, home_url, "data-content" => "Category search", :class => "popover-btn"%>
+                </span>
+            <% end %>
         </div>
     </div>
     <div class="col-sm-6">
@@ -88,3 +87,4 @@
         </div>
     </div>
 </div>
+<%=render "contents/modal_block"%>

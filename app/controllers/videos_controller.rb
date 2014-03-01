@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
-
+  layout "modal", :only => [:edit, :new]
   def index
     @videos = Video.uniq_users.collect{ |user| user.videos.last }
     @desc_length = 60
@@ -68,6 +68,6 @@ class VideosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def video_params
-    params.require(:video).permit(:title, :description, :url, :facebook_url, :twitter_url, :is_searchable)
+    params.require(:video).permit(:title, :description, :url, :facebook_url, :twitter_url, :google_plus_url, :is_searchable)
   end
 end

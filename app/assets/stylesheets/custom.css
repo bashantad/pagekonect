@@ -248,3 +248,13 @@ a.like-button:hover{
   overflow:scroll;
   height:540px;
 }
+.full-image{
+  border:1px solid #eee;
+}
+.containers .modal-body{
+  max-width:500px;
+  margin:0px auto;
+}
+.action-wrapp{
+  margin-bottom:12px;
+}

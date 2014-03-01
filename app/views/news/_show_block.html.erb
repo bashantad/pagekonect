@@ -1,44 +1,36 @@
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-		<div class="panel panel-default" style="height:532px;overflow:scroll;backgroun:#FFF;">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%= news.title %></h3>
-			</div>
-			<div class="panel-body" style="padding:0 15px">
-                <div class="control-group clearfix">
-                    <div class="pull-right">
-                        <small>Published this news <%= time_ago_in_words(news.created_at)%> ago by <%=news.user.full_name%></small>
-                    </div>
+<div class="show-block-wrapp" style="padding:5px 9%">
+    <div class="show-block" style="padding:0 15px">
+        <div class="row">
+            <div class="col-md-7">
+                <%=image_tag news.image.url(:medium), :class => "responsive full-image"%>
+                <div class="image-description">
+                    <%=news.image_description%>
                 </div>
-				<div class="row">
-				    <div class="col-md-7">
-						<%=image_tag news.image.url(:medium), :class => "responsive full-image"%>
-						<div class="image-description">
-						    <%=news.image_description%>
+            </div>
+            <div class="col-md-5 text-left">
+                <%=render "contents/created_block", :row => news%>
+                <div class="show-desc-block">
+                    <%= news.title %>
+                    <%= news.description.html_safe %>
+                    <%if news.url.present?%>
+                    <%=link_to "Detail news", news_detail_path(news)%>
+                    <%end%>
+                    <div class="full-block votable-wrapp" id="votable-wrapp-<%= news.id %>">
+                        <%= render partial: "contents/votable_wrapp", locals: { content: news } %>
+                    </div>
+                    <%=render "comments/comment_block", :row => news%>
+                    <%if current_user == news.user%>
+                    <div class="control-group clearfix action-wrapp">
+                        <div class="pull-right form-item">
+                            <%= link_to '&nbsp;Edit'.html_safe, edit_news_path(news), :class => "fa fa-pencil modal-link" %>
                         </div>
-					</div>
-					<div class="col-md-5 text-justify">
-						<%= news.description.html_safe %>
-						<%if news.url.present?%>
-						    <%=link_to "Detail news", news_detail_path(news)%>
-						<%end%>
-            			<div class="full-block votable-wrapp" id="votable-wrapp-<%= news.id %>">
-            				<%= render partial: "contents/votable_wrapp", locals: { content: news } %>
-            			</div>
-                        <%=render "comments/comment_block", :row => news%>
-            			<%if current_user == news.user%>
-            				<div class="control-group clearfix">
-            					<div class="pull-right form-item">
-            						<%= link_to '&nbsp;Edit'.html_safe, edit_news_path(news), :class => "fa fa-pencil" %>
-            					</div>
-            					<div class="pull-right form-item">
-            						<%= link_to '&nbsp;Delete'.html_safe, news, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
-            					</div>
-            				</div>
-            			<%end%>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <div class="pull-right form-item">
+                            <%= link_to '&nbsp;Delete'.html_safe, news, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

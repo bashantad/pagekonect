@@ -4,18 +4,18 @@ module ApplicationHelper
     object.try(:is_content?) ? "Content" : object.class.name 
   end
   
-  def get_create_link_with_msg(controller)
+  def get_links_with_msg(controller)
     case controller
     when "news"
-       [new_news_path, "Create new newsfeed"]
+       [news_index_path, new_news_path, "Create new newsfeed"]
     when "deals"
-       [new_deal_path, "Create new deal"]
+       [deals_path, new_deal_path, "Create new deal"]
     when "videos"
-       [new_video_path, "Create new video"]
+       [videos_path, new_video_path, "Create new video"]
     when "events"
-       [new_event_path, "Create new event or suggest one"]
+       [events_path, new_event_path, "Create new event or suggest one"]
     else
-       [uploads_path, "Upload photos"]  
+       [publish_uploads_path, uploads_path, "Upload photos"]  
     end
   end
   

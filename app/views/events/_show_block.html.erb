@@ -1,0 +1,52 @@
+<div class="show-block-wrapp" style="padding:5px 9%">
+    <div class="show-block" style="padding:0 15px">
+        <div class="row">
+            <div class="col-md-7">
+                <%=image_tag event.image.url(:medium), :class => "responsive full-image"%>
+                <div class="image-description">
+                    <%=event.image_description%>
+                </div>
+            </div>
+            <div class="col-md-5 text-left">
+                <%=render "contents/created_block", :row => event%>
+                <div class="show-desc-block">
+                    <div>
+                        <div><%= event.title %></div>
+                        <div>
+                            <strong>Event date:  </strong> <%=event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
+                        </div>
+                        <div>
+                            <strong>Start time: </strong> <%=event.start_time%>
+                        </div>
+                        <div>
+                            <strong>Finish time: </strong> <%=event.end_time%>
+                        </div>
+                        <div>
+                            <strong>Event location: </strong>
+                            <a  href="http://maps.google.com?q=<%=event.address%>"><%=event.address%></a>
+                        </div>
+                        <div>
+                            <%= event.description.html_safe %>
+                        </div>
+                        <%=render "contents/url_links", :row => event%>
+                        <div class="full-block votable-wrapp" id="votable-wrapp-<%= event.id %>">
+                            <%= render partial: "contents/votable_wrapp", locals: { content: event } %>
+                        </div>
+                        <%=render "comments/comment_block", :row => event%>
+                        <%if current_user == event.user%>
+                        <div class="control-group clearfix action-wrapp">
+                            <div class="pull-right form-item">
+                                <%= link_to '&nbsp;Edit'.html_safe, edit_event_path(event), :class => "fa fa-pencil modal-link" %>
+                            </div>
+                            <div class="pull-right form-item">
+                                <%= link_to '&nbsp;Delete'.html_safe, event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
+                            </div>
+                        </div>
+                        <%end%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

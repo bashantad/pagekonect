@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
-
+  layout "modal", :only => [:edit, :new]
   def index
 
     if params[:category].present?
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
      respond_to do |format|
        if @event.update(event_params)
          @event.update_category_list (params[:event][:category])
-         format.html { redirect_to edit_event_path(@event), notice: 'Event was successfully updated.' }
+         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
          format.json { head :no_content }
        else
          format.html { render action: 'edit' }
@@ -56,8 +56,8 @@ class EventsController < ApplicationController
    end
 
    def show
-      
-    end
+     @all_events = @event.user.events
+   end
     
    private
    # Use callbacks to share common setup or constraints between actions.
@@ -71,7 +71,7 @@ class EventsController < ApplicationController
    end
 
     def event_params
-      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time, :is_suggestor, :category]
+      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time, :is_suggestor, :category, :google_plus_url]
       parameters = params.require(:event).permit(event_attributes)
       parameters
     end

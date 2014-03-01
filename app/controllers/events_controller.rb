@@ -25,7 +25,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.new event_params
-    @event.category_list.add (params[:event][:category]) if params[:event][:category].present?
+    @event.category_list.add (params[:event][:category]).join(",") if params[:event][:category].present?
 
     if @event.save
       redirect_to event_path(@event), notice: "Event created successfully."
@@ -37,7 +37,8 @@ class EventsController < ApplicationController
   def update
      respond_to do |format|
        if @event.update(event_params)
-         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+         @event.update_category_list (params[:event][:category])
+         format.html { redirect_to edit_event_path(@event), notice: 'Event was successfully updated.' }
          format.json { head :no_content }
        else
          format.html { render action: 'edit' }
@@ -70,9 +71,8 @@ class EventsController < ApplicationController
    end
 
     def event_params
-      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time, :is_suggestor]
+      event_attributes = [:title, :description, :image, :image_description,  :is_searchable, :address, :event_date, :facebook_url, :url, :twitter_url, :start_time, :end_time, :is_suggestor, :category]
       parameters = params.require(:event).permit(event_attributes)
-      parameters[:is_suggestor] = parameters[:is_suggestor] == "suggestor" ? true : false
       parameters
     end
 end

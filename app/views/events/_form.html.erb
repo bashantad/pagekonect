@@ -58,10 +58,10 @@
   <div class="form-item">
       <label>Are you suggesting this event or creator?</label>
       <div class="checkbox">
-          Suggesting an event? <%=f.radio_button :is_suggestor, 'suggestor'%>
+          Suggesting an event? <%=f.radio_button :is_suggestor, 'true'%>
       </div>
       <div class="checkbox">
-          Creator of an event? <%=f.radio_button :is_suggestor, 'creator'%>
+          Creator of an event? <%=f.radio_button :is_suggestor, 'false'%>
       </div>      
   </div>
   <div class="form-item">
@@ -80,8 +80,11 @@
   </div>
 
   <div class="form-item">
-      <label>Add Tags (separated by commas)</label>
-      <%=f.select :category, options_for_select(Event::CATEGORIES), :class => "form-control"%>
+      <label>Choose category</label>
+      <% Event::CATEGORIES.each do |category| %>
+        <%= check_box_tag "event[category][]", category, @event.category_list.include?(category.downcase) %>
+        <%=category%>
+      <% end %>
   </div>
   
   <div class="form-item">

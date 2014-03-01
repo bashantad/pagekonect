@@ -3,9 +3,20 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.uniq_users.collect{ |user| user.events.last }
+
+    if params[:category].present?
+      @events = Event.tagged_with params[:category], on: :category
+    else
+      @events = Event.uniq_users.collect{ |user| user.events.last }
+    end
+      
     @desc_length = 60
-    @title_length = 40   
+    @title_length = 40
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -14,6 +25,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.new event_params
+    @event.category_list.add (params[:event][:category]) if params[:event][:category].present?
+
     if @event.save
       redirect_to event_path(@event), notice: "Event created successfully."
     else

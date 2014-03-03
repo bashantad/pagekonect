@@ -1,0 +1,60 @@
+<div class="show-block-wrapp" style="padding:5px 9%; height:600px;overflow:scroll;">
+    <div class="show-block" style="padding:0 15px">
+        <div class="row">
+            <div class="col-md-12">
+                <%=render "contents/created_block", :row => upload %>
+                <%=image_tag upload.photo.url, :class => "img-responsive"%>
+                <%=upload.photo_description.nil? ? "Photo" : upload.photo_description%>
+    			<%if current_user == upload.user%>
+    				<div class="control-group clearfix">
+    					<div class="pull-right form-item">
+    						<%= link_to '&nbsp;Delete'.html_safe, upload, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
+    					</div>
+    				</div>
+    			<%end%>
+
+    			<div class="votable-wrapp full-block" id="votable-wrapp-<%= upload.id %>">
+    				<%= render partial: "contents/votable_wrapp", locals: { content: upload } %>
+    			</div>
+
+    			<div class="comment-wrapp">
+    				<% if user_signed_in? %>
+    					<div class="comments">
+    						<%= form_for [upload, upload.comments.new(user_id: current_user.id)] do |f| %>
+    							<div class="input-group">
+    								<span class="input-group-btn">
+    									<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
+    								</span>
+    								<%= f.hidden_field :commentable_id %>
+    								<%= f.hidden_field :commentable_type %>
+    								<%= f.hidden_field :user_id %>
+    								<%= f.text_field :description, :class => "form-control" %>
+    								<span class="input-group-btn">
+    									<%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
+    								</span>
+    							</div>
+    						<% end %>
+    					</div>
+    				<% end %>
+    				<%upload.comments.each do |comment|%>
+    					<% if comment.persisted? %>
+    						<div class="comments">
+    							<div class="control-group clearfix">
+    								<div class="pull-left">
+    									<%=render "layouts/person", :person => comment.user%>
+    								</div>
+    								<div class="pull-left" style="margin:12px;">
+    									<%=comment.description%> &nbsp;
+    									<%if current_user == comment.user%>
+    										<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, upload_comment_path(upload, comment), :method => :delete%>
+    									<%end%>
+    								</div>
+    							</div>
+    						</div>
+    					<%end%>
+    				<%end%>
+    			</div>
+            </div>
+        </div>
+    </div>
+</div>

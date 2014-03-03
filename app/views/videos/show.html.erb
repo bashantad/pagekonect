@@ -1,80 +1,25 @@
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%= @video.title %></h3>
-			</div>
-			<div class="panel-body" style="padding:0 15px;">
-                <div class="control-group clearfix">
-                    <div class="pull-right">
-                        uploaded this video <%= time_ago_in_words(@video.created_at)%> ago by <%=@video.user.full_name%>.
-                    </div>
-                </div>
-				<div class="row">
-					<div class="col-md-offset-1 col-md-10 col-md-offset-1">
-                        <%=@vid_info.embed_code(iframe_attributes: { width: 800, height: 600}, url_attributes: { autoplay: 1 }).html_safe%>
-						<div class="text-justify form-item">
-							<%= @video.description.html_safe %><br>
-							<%=render "contents/url_links", :row => @video%>
-						</div>
-					</div>
-				</div>
-			</div>
-			<%if current_user == @video.user%>
-				<div class="control-group clearfix">
-					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Edit'.html_safe, edit_video_path(@video), :class => "fa fa-pencil modal-link" %>
-					</div>
-					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Delete'.html_safe, @video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
-					</div>
-				</div>
-			<%end%>
-			<div class="full-block votable-wrapp" id="votable-wrapp-<%= @video.id %>">
-				<%= render partial: "contents/votable_wrapp", locals: { content: @video } %>
-			</div>
+<div id="my-carousel" class="carousel slide" data-ride="carousel" style="height:535;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <% @all_videos.each_with_index do |video, index| %>
+            <li data-target="#my-carousel" data-slide-to="<%=index%>" class="<%=(video.id==@video.id) ? "active" : ""%>"></li>
+        <% end %>
+    </ol>
 
-			<div class="comment-wrapp">
-				<% if user_signed_in? %>
-				<div class="comments">
-					<%= form_for [@video, @video.comments.new(user_id: current_user.id)] do |f| %>
-					<div class="input-group">
-						<span class="input-group-btn">
-							<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
-						</span>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <%@all_videos.each_with_index do |video, index|%>
+            <div class="item <%="active" if video.id == @video.id %>">
+                <%=render "show_block", :video => video%>
+            </div>
+        <% end %>
+    </div>
 
-						<%= f.hidden_field :commentable_id %>
-						<%= f.hidden_field :commentable_type %>
-						<%= f.hidden_field :user_id %>
-						<%= f.text_field :description, :class => "form-control" %>
-						<span class="input-group-btn">
-							<%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
-						</span>
-					</div>
-					<% end %>
-				</div>
-				<% end %>
-
-
-				<%@video.comments.each do |comment|%>
-				<% if comment.persisted? %>
-				<div class="comments">
-					<div class="control-group clearfix">
-						<div class="pull-left">
-							<%=render "layouts/person", :person => comment.user%>
-						</div>
-						<div class="pull-left" style="margin:12px;">
-							<%=comment.description%> &nbsp;
-							<%if current_user == comment.user%>
-							<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, news_comment_path(@video, comment), :method => :delete%>
-							<%end%>
-						</div>
-					</div>
-				</div>
-				<%end%>
-				<%end%>
-
-			</div>
-		</div>
-	</div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
 </div>

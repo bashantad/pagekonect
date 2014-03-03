@@ -1,67 +1,25 @@
-<div class="row">
-	<div class="col-md-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%=@upload.photo_description.nil? ? "Photo" : @upload.photo_description%></h3>
-			</div>
-			<div class="panel-body" style="padding:0px 15px;">
-                <div class="control-group clearfix">
-                    <div class="pull-right">
-                        uploaded this photo <%= time_ago_in_words(@upload.created_at)%> ago by <%=@upload.user.full_name%>.
-                    </div>
-                </div>
-				<%=image_tag @upload.photo.url, :class => "img-responsive"%>
-			</div>
-			<%if current_user == @upload.user%>
-				<div class="control-group clearfix">
-					<div class="pull-right form-item">
-						<%= link_to '&nbsp;Delete'.html_safe, @upload, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
-					</div>
-				</div>
-			<%end%>
+<div id="my-carousel" class="carousel slide" data-ride="carousel" style="height:535;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <% @all_uploads.each_with_index do |upload, index| %>
+            <li data-target="#my-carousel" data-slide-to="<%=index%>" class="<%=(upload.id==@upload.id) ? "active" : ""%>"></li>
+        <% end %>
+    </ol>
 
-			<div class="votable-wrapp full-block" id="votable-wrapp-<%= @upload.id %>">
-				<%= render partial: "contents/votable_wrapp", locals: { content: @upload } %>
-			</div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <%@all_uploads.each_with_index do |upload, index|%>
+            <div class="item <%="active" if upload.id == @upload.id %>">
+                <%=render "show_block", :upload => upload%>
+            </div>
+        <% end %>
+    </div>
 
-			<div class="comment-wrapp">
-				<% if user_signed_in? %>
-					<div class="comments">
-						<%= form_for [@upload, @upload.comments.new(user_id: current_user.id)] do |f| %>
-							<div class="input-group">
-								<span class="input-group-btn">
-									<%=image_tag(current_user.avatar.url(:thumb), :class => "mini-icon")%>
-								</span>
-								<%= f.hidden_field :commentable_id %>
-								<%= f.hidden_field :commentable_type %>
-								<%= f.hidden_field :user_id %>
-								<%= f.text_field :description, :class => "form-control" %>
-								<span class="input-group-btn">
-									<%= f.submit "Comment", :class => "btn btn-default btn-comment" %>
-								</span>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-				<%@upload.comments.each do |comment|%>
-					<% if comment.persisted? %>
-						<div class="comments">
-							<div class="control-group clearfix">
-								<div class="pull-left">
-									<%=render "layouts/person", :person => comment.user%>
-								</div>
-								<div class="pull-left" style="margin:12px;">
-									<%=comment.description%> &nbsp;
-									<%if current_user == comment.user%>
-										<%=link_to '<span class="fa fa-times text-danger"></span>'.html_safe, upload_comment_path(@upload, comment), :method => :delete%>
-									<%end%>
-								</div>
-							</div>
-						</div>
-					<%end%>
-				<%end%>
-			</div>
-
-		</div>
-	</div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
 </div>

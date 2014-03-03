@@ -10,7 +10,7 @@
             <div class="col-md-5 text-left">
                 <%=render "contents/created_block", :row => news%>
                 <div class="show-desc-block">
-                    <%= news.title %>
+                    <div><strong><%= news.title %></strong></div>
                     <%= news.description.html_safe %>
                     <%if news.url.present?%>
                     <%=link_to "Detail news", news_detail_path(news)%>

@@ -11,7 +11,7 @@
                 <%=render "contents/created_block", :row => event%>
                 <div class="show-desc-block">
                     <div>
-                        <div><%= event.title %></div>
+                        <div><strong><%= event.title %></strong></div>
                         <div>
                             <strong>Event date:  </strong> <%=event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
                         </div>

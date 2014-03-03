@@ -20,7 +20,11 @@ class VideosController < ApplicationController
 
   def edit
   end
-
+  
+  def show
+    @all_videos = @video.user.videos
+  end
+  
   def create
     @video = current_user.videos.new(video_params)
     respond_to do |format|

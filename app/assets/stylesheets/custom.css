@@ -258,3 +258,9 @@ a.like-button:hover{
 .action-wrapp{
   margin-bottom:12px;
 }
+#my-carousel .carousel-control.left, #my-carousel .carousel-control.right{
+  background:#FFF;
+}
+#my-carousel .glyphicon-chevron-left, #my-carousel .glyphicon-chevron-right{
+  background:#000;
+}

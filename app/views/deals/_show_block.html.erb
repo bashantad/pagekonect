@@ -6,6 +6,9 @@
                 <div class="image-description">
                     <%=deal.image_description%>
                 </div>
+                 <div class="row-desc">
+                     <%=deal.description%>
+                 </div>
                 <div style="padding:10px;">
                     <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus', 'pinterest'], :url => deal_path(deal) %>
                 </div>
@@ -21,9 +24,6 @@
                         <strong>New price: </strong>$<%=deal.new_price%><br>
                         <strong>Location: </strong> 
                         <a  href="http://maps.google.com?q=<%=deal.address%>"><%=deal.address%></a><br>
-                        <div>
-                            <%=deal.description%>
-                        </div>
                         <%=render "contents/url_links", :row => deal%>
                     </div>
                     <div class="full-block votable-wrapp" id="votable-wrapp-<%= deal.id %>">

@@ -11,31 +11,17 @@
         <form action="/search" method="get">
             <input class="input-lg typeahead search-data" type="text" placeholder="What are you searching for?" id="search-data" name="query" >
         </form>
-        <% if user_signed_in? %>
         <div class="input-group-btn">
-          <!--  <button type="button" class="btn btn-icon dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-camera fa-2x popover-btn home-icon" data-content="Click here either to upload picture from computer or to capture from camera" ></i>
-            </button>
-            <ul class="dropdown-menu home-menu" style="display:none;">
-                <li>
-                    <%=link_to "&nbsp;Take Picture".html_safe, take_pic_profile_path(current_user), :class => "fa fa-camera"%>
-                </li>
-                <li>
-                    <%=link_to "&nbsp;Upload Avatar".html_safe, upload_avatar_profile_path(current_user), :class => "fa fa-picture-o"%>
-                </li>
-            </ul> -->
-                 <div class="btn btn-blue">
-                    <a href="<%=publish_uploads_path%>">
-                        <i class="fa fa-camera fa-2x popover-btn home-icon" data-content="Click here either to upload picture from computer or to capture from camera"></i>
-                    </a>
-                </div>
+            <div class="btn btn-blue">
+                <a href="<%=publish_uploads_path%>">
+                    <i class="fa fa-camera fa-2x popover-btn home-icon" data-content="Click here either to upload picture from computer or to capture from camera"></i>
+                </a>
             </div>
         </div>
-        <% end %>
     </div>
 </div>
 <script>
 $('.search-data').typeahead({
-	prefetch: '/pages/all/search'
+prefetch: '/pages/all/search'
 });
 </script>

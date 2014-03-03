@@ -6,6 +6,9 @@
                 <div class="image-description">
                     <%=event.image_description%>
                 </div>
+                <div class="row-desc">
+                    <%= event.description.html_safe %>
+                </div>
             </div>
             <div class="col-md-5 text-left">
                 <%=render "contents/created_block", :row => event%>
@@ -24,9 +27,6 @@
                         <div>
                             <strong>Event location: </strong>
                             <a  href="http://maps.google.com?q=<%=event.address%>"><%=event.address%></a>
-                        </div>
-                        <div>
-                            <%= event.description.html_safe %>
                         </div>
                         <%=render "contents/url_links", :row => event%>
                         <div class="full-block votable-wrapp" id="votable-wrapp-<%= event.id %>">

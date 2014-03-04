@@ -10,7 +10,7 @@
                      <%=deal.description%>
                  </div>
                 <div style="padding:10px;">
-                    <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus', 'pinterest'], :url => deal_path(deal) %>
+                    <%=render "contents/url_links", :row => deal%>
                 </div>
             </div>
             <div class="col-md-5 text-left">
@@ -24,7 +24,12 @@
                         <strong>New price: </strong>$<%=deal.new_price%><br>
                         <strong>Location: </strong> 
                         <a  href="http://maps.google.com?q=<%=deal.address%>"><%=deal.address%></a><br>
-                        <%=render "contents/url_links", :row => deal%>
+                        <div class="share-wrapp" style="padding:10px;background:#ccc;">
+                            <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus', 'pinterest'], :url => deal_path(deal) %>
+                        </div>
+                        <div class="share-www" style="margin-top:10px;background:#aaa;padding:2px;">
+                            <%= social_share_button_tag(deal.title) %>
+                        </div>
                     </div>
                     <div class="full-block votable-wrapp" id="votable-wrapp-<%= deal.id %>">
                         <%= render partial: "contents/votable_wrapp", locals: { content: deal } %>

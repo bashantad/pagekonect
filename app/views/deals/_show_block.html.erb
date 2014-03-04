@@ -25,7 +25,7 @@
                         <strong>Location: </strong> 
                         <a  href="http://maps.google.com?q=<%=deal.address%>"><%=deal.address%></a><br>
                         <div class="share-wrapp" style="padding:10px;background:#ccc;">
-                            <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus', 'pinterest'], :url => deal_path(deal) %>
+                            <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :url => deal_path(deal) %>
                         </div>
                         <div class="share-www" style="margin-top:10px;background:#aaa;padding:2px;">
                             <%= social_share_button_tag(deal.title) %>

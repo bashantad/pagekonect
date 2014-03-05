@@ -26,6 +26,7 @@ class NewsController < ApplicationController
   
   def create
     @news = current_user.news.new(news_params)
+    @news.category_list.add(params[:news][:category]) if params[:news][:category].present?
     respond_to do |format|
       if @news.save
         format.html { redirect_to news_index_path, notice: 'news was successfully created.' }

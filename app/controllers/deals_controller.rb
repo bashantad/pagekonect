@@ -23,6 +23,7 @@ class DealsController < ApplicationController
 
   def create
     @deal = current_user.deals.new deal_params
+    @deal.category_list.add(params[:deal][:category]) if params[:deal][:category].present?
 
     if @deal.save
       redirect_to deal_path(@deal), notice: "Deal created successfully."

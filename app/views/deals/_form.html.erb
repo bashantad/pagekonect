@@ -104,6 +104,15 @@
       <label>Would you like people to search this on search engine?</label>
 	  <%=f.check_box :is_searchable%> Yes
   </div>
+
+  <div class="form-item">
+    <label>Choose category</label>
+    <% Event::CATEGORIES.each do |category| %>
+        <br>
+        <%= check_box_tag "deal[category][]", category, @deal.category_list.include?(category.downcase) %>
+        <%= category %>
+    <% end %>
+  </div>
   
   <div class="actions">
     <%= f.submit(:class => "btn btn-custom", :value => "Upload") %>

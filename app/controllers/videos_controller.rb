@@ -27,6 +27,8 @@ class VideosController < ApplicationController
   
   def create
     @video = current_user.videos.new(video_params)
+    @video.category_list.add(params[:video][:category]) if params[:video][:category].present?
+
     respond_to do |format|
       if @video.save
         format.html { redirect_to videos_path, notice: 'video was successfully posted.' }

@@ -2,6 +2,7 @@ class Content < ActiveRecord::Base
   include Commentable
   include Viewable
   include PgSearch
+
   CATEGORIES = [
     "Music",
     "Conference",

@@ -4,6 +4,7 @@ class Content < ActiveRecord::Base
   include PgSearch
 
   CATEGORIES = [
+    "All",
     "Music",
     "Conference",
     "Festivals",

@@ -1,4 +1,9 @@
-<div id="videos">
+<div>
+  <label for="category_select"> Select Category</label>
+  <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+</div>
+
+<div id="video_index_container">
 	<%="No videos" if @videos.blank?%>
 	<% @videos.each_with_index do |row, index| %>
        <%if (index+1)%4 == 0%>
@@ -10,3 +15,23 @@
        <%end%>
 	<% end %>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#category_select').on("change", function(){
+            value = $(this).val()
+
+            $.ajax({
+                url : '<%= videos_path() %>',
+                data : {
+                    category : value
+                },
+                type : "get",
+                dataType : "html"
+            }).done(function(response){
+                rsp_html = $(response).find('#video_index_container').html()
+                $('#video_index_container').html(rsp_html);
+            })
+        })    
+    })    
+</script>

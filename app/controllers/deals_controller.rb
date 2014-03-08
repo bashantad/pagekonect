@@ -4,7 +4,12 @@ class DealsController < ApplicationController
   layout "modal", :only => [:edit, :new]
 
   def index
-    @deals = Deal.uniq_users.collect{ |user| user.deals.last}
+    if params[:category].present? && params[:category] != "All"
+      @deals = Deal.tagged_with params[:category], on: :category
+    else
+      @deals = Deal.uniq_users.collect{ |user| user.deals.last}
+    end
+    
     @desc_length = 60
     @title_length = 40   
   end

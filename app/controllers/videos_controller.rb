@@ -3,7 +3,13 @@ class VideosController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   layout "modal", :only => [:edit, :new]
   def index
-    @videos = Video.uniq_users.collect{ |user| user.videos.last }
+
+    if params[:category].present? && params[:category] != "All"
+      @videos = Video.tagged_with params[:category], on: :category
+    else
+      @videos = Video.uniq_users.collect{ |user| user.videos.last }
+    end
+    
     @desc_length = 60
     @title_length = 40
     @iframe_width = 230

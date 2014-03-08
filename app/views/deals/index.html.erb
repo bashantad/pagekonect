@@ -1,9 +1,11 @@
 <div id="news">
-    <%if @deals.blank?%>
-        <div class="alert alert-info">
-            No Registered deals
-        </div>
-    <%end%>
+    <div>
+        <label for="category_select"> Select Category</label>
+        <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+    </div>
+
+    <div id="deal_index_container">
+    <%="No deals." if @deals.blank?%>
     <% @deals.each_with_index do |row, index| %>
         <%if (index+1)%4 == 0%>
             <div class="row news-row">
@@ -14,3 +16,24 @@
         <%end%>
     <% end %>
 </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#category_select').on("change", function(){
+            value = $(this).val()
+
+            $.ajax({
+                url : '<%= deals_path() %>',
+                data : {
+                    category : value
+                },
+                type : "get",
+                dataType : "html"
+            }).done(function(response){
+                rsp_html = $(response).find('#deal_index_container').html()
+                $('#deal_index_container').html(rsp_html);
+            })
+        })    
+    })    
+</script>

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   layout "modal", :only => [:edit, :new]
   def index
 
-    if params[:category].present?
+    if params[:category].present? && params[:category] != "All"
       @events = Event.tagged_with params[:category], on: :category
     else
       @events = Event.uniq_users.collect{ |user| user.events.last }

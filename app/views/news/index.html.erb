@@ -1,12 +1,40 @@
 <div id="news">
-	<%="No news" if @news.blank?%>
-	<% @news.each_with_index do |row, index| %>
-	<%if (index+1)%4 == 0%>
-	<div class="row news-row">
-		<%end %>
-		<%=render "news/news_block", :row => row%>
-		<%if (index+1)%4==0%>
-	</div>
-	<%end%>
-	<% end %>
+
+	<div>
+        <label for="category_select"> Select Category</label>
+        <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+    </div>
+
+    <div id="news_index_container">
+    	<%="No news" if @news.blank?%>
+    	<% @news.each_with_index do |row, index| %>
+    	<%if (index+1)%4 == 0%>
+    	<div class="row news-row">
+    		<%end %>
+    		<%=render "news/news_block", :row => row%>
+    		<%if (index+1)%4==0%>
+    	</div>
+    	<%end%>
+    	<% end %>
+    </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#category_select').on("change", function(){
+            value = $(this).val()
+
+            $.ajax({
+                url : '<%= news_index_path() %>',
+                data : {
+                    category : value
+                },
+                type : "get",
+                dataType : "html"
+            }).done(function(response){
+                rsp_html = $(response).find('#news_index_container').html()
+                $('#news_index_container').html(rsp_html);
+            })
+        })    
+    })    
+</script>

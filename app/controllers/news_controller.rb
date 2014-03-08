@@ -4,7 +4,13 @@ class NewsController < ApplicationController
   layout "modal", :only => [:edit, :new]
   
   def index
-    @news = News.uniq_users.collect{ |user| user.news.last } 
+    if params[:category].present? && params[:category] != "All"
+      @news = News.tagged_with params[:category], on: :category
+    else
+      @news = News.uniq_users.collect{ |user| user.news.last } 
+    end
+
+
     @desc_length = 100
     @title_length = 83
   end

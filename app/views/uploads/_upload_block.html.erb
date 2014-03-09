@@ -11,6 +11,9 @@
                 <%=image_tag row.photo.url(:thumb), :class => "block-img"%>
             </a>
         </div>
+        <div class="share-www">
+            <%=render "contents/share_link", :row => row%>
+        </div>
         <div>
             <% no_of_photos = row.user.uploads.size%>
             <% if no_of_photos > 1 && params[:query].blank? %>

@@ -11,6 +11,10 @@
                 <%=image_tag row.image.url(:thumb), :class => "block-img"%>
             </a>
         </div>
+        <div class="share-www">
+            <%=render "contents/share_link", :row => row%>
+        </div>
+        
         <div>
             <% no_of_news = row.user.news.size%>
             <% if no_of_news > 1 && params[:query].blank?%>

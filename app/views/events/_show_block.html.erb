@@ -9,6 +9,9 @@
                 <div class="row-desc">
                     <%= event.description.html_safe %>
                 </div>
+                <div class="my-links">
+                    <%=render "contents/url_links", :row => event%>
+                </div>
             </div>
             <div class="col-md-5 text-left">
                 <%=render "contents/created_block", :row => event%>
@@ -28,7 +31,10 @@
                             <strong>Event location: </strong>
                             <a  href="http://maps.google.com?q=<%=event.address%>"><%=event.address%></a>
                         </div>
-                        <%=render "contents/url_links", :row => event%>
+                        <div class="share-www">
+                            <%=render "contents/share_link", :row => event%>
+                        </div>
+                        
                         <div class="full-block votable-wrapp" id="votable-wrapp-<%= event.id %>">
                             <%= render partial: "contents/votable_wrapp", locals: { content: event } %>
                         </div>

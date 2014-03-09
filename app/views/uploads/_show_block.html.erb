@@ -12,7 +12,9 @@
     					</div>
     				</div>
     			<%end%>
-
+                <div class="share-www">
+                    <%=render "contents/share_link", :row => upload%>
+                </div>
     			<div class="votable-wrapp full-block" id="votable-wrapp-<%= upload.id %>">
     				<%= render partial: "contents/votable_wrapp", locals: { content: upload } %>
     			</div>

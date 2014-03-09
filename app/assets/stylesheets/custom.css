@@ -265,3 +265,7 @@ a.like-button:hover{
 #my-carousel .glyphicon-chevron-left, #my-carousel .glyphicon-chevron-right{
   background:#000;
 }
+.share-www{
+  margin-top:10px;
+  padding:2px;
+}

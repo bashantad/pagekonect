@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="block-item">
-            <%=render "contents/url_links", :row => row%>
+            <%=render "contents/share_link", :row => row%>
         </div>
         <small>
             
@@ -41,7 +41,7 @@
         </small>
         <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
             <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
-            <%#= social_share_button_tag(row.title, :url => "http://pagekonect.com/") %>
+            
         </div>
     </div>		
 </div>

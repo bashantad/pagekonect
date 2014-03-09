@@ -16,6 +16,10 @@ class Upload < ActiveRecord::Base
     
   include Rails.application.routes.url_helpers
   
+  def title
+    photo_tag.present? ? photo_tag : photo_description
+  end
+  
   def to_jq_upload
       {
         "name" => read_attribute(:photo_file_name),

@@ -1,0 +1,13 @@
+<%  
+if row.instance_of? Upload
+    url = upload_url(row)
+elsif row.is_deal?
+    url = deal_url(row)
+elsif row.is_news?
+    url = news_url(row)
+elsif row.is_video?
+    url = video_url(row)
+elsif row.is_event?
+    url = event_url(row)
+end%>
+<%= social_share_button_tag(row.title, :url => url) %>

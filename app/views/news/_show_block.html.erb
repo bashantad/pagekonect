@@ -9,14 +9,17 @@
                  <div class="row-desc">
                      <%= news.description.html_safe %>
                  </div>
+                 <div class="my-links">
+                     <%=render "contents/url_links", :row => news%>
+                 </div>
             </div>
             <div class="col-md-5 text-left">
                 <%=render "contents/created_block", :row => news%>
                 <div class="show-desc-block">
                     <div><strong><%= news.title %></strong></div>
-                    <%if news.url.present?%>
-                    <%=link_to "Detail news", news_detail_path(news)%>
-                    <%end%>
+                    <div class="share-www">
+                        <%=render "contents/share_link", :row => news%>
+                    </div>
                     <div class="full-block votable-wrapp" id="votable-wrapp-<%= news.id %>">
                         <%= render partial: "contents/votable_wrapp", locals: { content: news } %>
                     </div>

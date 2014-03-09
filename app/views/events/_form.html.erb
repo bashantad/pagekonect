@@ -28,11 +28,7 @@
   
   <div class="form-item">
       <label>What date does this event start?</label>
-      <div class="form-group">
-          <div class='input-group date' id='datetimepicker1'>
-              <%=f.text_field :event_date, :class => "form-control", "data-format" => "YYYY-MM-DD hh:mm"%><span class="input-group-addon popover-btn" data-content="Click here to choose date and time"><span class="glyphicon glyphicon-calendar"></span></span>
-          </div>
-      </div>
+      <%=f.text_field :event_date, :class => "form-control"%>
   </div>
   
   <div class="form-item">
@@ -116,3 +112,11 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#event_event_date').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+  })
+</script>

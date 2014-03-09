@@ -34,6 +34,12 @@
       <label>Address for this deal?</label>
      <%=f.text_field :address, :class => "form-control", :placeholder => ""%>
   </div> 
+  
+  <div class="form-item">
+      <label>What date does this deal start?</label>
+      <%=f.text_field :event_date, :class => "form-control"%>
+  </div>
+  
   <div class="form-item">
       <div class="row">
           <div class="col-sm-6">
@@ -127,3 +133,10 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#deal_event_date').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+  })
+</script>

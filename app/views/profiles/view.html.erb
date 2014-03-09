@@ -41,11 +41,11 @@
             </span>
             </div>
         <div class="display-item">
-                <%=link_to '<span class="fa fa-facebook-square fa-lg"></span>'.html_safe, @profile.facebook%>
-                <%=link_to '<span class="fa fa-twitter-square fa-lg"></span>'.html_safe, @profile.twitter%>
-                <%=link_to '<span class="fa fa-google-plus-square fa-lg"></span>'.html_safe, @profile.google_plus%>
-                <%=link_to '<span class="fa fa-pinterest-square fa-lg"></span>'.html_safe, @profile.p_interest%>
-                <%=link_to '<span class="fa fa-linkedin-square fa-lg"></span>'.html_safe, @profile.linked_in%>
+                <%=link_to '<span class="fa fa-facebook-square fa-lg"></span>'.html_safe, @profile.facebook if @profile.facebook.present?%>
+                <%=link_to '<span class="fa fa-twitter-square fa-lg"></span>'.html_safe, @profile.twitter if @profile.twitter.present?%>
+                <%=link_to '<span class="fa fa-google-plus-square fa-lg"></span>'.html_safe, @profile.google_plus if @profile.google_plus.present?%>
+                <%=link_to '<span class="fa fa-pinterest-square fa-lg"></span>'.html_safe, @profile.p_interest if @profile.p_interest.present?%>
+                <%=link_to '<span class="fa fa-linkedin-square fa-lg"></span>'.html_safe, @profile.linked_in if @profile.linked_in.present?%>
             </div>
             
         </div>

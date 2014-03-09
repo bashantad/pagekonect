@@ -22,7 +22,7 @@
 //= require ckeditor/config
 //= require jquery-fileupload
 //= require moment
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require social-share-button
 //= require webcam
 //= require_tree .

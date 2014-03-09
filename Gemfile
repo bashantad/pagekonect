@@ -21,7 +21,7 @@ gem 'x-editable-rails'
 gem 'social-share-button'
 gem 'shareable'
 gem "acts-as-taggable-on", "~> 3.0.1"
-
+gem 'bootstrap-datepicker-rails'
 
 # Use for multiple search across different tables, for more https://github.com/Casecommons/pg_search
 gem "pg_search", "~> 0.7.3"

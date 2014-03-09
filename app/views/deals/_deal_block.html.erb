@@ -10,7 +10,9 @@
             <a  href="http://maps.google.com?q=<%=row.address%>"><%=row.address%></a><br>
         </div>
         <div class="block-item">
-            <%=row.start_time if row.start_time.present? %> to <%=row.end_time if row.end_time.present?%>
+            <% if row.start_time.present? || row.end_time.present?%>
+                <%=row.start_time if row.start_time.present? %> to <%=row.end_time if row.end_time.present?%>
+            <% end %>
         </div>
         <div class="block-item control-group clearfix">
             <div class="pull-left">

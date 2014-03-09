@@ -18,6 +18,9 @@
                 <div class="show-desc-block">
                     <div>
                         <div><strong><%= deal.title %></strong></div>
+                        <% if deal.event_date.present? %>
+                        <strong>Start date: </strong><%=deal.event_date.localtime.to_datetime.strftime("%A, %d %B %Y") %><br>
+                        <% end %>
                         <strong>Start at:  </strong> <%=deal.start_time%><br>
                         <strong>End at: </strong> <%=deal.end_time%><br>
                         <strong>Original price:  </strong>$<%=deal.old_price%><br>

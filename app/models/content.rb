@@ -1,6 +1,7 @@
 class Content < ActiveRecord::Base
   include Commentable
   include Viewable
+  include ShareCountable
   include PgSearch
 
   CATEGORIES = [

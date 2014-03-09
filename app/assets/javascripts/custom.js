@@ -51,4 +51,15 @@ $(document).ready(function() {
   $('#my-carousel').carousel({
     interval :false
   });
+  $(".social-share-button a").click(function(){
+    var share_link = $(this).parents(".share-wrapp").find(".share_link").val();
+    var site_name = $(this).attr("data-site");
+    $.ajax({
+      url: share_link,
+      data: "&site_name=" + site_name,
+      success:function(res){
+        
+      }
+    });
+  });
 });

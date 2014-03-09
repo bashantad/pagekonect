@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     @no_uploads = Upload.all.size + Content.all.size
     @no_views = View.all.count
     @no_comments = Comment.all.size
+    @no_shares = ShareCount.all.count
   end
 
   helper_method :resource, :resource_name, :devise_mapping

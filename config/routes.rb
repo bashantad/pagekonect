@@ -33,7 +33,9 @@ Pagekonect::Application.routes.draw do
     end
   end
   
-  resources :pages
+  resources :pages do
+    get 'share', on: :collection
+  end
 
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
   

@@ -1,6 +1,7 @@
 class Upload < ActiveRecord::Base
   include Commentable
   include Viewable
+  include ShareCountable
   include PgSearch
 
   acts_as_votable

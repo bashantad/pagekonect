@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  count: 1
+  shareable_type: MyString
+  sharable_id: MyString
+
+two:
+  count: 1
+  shareable_type: MyString
+  sharable_id: MyString

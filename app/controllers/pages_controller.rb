@@ -7,6 +7,14 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
+  def share  
+    @content = params[:share_countable_type].constantize.find_by_id(params[:share_countable_id])
+    @content.increment_shares(params[:site_name]) if @content.present?
+    respond_to do |format|
+      format.js { render 'shares.coffee' }
+    end 
+  end
+
   # GET /pages/1
   # GET /pages/1.json
   def show

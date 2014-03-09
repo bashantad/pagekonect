@@ -14,6 +14,9 @@ function updateTime() {
 	}
 	var dateValue = '' + days[day] + ', ' +  d + ' ' + months[month] + ', ' + year;
 	var timeValue; 
+  if(hours==0){
+    hours = 12;
+  }
 	if(hours > 12){
 		timeValue =  (hours - 12) + ":" + minutes + " ";
 	}else{

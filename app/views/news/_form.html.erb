@@ -55,14 +55,9 @@
             </div>
         </div>
         
-        <div class="form-item">
-            <label>Would you like people to search this on search engine?</label>
-            <%=f.check_box :is_searchable%> Yes
-        </div>
-
        <div class="form-item">
          <label>Choose category</label>
-         <% Event::CATEGORIES.each_with_index do |category, index| %>
+         <% News::CATEGORIES.each_with_index do |category, index| %>
              <%if (index)%2==0%>
                  <div class="row">
              <% end %>
@@ -76,6 +71,12 @@
          <% end %>
        </div>
        <div class="clearfix"></div>
+       
+       <div class="form-item">
+           <label>Would you like people to search this on search engine?</label>
+           <%=f.check_box :is_searchable%> Yes
+       </div>
+       
         <div class="actions">
             <%= f.submit(:class => "btn btn-custom") %>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

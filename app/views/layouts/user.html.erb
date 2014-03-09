@@ -31,13 +31,11 @@
 					<div class="panel-body">
 						<%=yield%>
 					</div>
-					<div class="panel-footer">
-						<%if params[:controller] == "profiles" || (params[:controller] == "registrations" && params[:action] == "edit")%>
-						need to replace content
-						<%else%>
-							<%= render "devise/shared/links" %>
-					<%end%>
-					</div>
+					<%if !(params[:controller] == "profiles" || (params[:controller] == "registrations" && params[:action] == "edit"))%>
+                        <div class="panel-footer">
+                            <%= render "devise/shared/links" %>
+					    </div>
+                    <%end%>
 				</div>
 			</div>
 		</div>

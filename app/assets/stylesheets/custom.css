@@ -180,7 +180,6 @@ a.like-button:hover{
 }
 .display-item{
 	padding-left:10px;
-	border-bottom:1px solid #f7f7f7;
 }
 
 .block-heading{
@@ -268,4 +267,11 @@ a.like-button:hover{
 .share-www{
   margin-top:10px;
   padding:2px;
+}
+.display-title{
+  font-weight:bold;
+  margin:10px;
+}
+.display-title span{
+  border-bottom:1px solid #555;
 }

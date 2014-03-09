@@ -4,52 +4,112 @@
         <%= image_tag @profile.avatar.url(:medium), :class => "thumbnail text-center" %>
     </div>
     <div class="pull-left">
-        <div class="display-item">
-            Email address: <a href="mailto:<%=@profile.email%>"><%=@profile.email%></a>
+        <div class="display-title">
+             <span> 
+                  <%=@profile.full_name%>
+             </span>
         </div>
-        
-        <% if @profile.gender.present?%>
+        <div class="display-item">
+            <%=@profile.words_of_wisdom%>
+        </div>
+        <div class="display-title">
+            <span>
+                Contact me on
+            </span>
+        </div>
+        <div class="display-item">
+            <a href="mailto:<%=@profile.email%>" class="fa fa-envelope">&nbsp;&nbsp;</a> Message via email
+        </div>
+        <% if @profile.mobile_phone.present?%>
             <div class="display-item">
-                Gender: <%=@profile.gender %>
+                <span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%=@profile.mobile_phone %>
             </div>
         <% end %>
-        
-        <% if @profile.phone.present?%>
+        <% if @profile.fax.present?%>
             <div class="display-item">
-                Phone: <%=@profile.phone %>
+                Fax <%=@profile.fax%>
             </div>
         <% end %>
-        
-        <% if @profile.full_address.present?%>
+        <% if @profile.home_phone.present?%>
             <div class="display-item">
-                Address : <a  href="http://maps.google.com?q=<%=@profile.full_address%>"><%=@profile.full_address%></a>
+                <span class="fa fa-phone fa-lg"></span>&nbsp;&nbsp;&nbsp;&nbsp; <%=@profile.home_phone %>
             </div>
         <% end %>
-    
-        <% if @profile.occupation.present?%>
-            <div class="display-item">
-                Occupation : <%=@profile.occupation %>
+        <div class="display-title">
+            <span>
+                Follow me on
+            </span>
             </div>
-        <% end %>  
         <div class="display-item">
-          <%=@deals_count%> deals created
+                <%=link_to '<span class="fa fa-facebook-square fa-lg"></span>'.html_safe, @profile.facebook%>
+                <%=link_to '<span class="fa fa-twitter-square fa-lg"></span>'.html_safe, @profile.twitter%>
+                <%=link_to '<span class="fa fa-google-plus-square fa-lg"></span>'.html_safe, @profile.google_plus%>
+                <%=link_to '<span class="fa fa-pinterest-square fa-lg"></span>'.html_safe, @profile.p_interest%>
+                <%=link_to '<span class="fa fa-linkedin-square fa-lg"></span>'.html_safe, @profile.linked_in%>
+            </div>
+            
         </div>
-        <div class="display-item">
-            <%=@events_count %> events created
-        </div>
-
-        <div class="display-item">
-            <%=@news_count %> news created 
-        </div>
-
-        <div class="display-item">
-            <%=@videos_count %> videos uploaded 
-        </div>
-
-        <div class="display-item">
-            <%=@uploads_count%> photos uploaded
-        </div>      
     </div>
 </div>
+
+<div style="display:none">        
+    <% if @profile.gender.present?%>
+    <div class="display-item">
+        Gender: <%=@profile.gender %>
+    </div>
+    <% end %>
+
+    <% if @profile.full_address.present?%>
+    <div class="display-item">
+        Address : <a  href="http://maps.google.com?q=<%=@profile.full_address%>"><%=@profile.full_address%></a>
+    </div>
+    <% end %>
+    
+    <% if @profile.occupation.present?%>
+    <div class="display-item">
+        Occupation : <%=@profile.occupation %>
+    </div>
+    <% end %>  
+</div>
+
+<div class="display-item">
+    <% if @deals_count > 0%>
+        <%=link_to "deals created #{@deals_count}", deal_path(@profile.deals.last)%>
+    <% else %>
+        Deals created 0
+    <% end %>
+</div>
+<div class="display-item">
+    <%if @events_count > 0%>
+        <%=link_to "WTD created #{@events_count}", event_path(@profile.events.last) %>
+    <% else %>
+        WTD created 0
+    <% end %>
+</div>
+
+<div class="display-item">
+    <% if @news_count %>
+        <%=link_to "News created #{@news_count}", news_path(@profile.news.last) %>
+    <% else %>
+        News created 0 
+    <% end %>
+</div>
+
+<div class="display-item">
+    <% if @videos_count > 0%>
+        <%=link_to "Videos created #{@videos_count}", video_path(@profile.videos.last) %>
+    <% else %>
+        videos uploaded 0 
+    <% end %>
+</div>
+
+<div class="display-item">
+    <% if @uploads_count > 0%>
+        <%=link_to "Photos uploaded #{@uploads_count}", upload_path(@profile.uploads.last) %>
+    <% else %>
+       photos uploaded 0 
+    <% end %>
+</div>      
+    
 
 

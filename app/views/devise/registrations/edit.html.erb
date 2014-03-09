@@ -1,72 +1,156 @@
 <% content_for :heading, "Edit your account" %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 	<%error=devise_errors%>
+    <div class="form-item">
+        <%= image_tag current_user.avatar.url(:thumb), :class => "thumbnail text-center" %>
+    </div>
 	<div class="form-item">
-		<%=f.label :your_nam_for_people_to_see%>
+		<%=f.label :your_name_that_people_will_see%>
 		<%=f.text_field :full_name, :autofocus => true, :class => "form-control"%>
 		<% if error && error[:full_name].present? %>
 			<div class="text-danger"><%=error[:full_name][0]%> </div>
 		<%end%>
 	</div>
 	
-	<div class="form-item"><%= f.label :email %>
-		<%= f.email_field :email, :autofocus => true, :class => "form-control", :readonly => true %>
-		<% if error && error[:email].present? %>
-			<div class="text-danger"><%=error[:email][0]%> </div>
+	<div class="form-item">
+		<%=f.label :share_some_words_of_wisdom%>
+		<%=f.text_area :words_of_wisdom, :autofocus => true, :class => "form-control", :rows => "4"%>
+		<% if error && error[:words_of_wisdom].present? %>
+			<div class="text-danger"><%=error[:words_of_wisdom][0]%> </div>
 		<%end%>
 	</div>
-	
-	<div class="form-item"><%= f.label :phone %>
-		<%= f.text_field :phone, :autofocus => true, :class => "form-control" %>
-		<% if error && error[:phone].present? %>
-			<div class="text-danger"><%=error[:phone][0]%> </div>
-		<%end%>
-	</div>
-
-	<div class="form-item"><%= f.label :your_home_address %>
+    
+	<div class="form-item">
+        <%= f.label :your_address_you_live_at %>
 		<%= f.text_field :street, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:street].present? %>
 			<div class="text-danger"><%=error[:street][0]%> </div>
 		<%end%>
 	</div>
-	
-	<div class="form-item"><%= f.label :your_city %>
-		<%= f.text_field :city, :autofocus => true, :class => "form-control" %>
-		<% if error && error[:city].present? %>
-			<div class="text-danger"><%=error[:city][0]%> </div>
-		<%end%>
-	</div>
-	
-	<div class="form-item"><%= f.label :your_zip_code %>
+    
+	<div class="form-item">
+        <%= f.label :post_code %>
 		<%= f.text_field :zip, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:zip].present? %>
 			<div class="text-danger"><%=error[:zip][0]%> </div>
 		<%end%>
 	</div>
-	
-	<div class="form-item"><%= f.label :your_state %>
+    
+	<div class="form-item">
+        <%= f.label :your_state_you_live_in %>
 		<%= f.text_field :state, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:state].present? %>
 			<div class="text-danger"><%=error[:state][0]%> </div>
 		<%end%>
 	</div>
-	
+    
+	<div class="form-item">
+        <%= f.label :the_city_you_live_in %>
+		<%= f.text_field :city, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:city].present? %>
+			<div class="text-danger"><%=error[:city][0]%> </div>
+		<%end%>
+	</div>
+    
+	<div class="form-item">
+        <%= f.label :your_country_you_live_in %>
+		<%= f.text_field :country, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:country].present? %>
+			<div class="text-danger"><%=error[:country][0]%> </div>
+		<%end%>
+	</div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-item">
+                <%= f.label :mobil_phone %>
+                <%= f.text_field :mobile_phone, :autofocus => true, :class => "form-control" %>
+                <% if error && error[:mobile_phone].present? %>
+                <div class="text-danger"><%=error[:mobile_phone][0]%> </div>
+                <%end%>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-item">
+                <%= f.label :home_phone %>
+                <%= f.text_field :home_phone, :autofocus => true, :class => "form-control" %>
+                <% if error && error[:home_phone].present? %>
+                <div class="text-danger"><%=error[:home_phone][0]%> </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-item">
+                <%= f.label :fax %>
+                 <%= f.text_field :fax, :autofocus => true, :class => "form-control"%>
+                <% if error && error[:fax].present? %>
+                <div class="text-danger"><%=error[:fax][0]%> </div>
+                <%end%>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-item">
+                <%= f.label :email %>
+                <%= f.email_field :email, :autofocus => true, :class => "form-control", :readonly => true %>
+                <% if error && error[:email].present? %>
+                <div class="text-danger"><%=error[:email][0]%> </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-item">
+        <%= f.label :your_gender %>
+        <%= f.select(:gender, ['Male', "Female"], {}, { :class => 'form-control' }) %>
+        <% if error && error[:gender].present? %>
+        <div class="text-danger"><%=error[:gender][0]%> </div>
+        <%end%>
+    </div>
+    
 	<div class="form-item"><%= f.label :your_occupation %>
 		<%= f.text_field :occupation, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:occupation].present? %>
 			<div class="text-danger"><%=error[:occupation][0]%> </div>
 		<%end%>
 	</div>
-	
-	<div class="form-item">
-		<%= f.label :your_gender %>
-		<%= f.select(:gender, ['Male', "Female"], {}, { :class => 'form-control' }) %>
-		<% if error && error[:gender].present? %>
-			<div class="text-danger"><%=error[:gender][0]%> </div>
-		<%end%>
-	</div>
-	
-	
+    
+    <div class="form-item">
+        <label>Attach links</label>
+        <div class="input-group">
+           <span class="input-group-addon"><i class="fa fa-facebook-square fa-lg"></i></span>
+           <%=f.url_field :facebook, :class => "form-control", :placeholder=>"Paste Facebook"%>
+        </div>
+    </div>
+
+    <div class="form-item">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-twitter-square fa-lg"></i></span>
+            <%=f.url_field :twitter, :class => "form-control", :placeholder => "Paste Twitter"%>
+        </div>
+    </div>
+    
+    <div class="form-item">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-google-plus-square fa-lg"></i></span>
+            <%=f.url_field :google_plus, :class => "form-control", :placeholder => "Paste Google+"%>
+        </div>
+    </div>
+    
+    <div class="form-item">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-linkedin-square fa-lg"></i></span>
+            <%=f.url_field :linked_in, :class => "form-control", :placeholder=>"Paste Linkedin"%>
+        </div>
+    </div>
+    
+    <div class="form-item">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-pinterest-square fa-lg"></i></span>
+            <%=f.url_field :p_interest, :class => "form-control", :placeholder=>"Paste Pinterest"%>
+        </div>
+    </div>
+    
 	
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 		<div class="form-item">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

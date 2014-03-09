@@ -18,21 +18,21 @@
             </span>
         </div>
         <div class="display-item">
-            <a href="mailto:<%=@profile.email%>" class="fa fa-envelope">&nbsp;&nbsp;</a> Message via email
+            <a href="mailto:<%=@profile.email%>" class="fa fa-envelope">&nbsp;&nbsp;&nbsp;</a> Message via email
         </div>
         <% if @profile.mobile_phone.present?%>
             <div class="display-item">
-                <span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%=@profile.mobile_phone %>
+                <span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@profile.mobile_phone %>
             </div>
         <% end %>
         <% if @profile.fax.present?%>
             <div class="display-item">
-                Fax <%=@profile.fax%>
+                Fax &nbsp;<%=@profile.fax%>
             </div>
         <% end %>
         <% if @profile.home_phone.present?%>
             <div class="display-item">
-                <span class="fa fa-phone fa-lg"></span>&nbsp;&nbsp;&nbsp;&nbsp; <%=@profile.home_phone %>
+                <span class="fa fa-phone fa-lg"></span>&nbsp;&nbsp;&nbsp; <%=@profile.home_phone %>
             </div>
         <% end %>
         <div class="display-title">

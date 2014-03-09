@@ -4,15 +4,32 @@ class Content < ActiveRecord::Base
   include PgSearch
 
   CATEGORIES = [
-    "All",
-    "Music",
-    "Conference",
-    "Festivals",
-    "Fundraisers",
-    "Workshops",
-    "Meetings and Networking",
-    "Social Events",
-    "Performing Arts"
+    # "All",
+    "Restaurent",
+    "Food",
+    "Sports",
+    "Cars",
+    "Realstate",
+    "Fishing",
+    "Camping",
+    "Shoes",
+    "Clothing",
+    "Handbag",
+    "Jewellery",
+    "T.V",
+    "Building material",
+    "Tools",
+    "Pets",
+    "Animals",
+    "Toys",
+    "Holidays",
+    "Resorts",
+    "Holiday resorts",
+    "Cuttery",
+    "Kitchen appliance",
+    "Shopping",
+    "Supermarket",
+    "Takeaway"
   ]
   
   acts_as_votable

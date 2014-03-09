@@ -90,14 +90,22 @@
       </div>
   </div>
 
-  <div class="form-item">
-      <label>Choose category</label>
-      <% Event::CATEGORIES.each do |category| %>
-        <br><%= check_box_tag "event[category][]", category, @event.category_list.include?(category.downcase) %>
-        <%=category%>
-      <% end %>
-  </div>
-  
+ <div class="form-item">
+   <label>Choose category</label>
+   <% Event::CATEGORIES.each_with_index do |category, index| %>
+       <%if (index)%2==0%>
+           <div class="row">
+       <% end %>
+           <div class="col-sm-6">
+               <%= check_box_tag "event[category][]", category, @event.category_list.include?(category.downcase) %>
+               <%= category %>
+           </div>
+       <% if (index+1)%2==0%>
+           </div>
+       <% end %>
+   <% end %>
+ </div>
+  <div class="clearfix"></div>
   <div class="form-item">
       <label>Would you like people to search this on search engine?</label>
 	  <%=f.check_box :is_searchable%> Yes

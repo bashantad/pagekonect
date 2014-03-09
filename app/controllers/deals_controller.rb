@@ -40,6 +40,7 @@ class DealsController < ApplicationController
   def update
      respond_to do |format|
        if @deal.update(deal_params)
+         @deal.update_category_list (params[:deal][:category])
          format.html { redirect_to @deal, notice: 'Deal was successfully updated.' }
          format.json { head :no_content }
        else

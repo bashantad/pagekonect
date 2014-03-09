@@ -47,6 +47,7 @@ class NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
+        @news.update_category_list (params[:news][:category])
         format.html { redirect_to @news, notice: 'news was successfully updated.' }
         format.json { head :no_content }
       else

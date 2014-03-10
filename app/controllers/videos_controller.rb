@@ -75,7 +75,6 @@ class VideosController < ApplicationController
     else
       @video = current_user.videos.find(params[:id])
     end
-    @vid_info = VideoInfo.new(@video.url)
     @video.increment_views(request.remote_ip) if @video.present?
   end
 

@@ -2,7 +2,8 @@
     <div class="show-block" style="padding:0 15px">
         <div class="row">
             <div class="col-md-offset-1 col-md-11">
-                <%=@vid_info.embed_code(iframe_attributes: { width: 800, height: 600}, url_attributes: { autoplay: 0 }).html_safe%>
+                <% vid_info = VideoInfo.new(video.url) %>
+                <%=vid_info.embed_code(iframe_attributes: { width: 800, height: 600}, url_attributes: { autoplay: 0 }).html_safe%>
                 <div>
                    <strong> <%= video.title %></strong>
                 </div>

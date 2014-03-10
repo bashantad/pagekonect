@@ -1,3 +1,4 @@
+ LINKS FOR THIS<br>
 <%=link_to "W", show_url_pages_path(:url => row.url), :class => "fa fa-2x" if row.url.present? && params[:controller] != "videos"%> 
 <%=link_to "<span class='fa fa-2x fa-facebook-square'><span>".html_safe, show_url_pages_path(:url => row.facebook_url) if row.facebook_url.present?%>
 <%=link_to "<span class='fa fa-2x fa-google-plus-square'><span>".html_safe, show_url_pages_path(:url => row.google_plus_url) if row.google_plus_url.present?%>

@@ -11,6 +11,9 @@ elsif row.is_event?
     url = event_url(row)
 end
 %>
+<div> 
+    SHARE THIS
+</div>
 <div class="share-wrapp">
     <input type="hidden" class="share_link" value="<%="/pages/share?share_countable_id=#{row.id}&share_countable_type=#{row.class}"%>">
     <%= social_share_button_tag(row.title, :url => url) %>

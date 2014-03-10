@@ -6,7 +6,7 @@ class Content < ActiveRecord::Base
 
   CATEGORIES = [
     # "All",
-    "Restaurent",
+    "Restaurant",
     "Food",
     "Sports",
     "Cars",
@@ -36,7 +36,7 @@ class Content < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable_on "category"
   
-  multisearchable :against => [:title, :description, :image_file_name, :image_description], :if => :is_searchable?
+  multisearchable :against => [:title, :description, :image_file_name, :image_description, :address], :if => :is_searchable?
   
   belongs_to :user
   validates :title, :presence => true

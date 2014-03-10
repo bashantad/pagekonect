@@ -21,30 +21,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @data = [
-          "ActionScript",
-          "AppleScript",
-          "Asp",
-          "BASIC",
-          "C",
-          "C++",
-          "Clojure",
-          "COBOL",
-          "ColdFusion",
-          "Erlang",
-          "Fortran",
-          "Groovy",
-          "Haskell",
-          "Java",
-          "JavaScript",
-          "Lisp",
-          "Perl",
-          "PHP",
-          "Python",
-          "Ruby",
-          "Scala",
-          "Scheme"
-        ]
+    @data = Content.all.collect(&:title).collect{|t| t.capitalize.truncate(90)}.uniq
     render :json => @data.to_json
   end
 

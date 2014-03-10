@@ -11,10 +11,11 @@
         </a>
         <div>
             <small>
-                Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br>
+                Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br></small>
                 <div class="share-www">
                     <%=render "contents/share_link", :row => row%>
                 </div>
+            <small>
                 <div>
                     <% no_of_events = row.user.events.size%>
                     <% if no_of_events > 1 && params[:query].blank? %>

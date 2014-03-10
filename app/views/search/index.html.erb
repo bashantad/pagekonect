@@ -11,7 +11,9 @@
 <% end %>
 <% else %>
     <div style="padding-left:20px;font-size:16px;">
-        <%="THERE ARE NO ADS/ EVENTS with this query, INVITE FRIENDS THROUGH SOCIAL MEDIA TO START ADVERTISING OR CREATE THINGS FOR THE WORLD TO SEARCH. AND REMEMBER YOUR IN CONTROL.".downcase %>
+        <% unless params[:query].blank? %>
+       There are no ads/ events with this query, invite friends through social media to start advertising or create things for the world to search. And remember your in control.
+        <% end %>
     </div>
     <%=render :partial => "search/fourbox"%>
 <% end %>

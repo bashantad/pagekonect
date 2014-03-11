@@ -1,8 +1,16 @@
 <div id="news">
-
-    <div>
-        <label for="category_select"> Select Category</label>
-        <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+    <div class="mini-search-wrapp">
+        <%if params[:ls].present?%>
+        <div>
+            <form action="" method="get">
+                <input type="hidden" name="ls" value="search" >
+                <input type="text" class="form-control" name="location" placeholder="Location search" value="<%=params[:location]%>">
+            </form>
+        </div>
+        <% else %>
+            <label for="category_select"> Select Category</label>
+            <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+        <% end %>
     </div>
     <div id="event_index_container">
         <% if @events.present? %>

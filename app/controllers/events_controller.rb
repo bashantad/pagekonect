@@ -2,14 +2,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
   layout "modal", :only => [:edit, :new]
-  def index
 
+  def index
     if params[:category].present? && params[:category] != "All"
-      @events = Event.tagged_with params[:category], on: :category
+      @all_events = Event.tagged_with params[:category], on: :category
+    elsif params[:location].present?
+      address = "%#{params[:location].downcase}%"
+      @all_events = Event.where("address ILIKE '#{address}'")
     else
-      @events = Event.uniq_users.collect{ |user| user.events.last }
+      @all_events = Event.all
     end
-      
+    @events = Event.find_uniq_values(@all_events)
     @desc_length = 60
     @title_length = 40
 

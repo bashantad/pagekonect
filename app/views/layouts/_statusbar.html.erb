@@ -47,16 +47,18 @@
             <%controller =  params[:controller]%>
             <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
             <% home_url, new_url, new_message = get_links_with_msg(controller)%>
-            <span class="other-list">
-                <%=link_to '<span class="fa fa-search fa-2x"></span>'.html_safe, home_url+"?location=", "data-content" => "Homepage to #{(controller=="events") ? "WTD" : controller}", :class => "popover-btn"%>
-            </span>
+            <% if controller == "deals" || controller == "events"%>
+                <span class="other-list">
+                    <%=link_to '<span class="fa fa-search fa-2x"></span>'.html_safe, home_url+"?ls=search", "data-content" => "Location search", :class => "popover-btn"%>
+                </span>
+            <% end %>
                 <span class="other-list"> 
                     <% modal_class = controller == "uploads" ? "" : "modal-link"%>
                     <%=link_to '<span class="fa fa-camera fa-2x"></span>'.html_safe, new_url, "data-content" => new_message, :class => "popover-btn #{modal_class}" %>
 
                 </span>
                 <span class="other-list"> 
-                    <%=link_to '<span class="fa fa-th fa-2x"></span>'.html_safe, home_url, "data-content" => "Category search", :class => "popover-btn"%>
+                    <%=link_to '<span class="fa fa-th fa-2x"></span>'.html_safe, home_url, "data-content" => "Homepage to #{(controller=="events") ? "WTD" : controller}", :class => "popover-btn"%>
                 </span>
             <% end %>
         </div>

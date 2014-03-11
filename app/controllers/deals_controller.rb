@@ -5,11 +5,14 @@ class DealsController < ApplicationController
 
   def index
     if params[:category].present? && params[:category] != "All"
-      @deals = Deal.tagged_with params[:category], on: :category
+      @all_deals = Deal.tagged_with params[:category], on: :category
+    elsif params[:location].present?
+      address = "%#{params[:location].downcase}%"
+      @all_deals = Deal.where("address ILIKE '#{address}'")
     else
-      @deals = Deal.uniq_users.collect{ |user| user.deals.last}
+      @all_deals = Deal.all
     end
-    
+    @deals = Deal.find_uniq_values(@all_deals)
     @desc_length = 60
     @title_length = 40   
   end

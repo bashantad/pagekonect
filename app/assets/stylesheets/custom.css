@@ -275,3 +275,7 @@ a.like-button:hover{
 .display-title span{
   border-bottom:1px solid #555;
 }
+.mini-search-wrapp{
+  padding-left:25px;
+  max-width:290px;
+}

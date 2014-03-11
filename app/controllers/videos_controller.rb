@@ -5,11 +5,11 @@ class VideosController < ApplicationController
   def index
 
     if params[:category].present? && params[:category] != "All"
-      @videos = Video.tagged_with params[:category], on: :category
+      @all_videos = Video.tagged_with params[:category], on: :category
     else
-      @videos = Video.uniq_users.collect{ |user| user.videos.last }
+      @all_videos = Video.all
     end
-    
+    @videos = Video.find_uniq_values(@all_videos)
     @desc_length = 60
     @title_length = 40
     @iframe_width = 230

@@ -5,11 +5,11 @@ class NewsController < ApplicationController
   
   def index
     if params[:category].present? && params[:category] != "All"
-      @news = News.tagged_with params[:category], on: :category
+      @all_news = News.tagged_with params[:category], on: :category
     else
-      @news = News.uniq_users.collect{ |user| user.news.last } 
+      @all_news = News.all 
     end
-
+    @news = News.find_uniq_values(@all_news)
 
     @desc_length = 100
     @title_length = 83

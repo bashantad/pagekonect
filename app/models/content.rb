@@ -77,8 +77,13 @@ class Content < ActiveRecord::Base
     self.save
   end
   
-  def self.uniq_users
-    self.all.order("created_at desc").collect(&:user).uniq
+  def self.find_uniq_values(contents)
+    users = contents.collect{|content| content.user}.uniq
+    uniq_contents = Hash.new
+    contents.each do |content|
+      uniq_contents[content.user.id] = content
+    end
+    uniq_contents.values
   end
 
   def is_content?

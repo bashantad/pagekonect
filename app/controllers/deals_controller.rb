@@ -34,10 +34,12 @@ class DealsController < ApplicationController
     @deal.category_list.add(params[:deal][:category]) if params[:deal][:category].present?
 
     if @deal.save
-      redirect_to deal_path(@deal), notice: "Deal created successfully."
+      flash[:notice] =  "Deal created successfully."
     else
       render 'new', alert: "Error creating Deal."
     end
+    @desc_length = 60
+    @title_length = 40  
   end
 
   def update

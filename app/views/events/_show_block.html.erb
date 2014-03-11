@@ -21,12 +21,16 @@
                         <div>
                             <strong>Event date:  </strong> <%=event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
                         </div>
-                        <div>
-                            <strong>Start time: </strong> <%=event.start_time%>
-                        </div>
-                        <div>
-                            <strong>Finish time: </strong> <%=event.end_time%>
-                        </div>
+                        <% if event.start_time.present?%>
+                            <div>
+                                <strong>Start time: </strong> <%=event.start_time%>
+                            </div>
+                        <% end %>
+                        <% if event.end_time.present?%>
+                            <div>
+                                <strong>Finish time: </strong> <%=event.end_time%>
+                            </div>
+                        <% end %>
                         <div>
                             <strong>Event location: </strong>
                             <a  href="http://maps.google.com?q=<%=event.address%>"><%=event.address%></a>

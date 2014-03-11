@@ -45,6 +45,13 @@ class Content < ActiveRecord::Base
       :path => "/contents/:class/:id/:style/:basename.:extension",
       :default_url => "/assets/news.png"
   
+  validate :validate_start_date
+  
+  def validate_start_date
+    return true unless self.class.to_s == "Event" || self.class.to_s == "Deal"
+    self.errors.add(:event_date, "can't be blank") if self.start_time.present? && self.end_time.present?
+  end
+  
   def is_news?
     self.instance_of? News
   end

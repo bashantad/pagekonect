@@ -21,8 +21,12 @@
                         <% if deal.event_date.present? %>
                         <strong>Start date: </strong><%=deal.event_date.localtime.to_datetime.strftime("%A, %d %B %Y") %><br>
                         <% end %>
-                        <strong>Start at:  </strong> <%=deal.start_time%><br>
-                        <strong>End at: </strong> <%=deal.end_time%><br>
+                        <% if deal.start_time.present?%>
+                            <strong>Start at:  </strong> <%=deal.start_time%><br>
+                        <% end %>
+                        <% if deal.end_time.present?%>
+                            <strong>End at: </strong> <%=deal.end_time%><br>
+                        <% end %>
                         <strong>Original price:  </strong>$<%=deal.old_price%><br>
                         <strong>New price: </strong>$<%=deal.new_price%><br>
                         <strong>Location: </strong> 

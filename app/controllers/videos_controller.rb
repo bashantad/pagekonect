@@ -3,7 +3,6 @@ class VideosController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   layout "modal", :only => [:edit, :new]
   def index
-
     if params[:category].present? && params[:category] != "All"
       @all_videos = Video.tagged_with params[:category], on: :category
     else
@@ -34,16 +33,15 @@ class VideosController < ApplicationController
   def create
     @video = current_user.videos.new(video_params)
     @video.category_list.add(params[:video][:category]) if params[:video][:category].present?
-
-    respond_to do |format|
-      if @video.save
-        format.html { redirect_to videos_path, notice: 'video was successfully posted.' }
-        format.json { render action: 'show', status: :created, location: @video }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
+    if @video.save
+      flash[:notice] = 'video was successfully posted.' 
+    else
+      render action: 'new'
     end
+    @desc_length = 60
+    @title_length = 40
+    @iframe_width = 230
+    @iframe_height = 150
   end
 
   def update

@@ -4,34 +4,7 @@ class Content < ActiveRecord::Base
   include ShareCountable
   include PgSearch
 
-  CATEGORIES = [
-    # "All",
-    "Restaurant",
-    "Food",
-    "Sports",
-    "Cars",
-    "Realstate",
-    "Fishing",
-    "Camping",
-    "Shoes",
-    "Clothing",
-    "Handbag",
-    "Jewellery",
-    "T.V",
-    "Building material",
-    "Tools",
-    "Pets",
-    "Animals",
-    "Toys",
-    "Holidays",
-    "Resorts",
-    "Holiday resorts",
-    "Cuttery",
-    "Kitchen appliance",
-    "Shopping",
-    "Supermarket",
-    "Takeaway"
-  ]
+  CATEGORIES = ["Animals", "Beautician", "Beauty", "Building material", "Camping", "Cars", "Clothing", "Cuttery", "Fishing", "Food", "Handbag", "Holiday resorts", "Holidays", "Jewellery", "Kitchen appliance", "Makeup", "Makeup artist", "Pets", "Realstate", "Resorts", "Restaurant", "Shoes", "Shopping", "Sports", "Supermarket", "T.V", "Takeaway", "Tools", "Toys"]
   
   acts_as_votable
   acts_as_taggable_on "category"

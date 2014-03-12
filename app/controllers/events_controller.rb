@@ -31,10 +31,12 @@ class EventsController < ApplicationController
     @event.category_list.add(params[:event][:category]) if params[:event][:category].present?
 
     if @event.save
-      redirect_to event_path(@event), notice: "Event created successfully."
+      flash[:notice] =  "Event created successfully."
     else
       render 'new', alert: "Error creating event."
     end
+     @desc_length = 60
+    @title_length = 40
   end
 
   def update

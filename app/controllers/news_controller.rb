@@ -33,15 +33,13 @@ class NewsController < ApplicationController
   def create
     @news = current_user.news.new(news_params)
     @news.category_list.add(params[:news][:category]) if params[:news][:category].present?
-    respond_to do |format|
-      if @news.save
-        format.html { redirect_to news_index_path, notice: 'news was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @news }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
-      end
+    if @news.save
+      flash[:notice] ='news was successfully created.'
+    else
+      render action: 'new'
     end
+    @desc_length = 60
+    @title_length = 40
   end
 
   def update

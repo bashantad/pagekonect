@@ -19,7 +19,7 @@
                     <div>
                         <div><strong><%= event.title %></strong></div>
                         <div>
-                            <strong>Event date:  </strong> <%=event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y")%>
+                            <strong>Event date:  </strong> <%=event.event_date.localtime.to_datetime.strftime("%A, %d %B %Y") if event.event_date.present?%>
                         </div>
                         <% if event.start_time.present?%>
                             <div>

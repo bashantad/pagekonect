@@ -79,7 +79,7 @@ class DealsController < ApplicationController
    end
    
   def deal_params
-    deal_attributes = [:title, :description, :image, :image_description, :is_searchable, :address, :facebook_url, :twitter_url, :google_plus_url, :url, :start_time, :end_time, :old_price, :new_price, :is_suggestor, :event_date]
+    deal_attributes = [:title, :description, :image, :image_description, :address, :facebook_url, :twitter_url, :google_plus_url, :url, :start_time, :end_time, :old_price, :new_price, :is_suggestor, :event_date]
     parameters = params.require(:deal).permit(deal_attributes)
     parameters
   end

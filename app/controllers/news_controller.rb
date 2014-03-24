@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy, :detail]
-  before_filter :authenticate_user!, except: [:index, :show, :detail]
+  before_filter :authenticate_user!, except: [:index, :show, :detail, :new]
   layout "modal", :only => [:edit, :new]
   
   def index

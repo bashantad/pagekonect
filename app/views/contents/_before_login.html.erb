@@ -1,0 +1,7 @@
+<% content_for :page_heading, "Access denied" %>
+<div class="modal-body">
+	Please <%=link_to "Sign up", new_user_registration_path%> or <%=link_to "sign in", new_user_session_path%> before you create something. 
+	<div class="actions form-item">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</div>

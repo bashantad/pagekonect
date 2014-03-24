@@ -9,7 +9,11 @@
             </ul>
         </div>
         <% end %>
-
+        <% if @news.persisted?%>
+            <div class="form-item">
+              <%=image_tag @news.image.url(:thumb) %>
+             </div>
+         <% end %>
         <div class="form-item">
             <label>Upload an image that best suits the story</label>
             <%=f.file_field :image%>

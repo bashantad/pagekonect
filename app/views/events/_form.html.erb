@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-  
+  <% if @event.persisted?%>
+      <div class="form-item">
+          <%=image_tag @event.image.url(:thumb) %>
+      </div>
+  <% end %>
   <div class="form-item">
       <label>Upload an image suitable for this event</label>
 	  <%=f.file_field :image%>

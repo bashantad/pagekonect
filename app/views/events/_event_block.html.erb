@@ -11,7 +11,10 @@
         </a>
         <div>
             <small>
-                Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br></small>
+                <% if row.event_date.present? %>
+                    Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br>
+                <% end %>
+            </small>
                 <div class="share-www">
                     <%=render "contents/share_link", :row => row%>
                 </div>

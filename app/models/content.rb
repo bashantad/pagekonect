@@ -22,7 +22,7 @@ class Content < ActiveRecord::Base
   
   def validate_start_date
     return true unless self.class.to_s == "Event" || self.class.to_s == "Deal"
-    self.errors.add(:event_date, "can't be blank") if self.start_time.present? && self.end_time.present?
+    self.errors.add(:event_date, "can't be blank") if self.start_time.present? && self.end_time.present? && self.event_date.blank?
   end
   
   def is_news?
@@ -63,7 +63,7 @@ class Content < ActiveRecord::Base
     contents.each do |content|
       uniq_contents[content.user.id] = content
     end
-    uniq_contents.values
+    uniq_contents.values.sort{|a,b| b.created_at <=> a.created_at}
   end
 
   def is_content?

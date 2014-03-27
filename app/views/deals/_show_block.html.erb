@@ -27,10 +27,17 @@
                         <% if deal.end_time.present?%>
                             <strong>End at: </strong> <%=deal.end_time%><br>
                         <% end %>
-                        <strong>Original price:  </strong>$<%=deal.old_price%><br>
-                        <strong>New price: </strong>$<%=deal.new_price%><br>
-                        <strong>Location: </strong> 
-                        <a  href="http://maps.google.com?q=<%=deal.address%>"><%=deal.address%></a><br>
+                        <% if deal.old_price.present? %>
+                            <strong>Original price:  </strong>$<%=deal.old_price%><br>    
+                        <% end %>
+                        
+                        <% if deal.new_price.present? %>
+                            <strong>New price: </strong>$<%=deal.new_price%><br>    
+                        <% end %>
+                        <% if deal.address.present? %>
+                            <strong>Location: </strong> 
+                            <a  href="http://maps.google.com?q=<%=deal.address%>"><%=deal.address%></a><br>
+                        <% end %>
                         <div class="share-www">
                             <%=render "contents/share_link", :row => deal%>
                         </div>

@@ -6,17 +6,24 @@
                 <%= truncate(row.title, :length => @title_length)%>
             </a>
         </div>
+        
         <div class="block-item">
-            <a  href="http://maps.google.com?q=<%=row.address%>"><%=row.address%></a><br>
-        </div>
-        <div class="block-item">
-            <% if row.start_time.present? || row.end_time.present?%>
-                <%=row.start_time if row.start_time.present? %> to <%=row.end_time if row.end_time.present?%>
+            <% if row.address.present? %>
+                <a  href="http://maps.google.com?q=<%=row.address%>"><%=row.address%></a>
             <% end %>
-        </div>
+        </div>    
+        
+        
+        <% if row.start_time.present? || row.end_time.present?%>
+            <div class="block-item">
+                <%=row.start_time if row.start_time.present? %> to <%=row.end_time if row.end_time.present?%>
+            </div>
+        <% end %>
         <div class="block-item control-group clearfix">
             <div class="pull-left">
-                $<%=row.old_price %> now $<%=row.new_price%> 
+                <% if row.old_price.present? || row.new_price.present? %>
+                    <%="$#{row.old_price}" %> now <%="$#{row.new_price}"%> 
+                <% end %>                
             </div>
             <div class="pull-right" style="padding-right:30px;">
                 <% if row.user == current_user%>

@@ -41,11 +41,11 @@
 <div class="row">
     <div class="col-sm-3">
         <div class="other-menu control-group clearfix">
+            <%controller =  params[:controller]%>
+            <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
             <span class="other-list">
                 <%=link_to "<span class='fa fa-home fa-2x'></span>".html_safe, root_path, "data-content" => "Go to homepage", :class => "popover-btn"%>
             </span>
-            <%controller =  params[:controller]%>
-            <% if controller == "news" || controller == "deals" || controller == "videos" || controller == "events" || controller == "uploads"%>
             <% home_url, new_url, new_message = get_links_with_msg(controller)%>
             <% if controller == "deals" || controller == "events"%>
                 <span class="other-list">
@@ -79,6 +79,7 @@
         </div>
     </div>
     <div class="col-sm-2">
+        <% unless params[:controller] == "dashboard" %>
         <div class="right-menu control-group clearfix">
             <button type="button" class="btn btn-blue dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-list fa-2x popover-btn home-icon" data-content="Click here to see all the menu options"></i>
@@ -87,6 +88,7 @@
                 <%=render "layouts/navbar"%>
             </ul>
         </div>
+        <% end %>
     </div>
 </div>
 <%=render "contents/modal_block"%>

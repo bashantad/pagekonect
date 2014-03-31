@@ -1,7 +1,9 @@
 Pagekonect::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  get "dashboard/home"
+  resources :dashboard, :only => ['index'] do
+    get 'home', :on => :collection
+  end
   get "comments/create"
 
   concern :commentable do

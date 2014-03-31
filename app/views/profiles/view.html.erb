@@ -1,4 +1,5 @@
 <% content_for :heading, "#{@profile.full_name}" %>
+<% unless params[:profile] == "false" %>
 <div class="control-group clearfix">
     <div class="pull-left">
         <%= image_tag @profile.avatar.url(:medium), :class => "thumbnail text-center" %>
@@ -51,7 +52,7 @@
         </div>
     </div>
 </div>
-
+<% end %>
 <div style="display:none">        
     <% if @profile.gender.present?%>
     <div class="display-item">
@@ -72,6 +73,7 @@
     <% end %>  
 </div>
 
+<% unless params[:history] == "false" %>
 <div class="display-item">
     <% if @deals_count > 0%>
         <%=link_to "deals created #{@deals_count}", deal_path(@profile.deals.last)%>
@@ -110,6 +112,6 @@
        photos uploaded 0 
     <% end %>
 </div>      
-    
+<% end %>
 
 

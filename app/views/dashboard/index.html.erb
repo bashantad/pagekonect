@@ -1,0 +1,138 @@
+<style>
+	.item.jumbotron{
+		padding:10px;
+		text-align: center;
+	}
+	.item .description{
+		font-size:15px;
+	}
+	.jumbotron.item:hover{
+		background:#ccc;
+	}
+</style>
+<div class="back-end">
+	<div class="row">
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%=profile_view_path(current_user.id, :history => false)%>">
+				<div class="jumbotron item">
+					<i class="fa fa-user fa-lg"></i>
+					<div class="description">
+						Profile
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%=profile_view_path(current_user.id, :profile => false)%>">
+				<div class="jumbotron item">
+					<i class="fa fa-signal fa-lg"></i>
+					<div class="description">
+						History
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%=deals_path%>">
+				<div class="jumbotron item">
+					<i class="fa fa-thumbs-up fa-lg"></i>
+					<div class="description">
+						Deals
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%=events_path%>">
+		<div class="jumbotron item">
+			<i class="fa fa-calendar fa-lg" style="color:#FA811E;"></i>
+			<div class="description">
+				What to do
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%=news_index_path%>">
+		<div class="jumbotron item">
+			<i class="fa fa-info-circle fa-lg" style="color:#AC2BED"></i>
+			<div class="description">
+				News
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+				<a href="<%=videos_path%>">
+		<div class="jumbotron item">
+			<i class="fa fa-youtube-play fa-lg" style="color:#b31217;"></i>
+			<div class="description">
+				Videos
+			</div>
+		</div>
+		</a>
+		</div>
+
+	<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%="#"%>">
+		<div class="jumbotron item">
+			<i class="fa fa-square-o fa-lg"></i>
+			<div class="description">
+				Back end
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%="#"%>">
+		<div class="jumbotron item">
+			<i class="fa fa-shopping-cart fa-lg"></i>
+			<div class="description">
+				For sale
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%="#"%>">
+		<div class="jumbotron item">
+			<i class="fa fa-briefcase fa-lg"></i>
+			<div class="description">
+				Garage sale
+			</div>
+		</div>
+		</a>
+		</div>
+		
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%="#"%>">
+		<div class="jumbotron item">
+			<i class="fa fa-sun-o fa-lg"></i>
+			<div class="description">
+				Weather
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+			<a href="<%="#"%>">
+		<div class="jumbotron item">
+			<i class="fa fa-circle-o fa-lg"></i>
+			<div class="description">
+				Warnings
+			</div>
+		</div>
+		</a>
+		</div>
+		<div class="col-md-2 col-sm-3 col-xs-6">
+		<a href="<%=root_path%>">
+		<div class="jumbotron item">
+			<i class="fa fa-home fa-lg"></i>
+			<div class="description">
+				Homepage
+			</div>
+		</div>
+		</a>
+		</div>
+	</div>
+</div>

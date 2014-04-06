@@ -90,7 +90,7 @@
 </div>
 
 <div class="display-item">
-    <% if @news_count %>
+    <% if @news_count  > 0 %>
         <%=link_to "News created #{@news_count}", news_path(@profile.news.last) %>
     <% else %>
         News created 0 

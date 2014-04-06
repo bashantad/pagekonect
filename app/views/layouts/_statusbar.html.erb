@@ -79,7 +79,6 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <% unless params[:controller] == "dashboard" %>
         <div class="right-menu control-group clearfix">
             <button type="button" class="btn btn-blue dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-list fa-2x popover-btn home-icon" data-content="Click here to see all the menu options"></i>
@@ -88,7 +87,6 @@
                 <%=render "layouts/navbar"%>
             </ul>
         </div>
-        <% end %>
     </div>
 </div>
 <%=render "contents/modal_block"%>

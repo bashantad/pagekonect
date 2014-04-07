@@ -1,0 +1,3 @@
+class LocalAd < Content
+  
+end

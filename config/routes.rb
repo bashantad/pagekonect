@@ -14,6 +14,7 @@ Pagekonect::Application.routes.draw do
   resources :deals, concerns: :commentable, :member => {:get => 'deals'}
   resources :news, concerns: :commentable, :member => {:get => 'detail'}
   resources :videos, concerns: :commentable, :member => {:get => 'detail'}
+  resources :local_ads, concerns: :commentable
   resources :uploads, concerns: :commentable do
     get 'preview', on: :collection
     get 'publish', on: :collection

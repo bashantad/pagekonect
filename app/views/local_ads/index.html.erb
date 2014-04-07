@@ -1,0 +1,54 @@
+<div id="news">
+    <div class="mini-search-wrapp">
+        <%if params[:ls].present?%>
+        <div>
+            <form action="" method="get">
+                <input type="hidden" name="ls" value="search" >
+                <input type="text" class="form-control" name="location" placeholder="Location search" value="<%=params[:location]%>">
+            </form>
+        </div>
+        <% else %>
+            <label for="category_select"> Select Category</label>
+            <%= select_tag "Cateogry", options_for_select(Content::CATEGORIES), id: :category_select %>
+        <% end %>
+    </div>
+    <div id="local_ads_index_container">
+        <% if @local_ads.present? %>
+            <% @local_ads.each_with_index do |row, index| %>
+                <%if (index+1)%4 == 0%>
+                    <div class="row news-row">
+                <%end %>
+                    <%=render "local_ads/index_block", :row => row %>
+                <%if (index+1)%4==0%>
+                    </div>
+                <%end%>
+            <% end %>
+        <% else %>
+            <% if params[:ls].present?%>
+                There are no local ads for given location, invite friends through social media to start advertising or create things for the world to search. and remember your in control.
+            <% else %>
+                No Events Found.
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#category_select').on("change", function(){
+            value = $(this).val()
+
+            $.ajax({
+                url : '<%= local_ads_path() %>',
+                data : {
+                    category : value
+                },
+                type : "get",
+                dataType : "html"
+            }).done(function(response){
+                rsp_html = $(response).find('#local_ads_index_container').html()
+                $('#local_ads_index_container').html(rsp_html);
+            })
+        })    
+    })    
+</script>

@@ -1,1 +1,10 @@
-<%= render partial: 'form' %>
+<% if user_signed_in? %>
+	<%content_for :page_heading do %>
+		<%= render "contents/create_form_block"%>
+	<% end %>
+	<div class="modal-body">
+	    <%= render 'form' %>
+	</div>
+<% else %>
+	<%= render "contents/before_login" %>
+<% end %>

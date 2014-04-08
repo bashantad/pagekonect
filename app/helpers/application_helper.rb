@@ -14,6 +14,8 @@ module ApplicationHelper
        [videos_path, new_video_path, "Create new video"]
     when "events"
        [events_path, new_event_path, "Create new event or suggest one"]
+    when "local_ads"
+       [local_ads_path, new_local_ad_path, "Create a new local ad"]
     else
        [publish_uploads_path, uploads_path, "Upload photos"]  
     end

@@ -1,19 +1,17 @@
 class LocalAdsController < ApplicationController
-   before_filter :authenticate_user!, except: [:index, :show, :detail]
-
+   before_filter :authenticate_user!
+   layout "modal", :only => [:edit, :new]
   def new
     @local_ad = LocalAd.new
   end
 
   def create
-    @local_ad = LocalAd.create(local_ads_params)
+    @local_ad = current_user.local_ads.new(local_ads_params)
     @local_ad.category_list.add(categories)
-    @local_ad.user = current_user
-    binding.pry
     if @local_ad.save
-      redirect_to local_ads_path notice: "Ad was created successfully."
+      redirect_to local_ads_path,  notice: "Ad was created successfully."
     else
-      redirect_to new_local_ad_path alert: "Error creating local ad."
+      render(:action => :new)
     end
   end
 

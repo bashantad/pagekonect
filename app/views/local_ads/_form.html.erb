@@ -1,7 +1,7 @@
 <%= form_for(@local_ad) do |f| %>
   <% if @local_ad.errors.any? %>
-    <div class="local_ads local_ads-danger">
-      <h4><%= pluralize(@local_ad.errors.count, "error") %> prohibited this event from being saved:</h4>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@local_ad.errors.count, "error") %> prohibited this ad from being saved:</h4>
       <ul>
         <% @local_ad.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -17,19 +17,19 @@
   </div>
   <div class="form-item">
     <label>Tag this image</label>
-    <%=f.text_field :image_description %>
+    <%=f.text_field :image_description, :class => "form-control" %>
   </div>
   <div class="form-item">
     <label>Title for this post</label>
-    <%=f.text_field :title %>
+    <%=f.text_field :title, :class => "form-control" %>
   </div>
   <div class="form-item">
     <label>Descsription for this post</label>
-    <%=f.text_field :description %>
+    <%=f.text_field :description, :class => "form-control", :rows => 4 %>
   </div>
   <div class="form-item">
     <label>Location</label>
-    <%=f.text_field :address %>
+    <%=f.text_field :address, :class => "form-control" %>
   </div>
 
   <div class="form-item">
@@ -73,18 +73,26 @@
       </div>
   </div>
 
-  <div class="form-item">
-   <label>Choose category</label>
-    <% Event::CATEGORIES.each_with_index do |category, index| %>
-      <div>
-        <%= check_box_tag "local_ad[category][]", category, @local_ad.category_list.include?(category.downcase) %>
-        <%= category %>
-      </div>
-    <% end %>
-  </div>
+   <div class="form-item">
+         <label>Choose category</label>
+         <% LocalAd::CATEGORIES.each_with_index do |category, index| %>
+             <%if (index)%2==0%>
+                 <div class="row">
+             <% end %>
+                 <div class="col-sm-6">
+                    <%= check_box_tag "local_ad[category][]", category, @local_ad.category_list.include?(category.downcase) %>
+                    <%= category %>                     
+                 </div>
+             <% if (index+1)%2==0%>
+                 </div>
+             <% end %>
+         <% end %>
+       </div>
+    <div class="clearfix"></div>
 
-  <div class="form-item">
-    <%= f.submit "Submit" %>
+ <div class="actions">
+      <%= f.submit(:class => "btn btn-custom") %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
 
 <% end %>

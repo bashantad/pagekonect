@@ -26,7 +26,7 @@ class LocalAdsController < ApplicationController
     end
     @desc_length = 60
     @title_length = 40
-
+    @local_ads = LocalAd.find_uniq_values(@local_ads)
     respond_to do |format|
       format.html
       format.js

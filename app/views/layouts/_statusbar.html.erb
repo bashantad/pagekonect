@@ -47,7 +47,7 @@
                 <%=link_to "<span class='fa fa-home fa-2x'></span>".html_safe, root_path, "data-content" => "Go to homepage", :class => "popover-btn"%>
             </span>
             <% home_url, new_url, new_message = get_links_with_msg(controller)%>
-            <% if controller == "deals" || controller == "events" || controller == "local_ads"%>
+            <% if controller == "deals" || controller == "events" %>
                 <span class="other-list">
                     <%=link_to '<span class="fa fa-search fa-2x"></span>'.html_safe, home_url+"?ls=search", "data-content" => "Location search", :class => "popover-btn"%>
                 </span>

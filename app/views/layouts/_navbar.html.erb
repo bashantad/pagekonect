@@ -34,7 +34,9 @@
     <li>
         <%=link_to "&nbsp;Backend page".html_safe, dashboard_index_path, :class => "fa fa-dashboard"%>
     </li>
-    
+    <li>
+        <%= link_to "&nbsp;Local ads".html_safe, local_ads_path, :class => "fa fa-cog"  %>
+    </li>
 
     <li>
         <%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %>

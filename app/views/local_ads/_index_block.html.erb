@@ -1,0 +1,34 @@
+<div class="col-md-3 col-sm-6 video-block">
+    <div class="content-block">
+        <%= render "contents/created_block", :row => row%> 
+        <div class="block-heading">
+            <a href="<%= local_ad_path(row) %>">
+                <%= truncate(row.title, :length => @title_length)%>
+            </a>
+        </div>
+        <a href="<%=event_path(row)%>">
+            <%=image_tag row.image.url(:thumb), :class => "block-img"%>
+        </a>
+        <div>
+            <small>
+                <% if row.event_date.present? %>
+                    Event at : <%=row.event_date.localtime.to_datetime.strftime("%d %B %Y") if row.event_date.present? %><br>
+                <% end %>
+            </small>
+                <div class="share-www">
+                    <%=render "contents/share_link", :row => row%>
+                </div>
+            <small>
+                <div>
+                    <% no_of_local_ads = row.user.local_ads.size%>
+                    <% if no_of_local_ads > 1 && params[:query].blank? %>
+                        <%=link_to "#{pluralize((no_of_local_ads - 1), 'more local ads')} from #{row.user.full_name}".html_safe, local_ad_path(row) %>
+                    <% end %>
+                </div>
+            </small>
+        </div>
+        <div class="votable-wrapp" id="votable-wrapp-<%= row.id %>">
+            <%= render partial: "contents/votable_wrapp", locals: { content: row } %>
+        </div>
+    </div>    
+</div>

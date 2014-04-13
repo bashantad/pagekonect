@@ -1,0 +1,41 @@
+<div class="show-block-wrapp" style="padding:5px 9%">
+    <div class="show-block" style="padding:0 15px">
+        <div class="row">
+            <div class="col-md-7">
+                <%=image_tag local_ad.image.url(:medium), :class => "responsive full-image img-responsive"%>
+                <div class="image-description">
+                    <%=local_ad.image_description%>
+                </div>
+                 <div class="row-desc">
+                     <%= local_ad.description.html_safe %>
+                 </div>
+                 <div class="my-links">
+                     <%=render "contents/url_links", :row => local_ad%>
+                 </div>
+            </div>
+            <div class="col-md-5 text-left">
+                <%=render "contents/created_block", :row => local_ad%>
+                <div class="show-desc-block">
+                    <div><strong><%= local_ad.title %></strong></div>
+                    <div class="share-www">
+                        <%=render "contents/share_link", :row => local_ad%>
+                    </div>
+                    <div class="full-block votable-wrapp" id="votable-wrapp-<%= local_ad.id %>">
+                        <%= render partial: "contents/votable_wrapp", locals: { content: local_ad } %>
+                    </div>
+                    <%=render "comments/comment_block", :row => local_ad%>
+                    <%if current_user == local_ad.user%>
+                    <div class="control-group clearfix action-wrapp">
+                        <div class="pull-right form-item">
+                            <%= link_to '&nbsp;Edit'.html_safe, edit_local_ad_path(local_ad), :class => "fa fa-pencil modal-link" %>
+                        </div>
+                        <div class="pull-right form-item">
+                            <%= link_to '&nbsp;Delete'.html_safe, local_ad, method: :delete, data: { confirm: 'Are you sure?' }, :class => "fa fa-trash-o" %>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -32,6 +32,8 @@ module ApplicationHelper
       url = video_comment_path(row, comment)
     elsif row.is_event?
       url = event_comment_path(row, comment)
+    elsif row.is_local_ad?
+      url = local_ad_comment_path(row, comment)
     end
     url
   end

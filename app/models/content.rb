@@ -40,6 +40,10 @@ class Content < ActiveRecord::Base
   def is_deal?
     self.instance_of? Deal
   end
+
+  def is_local_ad?
+    self.instance_of? LocalAd
+  end
   
   def get_default_url
     if self.is_news?

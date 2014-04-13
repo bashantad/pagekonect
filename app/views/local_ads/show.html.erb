@@ -1,0 +1,27 @@
+<div id="my-carousel" class="carousel slide" data-ride="carousel" style="height:535;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <% @all_local_ads.each_with_index do |local_ad, index| %>
+            <li data-target="#my-carousel" data-slide-to="<%=index%>" class="<%=(local_ad.id==@local_ad.id) ? "active" : ""%>"></li>
+        <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <%@all_local_ads.each_with_index do |local_ad, index|%>
+        <div class="item <%="active" if local_ad.id == @local_ad.id %>">
+            <%=render "show_block", :local_ad => local_ad%>
+        </div>
+        <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#my-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+

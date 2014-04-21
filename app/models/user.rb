@@ -40,6 +40,11 @@ class User < ActiveRecord::Base
     ['street', 'city', 'state', 'zip', 'country'].collect { |s| self[s].nil? ? '' : self[s] }.join ' '
   end
 
+  def find_local_users
+    return [self] if User.all.select{|u| u.full_address.strip.present? }.size == 0
+    User.where("street=? OR city = ? OR zip = ? OR country = ?", self.street, self.city, self.zip, self.country)
+  end
+
   private
 
   def reprocess_banner

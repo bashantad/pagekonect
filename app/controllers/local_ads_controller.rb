@@ -28,7 +28,7 @@ class LocalAdsController < ApplicationController
     @desc_length = 60
     @title_length = 40
     @local_ads = LocalAd.find_uniq_values(@local_ads)
-    @users = LocalAd.all.collect(&:user).uniq
+    @users = current_user.find_local_users
     respond_to do |format|
       format.html
       format.js

@@ -18,7 +18,7 @@
             <%if params[:controller] == "search" && params[:action] == "index" %>
                 <%=render "layouts/searchbox"%>
             <%else%>
-                <%=render "layouts/statusbar" unless params[:controller] == "dashboard"%>
+                <%=render "layouts/statusbar" unless params[:controller]=="local_ads"%>
             <%end%>
         </div>
 		<%= yield %>

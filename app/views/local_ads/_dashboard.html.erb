@@ -166,7 +166,7 @@
     	Locals who have joined
     </div>
     <div class="row people-wrapp">
-    	<% (@users*2).each_with_index do |user, index| %>
+    	<% @users.each_with_index do |user, index| %>
         	<div class="col-md-2 col-sm-3 col-xs-6">
         	    <a href="<%=profile_view_path(user.id)%>">
         	        <div class="person-wrapp">

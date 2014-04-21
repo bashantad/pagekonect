@@ -32,10 +32,10 @@
     </li>
            
     <li>
-        <%=link_to "&nbsp;Backend page".html_safe, dashboard_index_path, :class => "fa fa-dashboard"%>
+        <%=link_to "&nbsp;Backend page".html_safe, local_ads_path(:dashboard => false), :class => "fa fa-dashboard"%>
     </li>
     <li>
-        <%= link_to "&nbsp;Local ads".html_safe, local_ads_path, :class => "fa fa-cog"  %>
+        <%= link_to "&nbsp;Local ads".html_safe, local_ads_path(:dashboard => true), :class => "fa fa-cog"  %>
     </li>
 
     <li>

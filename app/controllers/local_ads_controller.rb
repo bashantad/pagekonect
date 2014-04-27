@@ -24,7 +24,7 @@ class LocalAdsController < ApplicationController
       address = "%#{params[:location].downcase}%"
       @local_ads = LocalAd.where("address LIKE '#{address}'")
     else
-      @local_ads = LocalAd.all.select{|local_ad| local_ad.user == current_user || local_ad.user.zip == current_user.zip || local_ad.current_user.sub_region == current_user.sub_region || local_ad.user.street == current_user.street}
+      @local_ads = LocalAd.all.select{|local_ad| local_ad.user == current_user || local_ad.user.zip == current_user.zip || local_ad.user.sub_region == current_user.sub_region || local_ad.user.street == current_user.street}
     end
     @desc_length = 60
     @title_length = 40

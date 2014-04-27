@@ -86,6 +86,7 @@ class LocalAdsController < ApplicationController
   def check_account_completeness
     if !current_user.account_details_present?    
       flash[:alert] = "Please complete your account details from <a href='/users/edit'>Edit your account</a> section before you can create or view local ads".html_safe
+      redirect_to root_path
     end
   end
 

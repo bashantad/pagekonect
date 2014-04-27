@@ -45,6 +45,14 @@
 	</div>
     
 	<div class="form-item">
+        <%= f.label :your_sub_region_you_belong_to %>
+		<%= f.text_field :sub_region, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:sub_region].present? %>
+			<div class="text-danger"><%=error[:sub_region][0]%> </div>
+		<%end%>
+	</div>
+
+	<div class="form-item">
         <%= f.label :the_city_you_live_in %>
 		<%= f.text_field :city, :autofocus => true, :class => "form-control" %>
 		<% if error && error[:city].present? %>

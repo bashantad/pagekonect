@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     self.is_admin
   end
 
+  def account_details_present?
+    self.street.present? && self.city.present? && self.sub_region.present? && self.country.present? && self.state.present?
+  end
+
   def avatar_geometry(style = :original)
     @geometry ||= {}
     banner_image_path = (banner_image.options[:storage] == :s3) ? banner_image.url(style) : banner_image.path(style)

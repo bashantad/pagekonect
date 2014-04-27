@@ -1,5 +1,6 @@
 class LocalAdsController < ApplicationController
    before_filter :authenticate_user!
+   before_action :check_account_completeness
    before_action :set_local_ads, only: [:show, :edit, :update, :destroy, :detail]
    layout "modal", :only => [:edit, :new]
   def new
@@ -23,12 +24,12 @@ class LocalAdsController < ApplicationController
       address = "%#{params[:location].downcase}%"
       @local_ads = LocalAd.where("address LIKE '#{address}'")
     else
-      @local_ads = LocalAd.all.select{|local_ad| local_ad.user == current_user || local_ad.address.include?(current_user.zip) || local_ad.address.include?(current_user.city) || local_ad.address.include?(current_user.street)}
+      @local_ads = LocalAd.all.select{|local_ad| local_ad.user == current_user || local_ad.user.zip == current_user.zip || local_ad.current_user.sub_region == current_user.sub_region || local_ad.user.street == current_user.street}
     end
     @desc_length = 60
     @title_length = 40
     @local_ads = LocalAd.find_uniq_values(@local_ads)
-    @users = current_user.find_local_users
+    @users = @local_ads.collect(&:user)
     respond_to do |format|
       format.html
       format.js
@@ -72,7 +73,6 @@ class LocalAdsController < ApplicationController
       :image_description,
       :title,
       :description,
-      :address,
       :is_suggestor,
       :commentable,
       :url,
@@ -83,12 +83,18 @@ class LocalAdsController < ApplicationController
     params.require(:local_ad).permit(permitted_params)
   end
 
-   def set_local_ads
-      if params[:action] == "show"
-        @local_ad = LocalAd.find(params[:id])
-      else
-        @local_ad = current_user.local_ads.find(params[:id])
-      end
-      @local_ad.increment_views(request.remote_ip) if @local_ad.present?
+  def check_account_completeness
+    if !current_user.account_details_present?    
+      flash[:alert] = "Please complete your account details from <a href='/users/edit'>Edit your account</a> section before you can create or view local ads".html_safe
     end
+  end
+
+  def set_local_ads
+    if params[:action] == "show"
+      @local_ad = LocalAd.find(params[:id])
+    else
+      @local_ad = current_user.local_ads.find(params[:id])
+    end
+    @local_ad.increment_views(request.remote_ip) if @local_ad.present?
+  end
 end

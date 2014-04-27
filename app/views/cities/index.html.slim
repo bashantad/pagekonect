@@ -4,6 +4,7 @@ table.table
   tr
     th Name
     th State
+    th Country
     th
     th
 
@@ -11,6 +12,7 @@ table.table
     tr
       td = city.name
       td = city.state.state
+      td = city.state.country
       td = link_to 'Edit', edit_city_path(city), :class => "fa fa-edit"
       td = link_to 'Delete', city, data: {:confirm => 'Are you sure?'}, :method => :delete
 

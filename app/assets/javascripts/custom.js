@@ -62,4 +62,16 @@ $(document).ready(function() {
       }
     });
   });
+  $(document).on("change", "#user_country", function(){
+  	var country = $(this).val();
+  	$.ajax({
+		url : '/states/states',
+      	data : 'country='+country,
+      	success:function(res){
+        {
+        	$("#city_state_id").replaceWith(res);
+        }
+      }
+  	});
+  });
 });

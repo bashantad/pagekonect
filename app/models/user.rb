@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
   end
 
+  def is_admin?
+    self.is_admin
+  end
+
   def avatar_geometry(style = :original)
     @geometry ||= {}
     banner_image_path = (banner_image.options[:storage] == :s3) ? banner_image.url(style) : banner_image.path(style)

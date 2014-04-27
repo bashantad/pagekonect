@@ -1,5 +1,11 @@
 Pagekonect::Application.routes.draw do
 
+  resources :cities
+
+  resources :states do
+    get :states, :on => :collection
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :dashboard, :only => ['index'] do
     get 'home', :on => :collection
@@ -20,6 +26,9 @@ Pagekonect::Application.routes.draw do
     get 'publish', on: :collection
   end
 
+  namespace :admin do
+    match '(*any)' , to: redirect('/states'), via: [:get, :post]
+  end
   resources :search, only: :index
   
   get 'news/:id/detail' => 'news#detail', as: :news_detail

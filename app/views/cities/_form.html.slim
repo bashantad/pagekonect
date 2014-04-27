@@ -1,0 +1,19 @@
+= form_for @city do |f|
+  - if @city.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@city.errors.count, "error")} prohibited this city from being saved:"
+      ul
+        - @city.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name, :class => "form-control"
+  .field
+    label Country
+    = country_select("user", "country", ["Australia", "United Kingdom", "United States" ], { selected: "Australia"}, :class => "form-control")
+
+  .field
+    = f.label :state
+    = f.select :state_id, options_for_select(@states_array),{}, :class => 'form-control'
+  .actions = f.submit 'Save', :class => "btn btn-primary"

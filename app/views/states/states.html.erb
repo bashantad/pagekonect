@@ -1,0 +1,6 @@
+<% if @states_array.present? %>
+	<%= select(:city, :state_id, options_for_select(@states_array), {}, :class => "form-control") %>
+<% else %>
+	please add states before you add any city
+	<!--<input type="text" name="user[country]" value="" class="form-control" id="city_state_id"> -->
+<% end %>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%=render "layouts/head"%>
+    <style>
+        body{background:#fff;background-image:none;}
+        #datetime-wrapp{height:74px;}
+        .container{
+            width:80%;
+            margin:0px auto;
+        }
+        .field_with_errors{
+            display:block;
+        }
+        .field, .actions{
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+        <%= render partial: "shared/user_notice" %>
+        <div class="blog-masthead">
+            <div class="container">
+                <nav class="blog-nav">
+                    <%= link_to "Home", root_path, :class=>"blog-nav-item active"%>
+                    <%= link_to "States", states_path, :class=>"blog-nav-item"%>
+                    <%= link_to "Cities", cities_path, :class=>"blog-nav-item"%>
+                    <a class="blog-nav-item" href="#">Sub-regions</a>                    
+                </nav>
+            </div>
+        </div>
+        <div>
+            
+        </div>	
+		<%= yield %>
+	</div>	
+</body>
+</html>

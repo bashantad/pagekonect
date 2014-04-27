@@ -54,7 +54,7 @@
     
 	<div class="form-item">
         <%= f.label :your_country_you_live_in %>
-		<%= f.text_field :country, :autofocus => true, :class => "form-control" %>
+        <%= country_select("user", "country", ["Australia", "United Kingdom", "United States" ], { selected: "Australia"}, :class => "form-control") %>
 		<% if error && error[:country].present? %>
 			<div class="text-danger"><%=error[:country][0]%> </div>
 		<%end%>

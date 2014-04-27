@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Country:
+  = @state.country
+p
+  strong State:
+  = @state.state
+
+= link_to 'Edit', edit_state_path(@state)
+'|
+= link_to 'Back', states_path

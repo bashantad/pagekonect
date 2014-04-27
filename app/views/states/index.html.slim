@@ -1,0 +1,19 @@
+h1 Listing states
+
+table.table
+  tr
+    th Country
+    th State
+    th
+    th
+
+  - @states.each do |state|
+    tr
+      td = state.country
+      td = state.state
+      td = link_to 'Edit', edit_state_path(state), :class => 'fa fa-edit'
+      td = link_to 'Delete', state, data: {:confirm => 'Are you sure?'}, :method => :delete, :class => 'fa fa-trash'
+
+br
+
+= link_to 'New State', new_state_path, :class => "btn btn-primary"

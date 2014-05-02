@@ -37,7 +37,9 @@
     <li>
         <%= link_to "&nbsp;Local ads".html_safe, local_ads_path(:dashboard => true), :class => "fa fa-cog"  %>
     </li>
-
+    <li>
+        <%= link_to "&nbsp;Admin page".html_safe, states_path, :class => "fa fa-lock"  %>
+    </li>
     <li>
         <%=link_to "&nbsp;Logout".html_safe, destroy_user_session_path, :method => 'delete', :class => "fa fa-sign-out" %>
     </li>

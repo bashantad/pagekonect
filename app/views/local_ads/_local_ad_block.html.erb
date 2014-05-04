@@ -6,7 +6,7 @@
                 <%= truncate(row.title, :length => @title_length)%>
             </a>
         </div>
-        <a href="<%=event_path(row)%>">
+        <a href="<%=local_ad_path(row)%>">
             <%=image_tag row.image.url(:thumb), :class => "block-img"%>
         </a>
         <div>

@@ -4,6 +4,7 @@
         <div class="row news-row">
     <%end %>
         <% klass = (base_name = result.class.base_class.name).eql?("Content") ? result.type : base_name %>
+        <% klass = klass == "LocalAd" ? "Local_Ad" : klass %>
         <%= render partial: "#{klass.pluralize.downcase}/#{klass.downcase}_block", :locals => {:row => result} %>
     <%if (index+1)%4==0%>
         </div>

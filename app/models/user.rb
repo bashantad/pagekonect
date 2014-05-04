@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def account_details_present?
-    self.street.present? && self.city.present? && self.sub_region.present? && self.country.present? && self.state.present?
+    self.street.present? && self.city.present? && self.sub_region.present? && self.country.present? && self.state.present? && self.suburb.present?
   end
 
   def avatar_geometry(style = :original)

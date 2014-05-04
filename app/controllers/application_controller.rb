@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
    def configure_permitted_parameters
      devise_parameter_sanitizer.for(:sign_up) << :full_name
-     devise_parameter_sanitizer.for(:account_update).concat([:full_name, :home_phone, :mobile_phone, :street, :city, :zip, :sub_region, :state, :country, :occupation, :gender, :words_of_wisdom, :fax, :facebook, :twitter, :google_plus, :twitter, :p_interest, :linked_in])
+     devise_parameter_sanitizer.for(:account_update).concat([:full_name, :home_phone, :mobile_phone, :street, :city, :zip, :suburb, :sub_region, :state, :country, :occupation, :gender, :words_of_wisdom, :fax, :facebook, :twitter, :google_plus, :twitter, :p_interest, :linked_in])
    end
    
 end

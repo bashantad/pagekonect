@@ -38,6 +38,12 @@ class User < ActiveRecord::Base
     self.street.present? && self.city.present? && self.sub_region.present? && self.country.present? && self.state.present? && self.suburb.present?
   end
 
+  def from_same_region?(current_user)
+    return false unless self.account_details_present?
+    return true if self.zip.downcase == current_user.zip.downcase
+    self.sub_region == current_user.sub_region && (self == current_user || self.suburb.downcase == current_user.suburb.downcase || self.street.downcase == current_user.street || self.city.downcase == current_user.city.downcase)
+  end
+
   def avatar_geometry(style = :original)
     @geometry ||= {}
     banner_image_path = (banner_image.options[:storage] == :s3) ? banner_image.url(style) : banner_image.path(style)

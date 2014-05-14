@@ -59,6 +59,15 @@
 			<div class="text-danger"><%=error[:suburb][0]%> </div>
 		<%end%>
 	</div>
+	
+	<div class="form-item">
+        <%= f.label :post_code %>
+		<%= f.text_field :zip, :autofocus => true, :class => "form-control" %>
+		<% if error && error[:zip].present? %>
+			<div class="text-danger"><%=error[:zip][0]%> </div>
+		<%end%>
+	</div>
+
 
 	<div class="form-item">
         <%= f.label :your_address_you_live_at %>
@@ -68,15 +77,6 @@
 		<%end%>
 	</div>
     
-	<div class="form-item">
-        <%= f.label :post_code %>
-		<%= f.text_field :zip, :autofocus => true, :class => "form-control" %>
-		<% if error && error[:zip].present? %>
-			<div class="text-danger"><%=error[:zip][0]%> </div>
-		<%end%>
-	</div>
-    
-	
     
     <div class="row">
         <div class="col-sm-6">

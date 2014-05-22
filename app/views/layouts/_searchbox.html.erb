@@ -8,13 +8,13 @@
                 <%=render "layouts/navbar"%>
             </ul>
         </div>
-        <form action="/search" method="get">
-            <input class="input-lg typeahead search-data" type="text" placeholder="What are you searching for?" id="search-data" name="query" >
+        <form action="/search" method="get" class="input-group-btn search">
+            <input class="input-lg typeahead search-data" type="text" placeholder="What are you searching for?" id="search-data" name="query" > 
         </form>
         <div class="input-group-btn">
             <div class="btn btn-blue">
-                <a href="<%=publish_uploads_path%>">
-                    <i class="fa fa-camera fa-2x popover-btn home-icon" data-content="Click here either to upload picture from computer or to capture from camera"></i>
+                <a href="#" class="search-btn">
+                    <i class="fa fa-search fa-2x popover-btn home-icon" data-content="Click here to search everything in site"></i>
                 </a>
             </div>
         </div>
@@ -23,5 +23,8 @@
 <script>
 $('.search-data').typeahead({
     prefetch: '/pages/all/search'
+});
+$(document).on("click", ".search-btn", function(){
+    $(".search").submit();
 });
 </script>

@@ -1,0 +1,51 @@
+html {
+	overflow-x: hidden;
+}
+.four-section:after , .section-right:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.round-circle {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #4D90FE;
+	display: inline-block;
+	float:left;
+}
+.round-circle span {
+	color: #fff;
+	text-align: center;
+	display: block;
+	font-size: 1.5em;
+	line-height: 200px;
+}
+.section-up, .section-down{
+	text-align: center;
+}
+.section-left, .section-right{
+	display: inline-block;
+	float:left;
+	padding: 80px 12px;
+}
+.inline-wrapper{
+	display: table;
+	width: 835px;
+	margin: 0 auto;
+	padding-left: 170px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.round-section-wp .fa{
+	color: #4D90FE;
+}
+.round-section-wp {
+padding: 15px 0px;
+}
+.menu-name{
+	font-size: 1.5em;
+}

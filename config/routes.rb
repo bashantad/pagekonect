@@ -8,7 +8,13 @@ Pagekonect::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :dashboard, :only => ['index'] do
-    get 'home', :on => :collection
+    collection do 
+      get 'home'
+      get 'about_us'
+      get 'contact_us'
+      get 'public'
+      get 'business'
+    end 
   end
   get "comments/create"
 
@@ -51,8 +57,6 @@ Pagekonect::Application.routes.draw do
   end
 
   get 'pages/:keyword/search' => 'pages#search', as: :page_search
-  
-  get 'home/about_us' => 'home#about_us', as: :about_us
   
   root :to => 'search#index'
   

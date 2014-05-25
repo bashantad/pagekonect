@@ -329,3 +329,19 @@ a.like-button:hover{
   padding: 5px;
   margin-top: 5px;
 }
+.pa-30{
+  padding: 30px;
+}
+.b-sh{
+  box-shadow: 0 0 6px #ccc;s
+}
+.ma-20{
+  margin: 20px;
+}
+.tb{
+  display: table;
+  width: 100%;
+}
+.pa-10{
+  padding: 10px;
+}

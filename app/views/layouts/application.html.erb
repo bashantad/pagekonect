@@ -8,9 +8,21 @@
     </style>
 </head>
 <body>
-	<div class="containers">	
+		<div class="containers">
 		<%= render partial: "shared/user_notice" %>
         <div class="row" id="search-engine">
+          <div class="col-sm-3">
+          		<div class="col-8">
+          		<div class="content-1">
+          			Keep on viewing parting ads class sharing
+          		</div>
+          			<div class="line"></div>
+          		<div class="content-2">
+          			Start an ad or search forward
+          		</div>
+          		</div>
+          </div>
+          <div class="col-sm-6">
             <div id="datetime-wrapp">
                 <h2 class="text-center"><span id="time"></span></h2>
         	    <div class="text-center date-wrapp"><span  id="date"></span></div>
@@ -20,6 +32,13 @@
             <%else%>
                 <%=render "layouts/statusbar" unless params[:controller]=="local_ads"%>
             <%end%>
+            </div>
+            <div class="col-sm-3">
+            	<div class="btn-wrapper">
+            		<a href="#">Sign In</a>
+            		<a href="#">Sign Up</a>
+            	</div>
+            </div>
         </div>
 		<%= yield %>
 	</div>	

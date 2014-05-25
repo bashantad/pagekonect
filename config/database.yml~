@@ -3,14 +3,14 @@ development:
   encoding: unicode
   database: pagekonect_dev
   pool: 5
-  username: prashant
+  username: postgres
 
 test:
   adapter: postgresql
   encoding: unicode
   database: pagekonect_test
   pool: 5
-  username: prashant
+  username: postgres
 
 production:
   adapter: postgresql

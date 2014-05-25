@@ -279,3 +279,53 @@ a.like-button:hover{
   padding-left:25px;
   max-width:290px;
 }
+.col-8{
+  width: 80%;
+  margin: 0 auto;
+}
+.content-1:before,.content-2:before{
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: -27px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-right: 15px solid #eee; 
+}
+.content-1{
+  margin-top: 10px;
+}
+.content-1, .content-2{
+  background-color: #eee;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+}
+.line{
+  width: 3px;
+  margin: 0 auto;
+  height: 25px;
+  background-color: #eee;
+}
+.footer-menu{
+  width: 90%;
+  margin: 8px auto;
+  padding: 25px 40px;
+  box-shadow: 0 0 6px #ccc;
+  text-align: center;
+  display: table;
+}
+.pa-t-50{
+  padding-top: 50px !important;
+}
+.pa-t-30{
+  padding-top: 30px;
+}
+.btn-wrapper a{
+  display: inline-block;
+  float: left;
+  padding: 5px;
+  margin-top: 5px;
+}

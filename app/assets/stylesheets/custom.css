@@ -345,3 +345,41 @@ a.like-button:hover{
 .pa-10{
   padding: 10px;
 }
+.status-bar{
+    font-size:16px;
+    width:330px;
+    margin:0px auto;
+    margin-bottom:10px;
+}
+.status-description{
+    background:#377CED; 
+    color:#fff;
+    padding:0px 10px;
+}
+.status-num{
+    color:#444;
+}
+.status-heading{
+    font-weight:bold;
+    text-align:center;
+}
+.other-menu{
+    padding:38px 0px 0px 30px;
+}
+
+.other-menu a{
+    color:#4D90FE;  
+}
+.other-list a{
+    padding:0px 16px;    
+    display:block;
+    border-right:1px solid #4D90FE;
+    float:left;
+}
+.other-list:last-child{
+    border-right:none;
+}
+
+.right-menu{
+    padding-top:24px;
+}

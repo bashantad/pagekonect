@@ -16,3 +16,5 @@
 /log/*.log
 /tmp
 db/schema.rb
+config/database.yml
+/config/database.yml

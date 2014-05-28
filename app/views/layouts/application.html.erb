@@ -45,6 +45,10 @@
                 <a href="<%= new_user_registration_path %>">Sign Up</a>
               </div>
             </div>
+          <% else %>
+            <% if user_signed_in? %>
+                <!-- logo and name goes here -->
+            <% end %>
           <% end %>
         </div>
 		<%= yield %>

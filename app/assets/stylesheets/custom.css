@@ -383,3 +383,18 @@ a.like-button:hover{
 .right-menu{
     padding-top:24px;
 }
+
+.fixed-footer{
+    position: absolute;
+    bottom: 0;
+    background-color: #eee;
+    width: 100%;
+    left: 0px;
+    border-top: 1px solid #ccc;
+}
+
+.fixed-footer a{
+  padding: 10px 15px;
+  float: right;
+}
+

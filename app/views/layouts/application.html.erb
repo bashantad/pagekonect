@@ -11,9 +11,8 @@
 		<div class="containers">
 		<%= render partial: "shared/user_notice" %>
     <% homepage = params[:controller] == "search" && params[:action] == "index" %>
-    <% homepage = false %>
         <div class="row" id="search-engine">
-        <% if homepage %>
+        <% if false %>
           <div class="col-sm-3">
           		<div class="col-8">
           		  <div class="content-1">
@@ -28,7 +27,7 @@
           		</div>       
           </div>
           <% end %>
-          <div class="<%=homepage ? "col-sm-6" : "col-sm-12" %>">
+          <div class="<%= homepage ? "col-sm-offset-3 col-sm-6" : "col-sm-12" %>">
             <div id="datetime-wrapp">
                 <h2 class="text-center"><span id="time"></span></h2>
         	    <div class="text-center date-wrapp"><span  id="date"></span></div>

@@ -11,23 +11,19 @@
 		<div class="containers">
 		<%= render partial: "shared/user_notice" %>
     <% homepage = params[:controller] == "search" && params[:action] == "index" %>
+    <% if homepage %>
+        <div class="btn-wrapper">
+          <a href="<%=new_user_session_path %>">Sign In</a>
+          <a href="<%= new_user_registration_path %>">Sign Up</a>
+        </div>
+    <% else %>
+      <% if user_signed_in? %>
+          <!-- logo and name goes here -->
+      <% end %>
+    <% end %>
+    
         <div class="row" id="search-engine">
-        <% if false %>
-          <div class="col-sm-3">
-          		<div class="col-8">
-          		  <div class="content-1">
-          		  	<span class="status-num"><%=@no_views%></span> viewing <br>
-                  <span class="status-num"><%=@no_uploads%></span> uploads <br>
-                  <span class="status-num"><%=@no_comments%></span> comments
-          		  </div>
-          		  <div class="line"></div>
-          		  <div class="content-2">
-          		  	Start an ad or search forward
-          		  </div>
-          		</div>       
-          </div>
-          <% end %>
-          <div class="<%= homepage ? "col-sm-offset-3 col-sm-6" : "col-sm-12" %>">
+          <div class="col-sm-12">
             <div id="datetime-wrapp">
                 <h2 class="text-center"><span id="time"></span></h2>
         	    <div class="text-center date-wrapp"><span  id="date"></span></div>
@@ -38,18 +34,6 @@
                 <%= render "layouts/statusbar" unless params[:controller]=="local_ads"%>
             <% end %>
             </div>
-            <% if homepage %>
-            <div class="col-sm-3">
-              <div class="btn-wrapper">
-                <a href="<%=new_user_session_path %>">Sign In</a>
-                <a href="<%= new_user_registration_path %>">Sign Up</a>
-              </div>
-            </div>
-          <% else %>
-            <% if user_signed_in? %>
-                <!-- logo and name goes here -->
-            <% end %>
-          <% end %>
         </div>
 		<%= yield %>
 	</div>	

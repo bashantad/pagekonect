@@ -323,6 +323,10 @@ a.like-button:hover{
 .pa-t-30{
   padding-top: 30px;
 }
+.btn-wrapper{
+  position:fixed;
+  right:20%;
+}
 .btn-wrapper a{
   display: inline-block;
   float: left;
@@ -435,9 +439,7 @@ a.like-button:hover{
     width:300px !important;
   }
   .btn-wrapper{
-    position: absolute;
-    right: 20px;
-    top: -135px;
+    right:20px;
   }
 }
 

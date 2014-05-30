@@ -402,7 +402,7 @@ a.like-button:hover{
 }
 
 
-@media (min-width: 1200px) { 
+@media(min-width: 1200px) { 
    .search-wrapper{
     width: 680px;
   }
@@ -411,7 +411,7 @@ a.like-button:hover{
   }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) { 
+@media(min-width: 992px) and (max-width: 1200px) { 
   .search-wrapper{
     width: 680px !important;;
   }
@@ -419,7 +419,7 @@ a.like-button:hover{
     width: 574px !important;; 
   }
 }
-@media (min-width: 768px) and (max-width: 992px) { 
+@media(min-width: 768px) and (max-width: 992px) { 
   .search-wrapper{
     width:558px !important;;
   }
@@ -427,7 +427,7 @@ a.like-button:hover{
     width:450px !important;;
   }
 }
-@media (max-width: 767px) { 
+@media(max-width: 767px) { 
   .search-wrapper{
     width:405px !important;
   }

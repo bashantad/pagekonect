@@ -163,6 +163,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    seed_dump (3.1.0)
+      activerecord
+      activesupport
     shareable (0.0.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -240,6 +243,7 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
+  seed_dump
   shareable
   slim-rails
   social-share-button

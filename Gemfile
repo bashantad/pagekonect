@@ -11,6 +11,7 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'rails_12factor', group: :production
 gem "ckeditor"
+gem 'seed_dump'
 gem "country_select"
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'

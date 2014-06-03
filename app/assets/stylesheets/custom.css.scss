@@ -326,6 +326,7 @@ a.like-button:hover{
 .btn-wrapper{
   position:fixed;
   right:20%;
+  z-index: 99;
 }
 .btn-wrapper a{
   display: inline-block;
@@ -395,6 +396,15 @@ a.like-button:hover{
     width: 100%;
     left: 0px;
     border-top: 1px solid #ccc;
+}
+.pa-md{
+  padding: 10px 30px;
+}
+.bg-e{
+  background-color: #eee;
+}
+.tx-l{
+  text-align: left;
 }
 
 .fixed-footer a{
